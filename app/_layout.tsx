@@ -2,8 +2,8 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 
-import '@/global.css'
 import 'react-native-reanimated'
+import '../global.css'
 
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider'
 import { useColorScheme } from 'react-native'

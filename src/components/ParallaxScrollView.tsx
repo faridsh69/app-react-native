@@ -1,5 +1,5 @@
 import type { PropsWithChildren, ReactElement } from 'react'
-import { ThemedView } from '@/components/themed-view'
+import { ThemedView } from '@/components/ThemedView'
 import { useThemeColor } from '@/theme/hooks/useThemeColor'
 import { StyleSheet, useColorScheme } from 'react-native'
 import Animated, { interpolate, useAnimatedRef, useAnimatedStyle, useScrollOffset } from 'react-native-reanimated'
