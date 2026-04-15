@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar'
 import 'react-native-reanimated'
 import '../global.css'
 
-import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider'
+import { GluestackUIProvider } from '@/ui/components/ui/gluestack-ui-provider'
 import { useColorScheme } from 'react-native'
 
 export const unstable_settings = {

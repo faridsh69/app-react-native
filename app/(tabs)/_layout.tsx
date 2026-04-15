@@ -1,7 +1,7 @@
 import React from 'react'
-import { HapticTab } from '@/components/HapticTab'
-import { IconSymbol } from '@/components/ui/icon-symbol'
 import { Colors } from '@/theme/constants/theme.constants'
+import { HapticTab } from '@/ui/components/HapticTab'
+import { IconSymbol } from '@/ui/components/ui/icon-symbol'
 import { Tabs } from 'expo-router'
 import { useColorScheme } from 'react-native'
 

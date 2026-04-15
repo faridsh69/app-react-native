@@ -1,5 +1,3 @@
-'use client'
-
 import { AxiosError } from 'axios'
 
 export const handleClientExceptions = (error: unknown, source?: string) => {
