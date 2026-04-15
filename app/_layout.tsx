@@ -1,31 +1,29 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
+import { Stack } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import '@/global.css'
+import 'react-native-reanimated'
 
-import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
-import '@/global.css';
+import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider'
+import { useColorScheme } from 'react-native'
 
 export const unstable_settings = {
   anchor: '(tabs)',
-};
+}
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme()
 
   return (
-    
-    <GluestackUIProvider mode="dark">
+    <GluestackUIProvider mode='dark'>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+        <Stack>
+          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+          <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
+        </Stack>
+        <StatusBar style='auto' />
+      </ThemeProvider>
     </GluestackUIProvider>
-  
-  );
+  )
 }
