@@ -1,5 +1,5 @@
-import { ENVIRONMENTS } from "../constants/env.constants";
+import { ENVIRONMENTS } from '../constants/env.constants'
 
 export const getIsProduction = () => {
-  return process.env.NEXT_PUBLIC_ENV === ENVIRONMENTS.production;
-};
+  return process.env.NEXT_PUBLIC_ENV === ENVIRONMENTS.production
+}
