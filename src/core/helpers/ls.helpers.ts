@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 import { APP_LS_KEY, LS_KEYS } from '../constants/ls.constants'
 import { TypeBasket, TypeUser } from '../types/core.types'
 import { isObjectEmpty, isUndefined } from './variables.helpers'
@@ -79,7 +81,7 @@ export const setLsMedusaRegion = (region: string) => {
 
 export const getLs = <T>(lsKey: string, defaultValue: T, appLsKey = APP_LS_KEY): T => {
   try {
-    const appLsJson = localStorage.getItem(appLsKey) || ''
+    const appLsJson = AsyncStorage.getItem(appLsKey) || ''
     const appLsData = JSON.parse(appLsJson) || {}
 
     if (isObjectEmpty(appLsData) || isUndefined(appLsData[lsKey])) {
@@ -94,25 +96,25 @@ export const getLs = <T>(lsKey: string, defaultValue: T, appLsKey = APP_LS_KEY):
 
 export const setLs = (lsKey: string, value: any, appLsKey = APP_LS_KEY): void => {
   try {
-    const appLsJson = localStorage.getItem(appLsKey) || '{}'
+    const appLsJson = AsyncStorage.getItem(appLsKey) || '{}'
     const appLsData = JSON.parse(appLsJson) || {}
     const newAppLsData = { ...appLsData, [lsKey]: value }
 
-    localStorage.setItem(appLsKey, JSON.stringify(newAppLsData))
+    AsyncStorage.setItem(appLsKey, JSON.stringify(newAppLsData))
   } catch {
     const appLsJson = JSON.stringify({ [lsKey]: value })
 
-    localStorage.setItem(lsKey, appLsJson)
+    AsyncStorage.setItem(lsKey, appLsJson)
   }
 }
 
 export const removeLs = (lsKey: string, appLsKey = APP_LS_KEY): void => {
   try {
-    const appLsJson = localStorage.getItem(appLsKey) || ''
+    const appLsJson = AsyncStorage.getItem(appLsKey) || ''
     const appLsData = JSON.parse(appLsJson) || {}
 
     delete appLsData[lsKey]
 
-    localStorage.setItem(appLsKey, JSON.stringify(appLsData))
+    AsyncStorage.setItem(appLsKey, JSON.stringify(appLsData))
   } catch {}
 }
