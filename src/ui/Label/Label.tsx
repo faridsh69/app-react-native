@@ -1,0 +1,62 @@
+import { StyleSheet, Text, type TextProps } from 'react-native'
+
+import { useThemeColor } from '../../theme/hooks/useThemeColor'
+
+export const Label = ({ style, lightColor, darkColor, type = LabelTypesEnum.default, ...rest }: LabelProps) => {
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text')
+
+  return (
+    <Text
+      style={[
+        { color },
+        type === 'default' ? styles.default : undefined,
+        type === 'title' ? styles.title : undefined,
+        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
+        type === 'subtitle' ? styles.subtitle : undefined,
+        type === 'link' ? styles.link : undefined,
+        style,
+      ]}
+      {...rest}
+    />
+  )
+}
+
+const styles = StyleSheet.create({
+  default: {
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  defaultSemiBold: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '600',
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    lineHeight: 32,
+  },
+  subtitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  link: {
+    lineHeight: 30,
+    fontSize: 16,
+    color: '#0a7ea4',
+  },
+})
+
+export enum LabelTypesEnum {
+  default = 'default',
+  title = 'title',
+  defaultSemiBold = 'defaultSemiBold',
+  subtitle = 'subtitle',
+  link = 'link',
+}
+
+export type LabelProps = TextProps & {
+  lightColor?: string
+  darkColor?: string
+  type?: LabelTypesEnum | string
+}

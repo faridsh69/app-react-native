@@ -6,12 +6,7 @@ import Animated, { interpolate, useAnimatedRef, useAnimatedStyle, useScrollOffse
 
 const HEADER_HEIGHT = 250
 
-type Props = PropsWithChildren<{
-  headerImage: ReactElement
-  headerBackgroundColor: { dark: string; light: string }
-}>
-
-export default function ParallaxScrollView({ children, headerImage, headerBackgroundColor }: Props) {
+export const ParallaxScrollView = ({ children, headerImage, headerBackgroundColor }: Props) => {
   const backgroundColor = useThemeColor({}, 'background')
   const colorScheme = useColorScheme() ?? 'light'
   const scrollRef = useAnimatedRef<Animated.ScrollView>()
@@ -44,6 +39,11 @@ export default function ParallaxScrollView({ children, headerImage, headerBackgr
     </Animated.ScrollView>
   )
 }
+
+type Props = PropsWithChildren<{
+  headerImage: ReactElement
+  headerBackgroundColor: { dark: string; light: string }
+}>
 
 const styles = StyleSheet.create({
   container: {
