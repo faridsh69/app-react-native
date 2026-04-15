@@ -1,5 +1,5 @@
-import { APP_LS_KEY } from '@/utils/localstorage/constants/localstorage.constants'
-import { getLs, removeLs, setLs } from '@/utils/localstorage/helpers/localstorage.helpers'
+import { APP_LS_KEY } from '@/core/constants/ls.constants'
+import { getLs, removeLs, setLs } from '@/core/helpers/ls.helpers'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 describe('localstorage.helpers', () => {

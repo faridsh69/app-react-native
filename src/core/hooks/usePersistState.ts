@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
-import { APP_LS_KEY } from "../constants/ls.constants";
-import { getLs, setLs } from "../helpers/ls.helpers";
+import { useEffect, useState } from 'react'
 
-export const usePersistState = <T>(
-  lsKey: string,
-  defaultValue: T,
-  appLsKey = APP_LS_KEY,
-): [T, (value: T) => void] => {
-  const initialState = getLs(lsKey, defaultValue, appLsKey);
-  const [value, setValue] = useState<T>(initialState);
+import { APP_LS_KEY } from '../constants/ls.constants'
+import { getLs, setLs } from '../helpers/ls.helpers'
+
+export const usePersistState = <T>(lsKey: string, defaultValue: T, appLsKey = APP_LS_KEY): [T, (value: T) => void] => {
+  const initialState = getLs(lsKey, defaultValue, appLsKey)
+  const [value, setValue] = useState<T>(initialState)
 
   useEffect(() => {
-    setLs(lsKey, value, appLsKey);
-  }, [value]);
+    setLs(lsKey, value, appLsKey)
+  }, [value, lsKey, appLsKey])
 
-  return [value, setValue];
-};
+  return [value, setValue]
+}
