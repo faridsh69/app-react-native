@@ -1,10 +1,8 @@
-import { Fonts } from '@/theme/constants/theme.constants'
-import { ExternalLink } from '@/ui/components/ExternalLink'
-import { ParallaxScrollView } from '@/ui/components/ParallaxScrollView'
-import { ThemedText } from '@/ui/components/ThemedText'
-import { ThemedView } from '@/ui/components/ThemedView'
-import { Collapsible } from '@/ui/components/ui/collapsible'
-import { IconSymbol } from '@/ui/components/ui/icon-symbol'
+import { Accordion, Label, ThemedView } from '@/ui'
+import { ExternalLink } from '@/ui/ExternalLink/ExternalLink'
+import { IconSymbol } from '@/ui/Icon/icon-symbol'
+import { Fonts } from '@/ui/theme/constants/theme.constants'
+import { ParallaxScrollView } from '@/ui/Views/ParallaxScrollView'
 import { Image } from 'expo-image'
 import { Platform, StyleSheet } from 'react-native'
 
@@ -22,76 +20,74 @@ export default function ExplorePage() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText
+        <Label
           type='title'
           style={{
             fontFamily: Fonts.rounded,
           }}
         >
           Explore
-        </ThemedText>
+        </Label>
       </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title='File-based routing'>
-        <ThemedText>
-          This app has two screens: <ThemedText type='defaultSemiBold'>app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type='defaultSemiBold'>app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type='defaultSemiBold'>app/(tabs)/_layout.tsx</ThemedText> sets up the tab
-          navigator.
-        </ThemedText>
+      <Label>This app includes example code to help you get started.</Label>
+      <Accordion title='File-based routing'>
+        <Label>
+          This app has two screens: <Label type='defaultSemiBold'>app/(tabs)/index.tsx</Label> and{' '}
+          <Label type='defaultSemiBold'>app/(tabs)/explore.tsx</Label>
+        </Label>
+        <Label>
+          The layout file in <Label type='defaultSemiBold'>app/(tabs)/_layout.tsx</Label> sets up the tab navigator.
+        </Label>
         <ExternalLink href='https://docs.expo.dev/router/introduction'>
-          <ThemedText type='link'>Learn more</ThemedText>
+          <Label type='link'>Learn more</Label>
         </ExternalLink>
-      </Collapsible>
-      <Collapsible title='Android, iOS, and web support'>
-        <ThemedText>
+      </Accordion>
+      <Accordion title='Android, iOS, and web support'>
+        <Label>
           You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type='defaultSemiBold'>w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title='Images'>
-        <ThemedText>
-          For static images, you can use the <ThemedText type='defaultSemiBold'>@2x</ThemedText> and{' '}
-          <ThemedText type='defaultSemiBold'>@3x</ThemedText> suffixes to provide files for different screen densities
-        </ThemedText>
+          <Label type='defaultSemiBold'>w</Label> in the terminal running this project.
+        </Label>
+      </Accordion>
+      <Accordion title='Images'>
+        <Label>
+          For static images, you can use the <Label type='defaultSemiBold'>@2x</Label> and{' '}
+          <Label type='defaultSemiBold'>@3x</Label> suffixes to provide files for different screen densities
+        </Label>
         <Image
           source={require('@/assets/images/react-logo.png')}
           style={{ width: 100, height: 100, alignSelf: 'center' }}
         />
         <ExternalLink href='https://reactnative.dev/docs/images'>
-          <ThemedText type='link'>Learn more</ThemedText>
+          <Label type='link'>Learn more</Label>
         </ExternalLink>
-      </Collapsible>
-      <Collapsible title='Light and dark mode components'>
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type='defaultSemiBold'>useColorScheme()</ThemedText> hook lets you inspect what the user&apos;s
-          current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
+      </Accordion>
+      <Accordion title='Light and dark mode components'>
+        <Label>
+          This template has light and dark mode support. The <Label type='defaultSemiBold'>useColorScheme()</Label> hook
+          lets you inspect what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
+        </Label>
         <ExternalLink href='https://docs.expo.dev/develop/user-interface/color-themes/'>
-          <ThemedText type='link'>Learn more</ThemedText>
+          <Label type='link'>Learn more</Label>
         </ExternalLink>
-      </Collapsible>
-      <Collapsible title='Animations'>
-        <ThemedText>
+      </Accordion>
+      <Accordion title='Animations'>
+        <Label>
           This template includes an example of an animated component. The{' '}
-          <ThemedText type='defaultSemiBold'>components/HelloWave.tsx</ThemedText> component uses the powerful{' '}
-          <ThemedText type='defaultSemiBold' style={{ fontFamily: Fonts.mono }}>
+          <Label type='defaultSemiBold'>components/HelloWave.tsx</Label> component uses the powerful{' '}
+          <Label type='defaultSemiBold' style={{ fontFamily: Fonts.mono }}>
             react-native-reanimated
-          </ThemedText>{' '}
+          </Label>{' '}
           library to create a waving hand animation.
-        </ThemedText>
+        </Label>
         {Platform.select({
           ios: (
-            <ThemedText>
-              The <ThemedText type='defaultSemiBold'>components/ParallaxScrollView.tsx</ThemedText> component provides a
-              parallax effect for the header image.
-            </ThemedText>
+            <Label>
+              The <Label type='defaultSemiBold'>components/ParallaxScrollView.tsx</Label> component provides a parallax
+              effect for the header image.
+            </Label>
           ),
         })}
-      </Collapsible>
+      </Accordion>
     </ParallaxScrollView>
   )
 }

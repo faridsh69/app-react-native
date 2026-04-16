@@ -1,6 +1,5 @@
 import { PAGES } from '@/core/constants/navigation.constants'
-import { ThemedText } from '@/ui/components/ThemedText'
-import { ThemedView } from '@/ui/components/ThemedView'
+import { ThemedText, ThemedView } from '@/ui'
 import { Link } from 'expo-router'
 import { StyleSheet } from 'react-native'
 

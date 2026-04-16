@@ -1,8 +1,7 @@
 import React from 'react'
 import { PAGES } from '@/core/constants/navigation.constants'
-import { Colors } from '@/theme/constants/theme.constants'
-import { HapticTab } from '@/ui/components/HapticTab'
-import { IconSymbol } from '@/ui/components/ui/icon-symbol'
+import { HapticTab, IconSymbol } from '@/ui'
+import { Colors } from '@/ui/theme/constants/theme.constants'
 import { Tabs } from 'expo-router'
 import { useColorScheme } from 'react-native'
 

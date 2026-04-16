@@ -1,4 +1,4 @@
-import { Colors } from '@/theme/constants/theme.constants'
+import { Colors } from '@/ui/theme/constants/theme.constants'
 import { useColorScheme } from 'react-native'
 
 export function useThemeColor(

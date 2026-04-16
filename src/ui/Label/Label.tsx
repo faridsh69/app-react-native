@@ -1,6 +1,6 @@
 import { StyleSheet, Text, type TextProps } from 'react-native'
 
-import { useThemeColor } from '../../theme/hooks/useThemeColor'
+import { useThemeColor } from '../theme/hooks/useThemeColor'
 
 export const Label = ({ style, lightColor, darkColor, type = LabelTypesEnum.default, ...rest }: LabelProps) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text')

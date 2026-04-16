@@ -1,11 +1,10 @@
-import { ThemedText } from '@/ui/components/ThemedText'
-import { ThemedView } from '@/ui/components/ThemedView'
+import { Label, ThemedView } from '@/ui'
 import { StyleSheet } from 'react-native'
 
 export default function BasketPage() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type='title'>Basket Page</ThemedText>
+      <Label type='title'>Basket Page</Label>
     </ThemedView>
   )
 }

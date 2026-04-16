@@ -1,6 +1,6 @@
 export const PAGES = {
   home: {
-    name: 'home',
+    name: 'index',
     path: '/',
     icon: 'house.fill',
   },

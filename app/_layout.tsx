@@ -5,16 +5,15 @@ import { StatusBar } from 'expo-status-bar'
 import 'react-native-reanimated'
 import '../global.css'
 
-import { ThemeModesEnum } from '@/theme/constants/theme.constants'
-import { GluestackUIProvider } from '@/ui/components/ui/gluestack-ui-provider'
+import { GluestackUIProvider, ThemeModesEnum } from '@/ui'
 import { useColorScheme } from 'react-native'
 
 export default function RootLayout() {
   const colorScheme = useColorScheme()
 
   return (
-    <GluestackUIProvider mode={ThemeModesEnum.Dark}>
-      <ThemeProvider value={colorScheme === ThemeModesEnum.Dark ? DefaultTheme : DarkTheme}>
+    <GluestackUIProvider mode={ThemeModesEnum.Light}>
+      <ThemeProvider value={colorScheme === ThemeModesEnum.Light ? DefaultTheme : DarkTheme}>
         <Stack>
           <Stack.Screen name='(pages)' options={{ headerShown: false }} />
           <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />

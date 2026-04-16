@@ -1,8 +1,8 @@
 import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
-import { IconSymbol } from '../components/ui/icon-symbol'
 import { SidesEnum, SizesEnum, VariantsEnum } from '../enums'
+import { IconSymbol } from '../Icon/icon-symbol'
 import { styles } from './Button.styles'
 import { ButtonProps } from './Button.types'
 

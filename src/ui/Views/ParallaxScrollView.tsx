@@ -1,8 +1,9 @@
 import type { PropsWithChildren, ReactElement } from 'react'
-import { useThemeColor } from '@/theme/hooks/useThemeColor'
-import { ThemedView } from '@/ui/components/ThemedView'
+import { useThemeColor } from '@/ui/theme/hooks/useThemeColor'
 import { StyleSheet, useColorScheme } from 'react-native'
 import Animated, { interpolate, useAnimatedRef, useAnimatedStyle, useScrollOffset } from 'react-native-reanimated'
+
+import { Label } from '../Label/Label'
 
 const HEADER_HEIGHT = 250
 
@@ -35,7 +36,7 @@ export const ParallaxScrollView = ({ children, headerImage, headerBackgroundColo
       >
         {headerImage}
       </Animated.View>
-      <ThemedView style={styles.content}>{children}</ThemedView>
+      <Label style={styles.content}>{children}</Label>
     </Animated.ScrollView>
   )
 }
