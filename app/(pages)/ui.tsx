@@ -1,15 +1,10 @@
-import { PAGES } from '@/core/constants/navigation.constants'
-import { ButtonStory, ThemedText, ThemedView } from '@/ui'
-import { Link } from 'expo-router'
+import { ButtonStory, ThemedView } from '@/ui'
 import { StyleSheet } from 'react-native'
 
 export default function UiPage() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type='title'>
-        <Link href={PAGES.search.path as any}>Search</Link>
-        <ButtonStory />
-      </ThemedText>
+      <ButtonStory />
     </ThemedView>
   )
 }
@@ -17,7 +12,6 @@ export default function UiPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    gap: 10,
-    alignItems: 'center',
+    marginTop: 50,
   },
 })
