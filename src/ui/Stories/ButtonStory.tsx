@@ -10,7 +10,7 @@ export const ButtonStory = () => {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
+      <View className='flex flex-col p-4 gap-4'>
         <Text style={styles.h4}>3) Button</Text>
         <Text style={styles.small}>
           We have 3 variants: primary, secondary and text. Supports iconLeft and iconRight. Sizes: M and S.
@@ -60,7 +60,6 @@ export const ButtonStory = () => {
 }
 
 const styles = StyleSheet.create({
-  container: { display: 'flex', flexDirection: 'column', padding: 16, gap: 16 },
   h4: { fontSize: 18, fontWeight: '600' },
   small: { fontSize: 13, lineHeight: 18, opacity: 0.8, marginTop: 6 },
   matrixCol: { flexDirection: 'column', gap: 30 },

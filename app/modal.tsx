@@ -1,14 +1,14 @@
 import { PAGES } from '@/core/constants/navigation.constants'
-import { ThemedText, ThemedView } from '@/ui'
+import { Label, ThemedView } from '@/ui'
 import { Link } from 'expo-router'
 import { StyleSheet } from 'react-native'
 
 export default function ModalPage() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type='title'>modal title</ThemedText>
+      <Label type='title'>modal title</Label>
       <Link href={PAGES.home.path as any} dismissTo style={styles.link}>
-        <ThemedText type='link'>Link = Go to home screen</ThemedText>
+        <Label type='link'>Link = Go to home screen</Label>
       </Link>
     </ThemedView>
   )
