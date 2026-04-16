@@ -8,10 +8,6 @@ import '../global.css'
 import { GluestackUIProvider } from '@/ui/components/ui/gluestack-ui-provider'
 import { useColorScheme } from 'react-native'
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-}
-
 export default function RootLayout() {
   const colorScheme = useColorScheme()
 
@@ -19,7 +15,7 @@ export default function RootLayout() {
     <GluestackUIProvider mode='dark'>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack>
-          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+          <Stack.Screen name='(pages)' options={{ headerShown: false }} />
           <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
         </Stack>
         <StatusBar style='auto' />

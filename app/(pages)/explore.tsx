@@ -1,6 +1,6 @@
 import { Fonts } from '@/theme/constants/theme.constants'
 import { ExternalLink } from '@/ui/components/ExternalLink'
-import ParallaxScrollView from '@/ui/components/ParallaxScrollView'
+import { ParallaxScrollView } from '@/ui/components/ParallaxScrollView'
 import { ThemedText } from '@/ui/components/ThemedText'
 import { ThemedView } from '@/ui/components/ThemedView'
 import { Collapsible } from '@/ui/components/ui/collapsible'
@@ -8,7 +8,7 @@ import { IconSymbol } from '@/ui/components/ui/icon-symbol'
 import { Image } from 'expo-image'
 import { Platform, StyleSheet } from 'react-native'
 
-export default function TabTwoScreen() {
+export default function ExplorePage() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}

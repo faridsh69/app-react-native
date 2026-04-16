@@ -7,7 +7,7 @@ import { Image } from 'expo-image'
 import { Link } from 'expo-router'
 import { Button, StyleSheet } from 'react-native'
 
-export default function HomeScreen() {
+export default function HomePage() {
   const [state, setState] = usePersistState('state', 0)
 
   const handlePress = () => {

@@ -3,7 +3,7 @@ import { ThemedView } from '@/ui/components/ThemedView'
 import { Link } from 'expo-router'
 import { StyleSheet } from 'react-native'
 
-export const Modal = () => {
+export default function ModalPage() {
   return (
     <ThemedView style={styles.container}>
       <ThemedText type='title'>modal title</ThemedText>

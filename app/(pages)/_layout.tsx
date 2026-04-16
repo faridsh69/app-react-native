@@ -5,7 +5,7 @@ import { IconSymbol } from '@/ui/components/ui/icon-symbol'
 import { Tabs } from 'expo-router'
 import { useColorScheme } from 'react-native'
 
-export default function TabLayout() {
+export default function PagesLayout() {
   const colorScheme = useColorScheme()
 
   return (
@@ -13,7 +13,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
+        // tabBarButton: HapticTab,
       }}
     >
       <Tabs.Screen
