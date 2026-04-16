@@ -15,18 +15,20 @@ export default function PagesLayout() {
         tabBarButton: HapticTab,
       }}
     >
-      {Object.values(PAGES).map(page => {
-        return (
-          <Tabs.Screen
-            name={page.name}
-            key={page.name}
-            options={{
-              title: page.name,
-              tabBarIcon: ({ color }) => <IconSymbol size={28} name={page.icon as any} color={color} />,
-            }}
-          />
-        )
-      })}
+      {Object.values(PAGES)
+        .filter(page => page.hasFooterLink)
+        .map(page => {
+          return (
+            <Tabs.Screen
+              name={page.name}
+              key={page.name}
+              options={{
+                title: page.name,
+                tabBarIcon: ({ color }) => <IconSymbol size={28} name={page.icon as any} color={color} />,
+              }}
+            />
+          )
+        })}
     </Tabs>
   )
 }
