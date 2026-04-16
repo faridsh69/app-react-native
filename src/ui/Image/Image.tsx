@@ -1,23 +1,13 @@
 import React, { useState } from 'react'
-
-import { StyleSheet, View } from 'react-native'
-
 import { Image as ExpoImage, ImageSource } from 'expo-image'
+import { StyleSheet, View } from 'react-native'
 
 import { IMAGE_STATES, MINIMUM_TIME_FOR_SHOW_ANIMATION } from './Image.constants'
 import { styles } from './Image.styles'
 import { ImageProps } from './Image.types'
 
 export const Image = (props: ImageProps) => {
-  const {
-    src,
-    alt = 'image',
-    width,
-    height,
-    borderRadius = 0,
-    keepRatio = true,
-    aspectRatio = 1,
-  } = props
+  const { src, alt = 'image', width, height, borderRadius = 0, keepRatio = true, aspectRatio = 1 } = props
 
   const [imageState, setImageState] = useState(IMAGE_STATES.loading)
   const [mountingTime] = useState(Date.now())
@@ -44,10 +34,7 @@ export const Image = (props: ImageProps) => {
 
   const containerStyle: any = [styles.container, { borderRadius }, ...sizeStyle]
 
-  const imageStyles: any = [
-    imageState === IMAGE_STATES.loading && styles.loading,
-    StyleSheet.absoluteFillObject,
-  ]
+  const imageStyles: any = [imageState === IMAGE_STATES.loading && styles.loading, StyleSheet.absoluteFillObject]
 
   return (
     <View style={[containerStyle]} accessible accessibilityLabel={alt}>

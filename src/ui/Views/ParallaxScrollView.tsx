@@ -36,7 +36,7 @@ export const ParallaxScrollView = ({ children, headerImage, headerBackgroundColo
       >
         {headerImage}
       </Animated.View>
-      <Label style={styles.content}>{children}</Label>
+      <Label label={children} />
     </Animated.ScrollView>
   )
 }

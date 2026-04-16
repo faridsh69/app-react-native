@@ -6,9 +6,9 @@ import { StyleSheet } from 'react-native'
 export default function ModalPage() {
   return (
     <ThemedView style={styles.container}>
-      <Label type='title'>modal title</Label>
+      <Label label='modal title' />
       <Link href={PAGES.home.path as any} dismissTo style={styles.link}>
-        <Label type='link'>Link = Go to home screen</Label>
+        <Label label='Go to home screen' />
       </Link>
     </ThemedView>
   )

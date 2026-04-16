@@ -2,25 +2,15 @@ import { ContentTypesEnum } from '@/apis/constants/api.constants'
 import axios, { type AxiosInstance } from 'axios'
 
 import { CreateApiClientType, TypeAxiosMethod } from '../types/createApiClient.types'
-import {
-  authInterceptor,
-  errorHandlerInterceptor,
-  locationInterceptor,
-  xPublishApiKeyInterceptor,
-} from './axiosInterceptors'
+import { authInterceptor, errorHandlerInterceptor, locationInterceptor } from './axiosInterceptors'
 
 export const createApiClient: CreateApiClientType = ({
   baseUrl = '',
   auth = true,
   location = true,
   contentType = ContentTypesEnum.Json,
-  xPublishApiKey = false,
 }) => {
   const axiosInstance: AxiosInstance = axios.create({ baseURL: baseUrl })
-
-  if (xPublishApiKey) {
-    axiosInstance.interceptors.request.use(xPublishApiKeyInterceptor)
-  }
 
   if (auth) {
     axiosInstance.interceptors.request.use(authInterceptor)

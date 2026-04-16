@@ -58,28 +58,12 @@ export const setLsRegion = async (region: string): Promise<void> => {
   await setLs(LS_KEYS.location.region, region)
 }
 
-export const getLsMedusaAdminBearerToken = async (): Promise<string> => {
-  return getLs(LS_KEYS.medusa.adminBearerToken, '')
-}
-
-export const setLsMedusaAdminBearerToken = async (bearerToken: string): Promise<void> => {
-  await setLs(LS_KEYS.medusa.adminBearerToken, bearerToken)
-}
-
 export const getLsMedusaBaskets = async (): Promise<TypeBasket[]> => {
   return getLs(LS_KEYS.medusa.baskets, [])
 }
 
 export const setLsMedusaBaskets = async (baskets: TypeBasket[]): Promise<void> => {
   await setLs(LS_KEYS.medusa.baskets, baskets)
-}
-
-export const getLsMedusaRegion = async (): Promise<string> => {
-  return getLs(LS_KEYS.medusa.region, '')
-}
-
-export const setLsMedusaRegion = async (region: string): Promise<void> => {
-  await setLs(LS_KEYS.medusa.region, region)
 }
 
 export const getLs = async <T>(lsKey: string, defaultValue: T, appLsKey = APP_LS_KEY): Promise<T> => {

@@ -1,24 +1,26 @@
 import { postUseRefreshToken } from '@/apis/apis/authApis'
-import { TypeAxiosRequestInterceptor, TypeErrorHandlerInterceptor } from '@/types/createApiClient.types'
 import {
   getLsAuthUser,
   getLsBearerToken,
   getLsCountry,
-  getLsMedusaAdminBearerToken,
   getLsRefreshToken,
   getLsRegion,
   setLsBearerToken,
   setLsRefreshToken,
-} from '@/utils/localstorage/localstorage'
+} from '@/core/helpers/ls.helpers'
 import axios from 'axios'
+
+import { TypeAxiosRequestInterceptor, TypeErrorHandlerInterceptor } from '../types/createApiClient.types'
 
 const UNAUTHORIZED_CODE = 401
 
 const prepareToken = (token?: string) => (token ? `Bearer ${token}` : undefined)
 
 const refreshTokens = async (axiosConfig: any) => {
-  const refreshToken = getLsRefreshToken()
-  const email = getLsAuthUser()?.email
+  const refreshToken = await getLsRefreshToken()
+
+  const auth = await getLsAuthUser()
+  const email = auth?.email
 
   if (!refreshToken || !email) {
     return axios({
@@ -55,7 +57,7 @@ export const locationInterceptor: TypeAxiosRequestInterceptor = async config => 
 }
 
 export const authInterceptor: TypeAxiosRequestInterceptor = async config => {
-  const token = getLsBearerToken()
+  const token = await getLsBearerToken()
 
   if (token) {
     config.headers.Authorization = prepareToken(token)
@@ -81,11 +83,4 @@ export const errorHandlerInterceptor: TypeErrorHandlerInterceptor = async error 
   }
 
   return Promise.reject(error)
-}
-
-export const xPublishApiKeyInterceptor: TypeAxiosRequestInterceptor = async config => {
-  config.headers['x-publishable-api-key'] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISH_API_KEY
-  config.headers.Authorization = prepareToken(getLsMedusaAdminBearerToken())
-
-  return config
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Text, View } from 'react-native'
 
 import { styles } from './Textarea.styles'
@@ -12,9 +11,7 @@ export const CharacterCounter = (props: CharacterCounterProps) => {
 
   return (
     <View style={styles.counter}>
-      <Text style={[styles.counterText, styles.count, invalidLength && styles.inValid]}>
-        {valueLength}
-      </Text>
+      <Text style={[styles.counterText, styles.count, invalidLength && styles.inValid]}>{valueLength}</Text>
       <Text style={[styles.counterText, styles.limit]}>/{max ?? '—'}</Text>
     </View>
   )
