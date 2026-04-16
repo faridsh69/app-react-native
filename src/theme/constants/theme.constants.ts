@@ -1,5 +1,10 @@
 import { Platform } from 'react-native'
 
+export enum ThemeModesEnum {
+  Light = 'light',
+  Dark = 'dark',
+}
+
 const tintColorLight = '#0a7ea4'
 const tintColorDark = '#fff'
 

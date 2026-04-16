@@ -1,19 +1,29 @@
-export const PAGE_PATHS = {
-  home: '/',
-  ui: '/ui',
-  wine: '/wine',
-  wineDetails: '/wine/:wineId',
-  search: '/search',
-  profile: '/profile',
+export const PAGES = {
+  home: {
+    name: 'home',
+    path: '/',
+    icon: 'house.fill',
+  },
+  search: {
+    name: 'search',
+    path: '/search',
+    icon: 'magnifyingglass',
+  },
+  basket: {
+    name: 'basket',
+    path: '/basket',
+    icon: 'basket.fill',
+  },
+  profile: {
+    name: 'profile',
+    path: '/profile',
+    icon: 'person.fill',
+  },
+  ui: {
+    name: 'ui',
+    path: '/ui',
+    icon: 'uiwindow.split.2x1',
+  },
 
-  profileSettings: '/profile/account/?tab=profile-settings',
-
-  shoppingCarts: '/shopping/carts/',
-
-  merchants: '/merchants',
-  merchant: '/merchants/:merchantSlug',
-  quiz: '/quiz',
-  community: '/community',
-  communityReview: '/community/review',
-  communityUser: '/community/users/:userId',
+  // wineDetails: '/wine/:wineId',
 }

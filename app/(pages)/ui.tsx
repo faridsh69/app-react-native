@@ -4,13 +4,12 @@ import { ThemedView } from '@/ui/components/ThemedView'
 import { Link } from 'expo-router'
 import { StyleSheet } from 'react-native'
 
-export default function ModalPage() {
+export default function UiPage() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type='title'>modal title</ThemedText>
-      <Link href={PAGES.home.path as any} dismissTo style={styles.link}>
-        <ThemedText type='link'>Link = Go to home screen</ThemedText>
-      </Link>
+      <ThemedText type='title'>
+        <Link href={PAGES.search.path as any}>Search</Link>
+      </ThemedText>
     </ThemedView>
   )
 }
@@ -18,12 +17,7 @@ export default function ModalPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
+    alignItems: 'center',
   },
 })
