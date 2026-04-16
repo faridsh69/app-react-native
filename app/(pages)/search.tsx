@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native'
 export default function SearchPage() {
   return (
     <ThemedView style={styles.container}>
-      <Label type='title'>Search Page</Label>
+      <Label label='Search Page' />
     </ThemedView>
   )
 }

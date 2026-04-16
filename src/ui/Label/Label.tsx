@@ -1,62 +1,74 @@
-import { StyleSheet, Text, type TextProps } from 'react-native'
+import React, { useMemo } from 'react'
+import { useThemeColor } from '@/ui/theme/hooks/useThemeColor'
+import { Pressable, Text, View } from 'react-native'
 
-import { useThemeColor } from '../theme/hooks/useThemeColor'
+import { ColorsEnum, FontsEnum } from '../theme/enums'
+import { styles } from './Label.styles'
+import { LabelProps } from './Label.types'
 
-export const Label = ({ style, lightColor, darkColor, type = LabelTypesEnum.default, ...rest }: LabelProps) => {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text')
+export const Label = (props: LabelProps) => {
+  const {
+    label = '',
+    disabled = false,
+    font = FontsEnum.Label16,
+    linesCount = 1,
+    hasError = false,
+    active = false,
+    color,
+    textAlign = 'left',
+    required = false,
+    onClick,
+    cursorPointer = false,
+  } = props
+
+  const baseColor = ColorsEnum.Black
+  const errorColor = ColorsEnum.Error
+  const disabledColor = ColorsEnum.Disabled
+  const activeColor = ColorsEnum.PrimaryMain
+
+  const textColor = useMemo(() => {
+    const stateColor = hasError ? errorColor : disabled ? disabledColor : active ? activeColor : baseColor
+
+    return color ?? stateColor
+  }, [hasError, disabled, active, color, errorColor, disabledColor, activeColor, baseColor])
+
+  const wrapperStyle = [styles.wrapper, cursorPointer && styles.cursorPointer]
+  const textStyle = [font, styles.textBase, { color: textColor, textAlign }]
+
+  const Content = (
+    <View style={styles.textContainer}>
+      {/* @ts-ignore */}
+      <Text style={textStyle} numberOfLines={linesCount} ellipsizeMode='tail'>
+        {label}
+      </Text>
+      {required ? (
+        <Text
+          style={[styles.required, { color: ColorsEnum.Error }]}
+          accessibilityElementsHidden
+          importantForAccessibility='no'
+        >
+          *
+        </Text>
+      ) : null}
+    </View>
+  )
+
+  if (!onClick) {
+    return <View style={wrapperStyle}>{Content}</View>
+  }
 
   return (
-    <Text
-      style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
-        style,
-      ]}
-      {...rest}
-    />
+    <View style={wrapperStyle}>
+      <Pressable
+        onPress={onClick}
+        disabled={disabled}
+        accessibilityRole='button'
+        accessibilityState={{ disabled, selected: active }}
+        android_ripple={{}}
+        style={styles.pressable}
+      >
+        {Content}
+      </Pressable>
+    </View>
   )
-}
-
-const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
-  },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  link: {
-    lineHeight: 30,
-    fontSize: 16,
-    color: '#0a7ea4',
-  },
-})
-
-export enum LabelTypesEnum {
-  default = 'default',
-  title = 'title',
-  defaultSemiBold = 'defaultSemiBold',
-  subtitle = 'subtitle',
-  link = 'link',
-}
-
-export type LabelProps = TextProps & {
-  lightColor?: string
-  darkColor?: string
-  type?: LabelTypesEnum | string
 }

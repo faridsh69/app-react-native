@@ -1,9 +1,9 @@
 import { PropsWithChildren, useState } from 'react'
-import { Colors } from '@/ui/theme/constants/theme.constants'
 import { StyleSheet, TouchableOpacity, useColorScheme } from 'react-native'
 
 import { IconSymbol } from '../Icon/icon-symbol'
 import { Label } from '../Label/Label'
+import { Colors } from '../theme/theme.constants'
 import { ThemedView } from '../Views/ThemedView'
 
 export function Accordion({ children, title }: PropsWithChildren & { title: string }) {
@@ -21,7 +21,7 @@ export function Accordion({ children, title }: PropsWithChildren & { title: stri
           style={{ transform: [{ rotate: isOpen ? '90deg' : '0deg' }] }}
         />
 
-        <Label type='defaultSemiBold'>{title}</Label>
+        <Label label={title} />
       </TouchableOpacity>
       {isOpen && <ThemedView style={styles.content}>{children}</ThemedView>}
     </ThemedView>

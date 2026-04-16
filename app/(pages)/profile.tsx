@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native'
 export default function ProfilePage() {
   return (
     <ThemedView style={styles.container}>
-      <Label type='title'>Profile Page</Label>
+      <Label label='Profile Page' />
     </ThemedView>
   )
 }

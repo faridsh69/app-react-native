@@ -1,7 +1,7 @@
 import { Accordion, Label, ThemedView } from '@/ui'
 import { ExternalLink } from '@/ui/ExternalLink/ExternalLink'
 import { IconSymbol } from '@/ui/Icon/icon-symbol'
-import { Fonts } from '@/ui/theme/constants/theme.constants'
+import { Fonts } from '@/ui/theme/theme.constants'
 import { ParallaxScrollView } from '@/ui/Views/ParallaxScrollView'
 import { Image } from 'expo-image'
 import { Platform, StyleSheet } from 'react-native'

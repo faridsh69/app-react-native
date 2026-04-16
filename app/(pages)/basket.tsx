@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native'
 export default function BasketPage() {
   return (
     <ThemedView style={styles.container}>
-      <Label type='title'>Basket Page</Label>
+      <Label label='Basket Page' />
     </ThemedView>
   )
 }

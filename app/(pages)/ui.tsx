@@ -1,24 +1,25 @@
-import { ButtonStory, ThemedView } from '@/ui'
-import { AvatarsStory } from '@/uikit/stories/AvatarsStory'
-import { CheckboxStory } from '@/uikit/stories/CheckboxStory'
-import { ChipStory } from '@/uikit/stories/ChipStory'
-import { DataNotFoundStory } from '@/uikit/stories/DataNotFoundStory'
-import { IconsStory } from '@/uikit/stories/IconStory'
-import { ImageStory } from '@/uikit/stories/ImageStory'
-import { LabelStory } from '@/uikit/stories/LabelStory'
-import { LoaderStory } from '@/uikit/stories/LoaderStory'
-import { ProductCardStory } from '@/uikit/stories/ProductCardStory'
-import { RatingStory } from '@/uikit/stories/RatingStory'
-import { SliderStory } from '@/uikit/stories/SliderStory'
-import { TabItemsStory } from '@/uikit/stories/TabItemsStory'
-import { TextareaStory } from '@/uikit/stories/TextareaStory'
-import { ToastStory } from '@/uikit/stories/ToastStory'
-import { ScrollView, StyleSheet } from 'react-native'
+import { ThemedView } from '@/ui'
+import { AvatarsStory } from '@/ui/stories/AvatarsStory'
+import { ButtonStory } from '@/ui/stories/ButtonStory'
+import { CheckboxStory } from '@/ui/stories/CheckboxStory'
+import { ChipStory } from '@/ui/stories/ChipStory'
+import { DataNotFoundStory } from '@/ui/stories/DataNotFoundStory'
+import { IconsStory } from '@/ui/stories/IconStory'
+import { ImageStory } from '@/ui/stories/ImageStory'
+import { LabelStory } from '@/ui/stories/LabelStory'
+import { LoaderStory } from '@/ui/stories/LoaderStory'
+import { ProductCardStory } from '@/ui/stories/ProductCardStory'
+import { RatingStory } from '@/ui/stories/RatingStory'
+import { SliderStory } from '@/ui/stories/SliderStory'
+import { TabItemsStory } from '@/ui/stories/TabItemsStory'
+import { TextareaStory } from '@/ui/stories/TextareaStory'
+import { ToastStory } from '@/ui/stories/ToastStory'
+import { ScrollView } from 'react-native'
 
 export default function UiPage() {
   return (
-    <ThemedView style={styles.container}>
-      <ScrollView style={styles.container}>
+    <ThemedView>
+      <ScrollView>
         <IconsStory />
         <LabelStory />
         <ButtonStory />
@@ -40,9 +41,9 @@ export default function UiPage() {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 50,
-  },
-})
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     marginTop: 50,
+//   },
+// })

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
-import { SidesEnum, SizesEnum, VariantsEnum } from '../enums'
-import { IconSymbol } from '../Icon/icon-symbol'
+import { Icon } from '../Icon/Icon'
+import { SidesEnum, SizesEnum, VariantsEnum } from '../theme/enums'
 import { styles } from './Button.styles'
 import { ButtonProps } from './Button.types'
 
@@ -40,11 +40,11 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <TouchableOpacity onPress={onClick} disabled={disabled} style={containerStyle} activeOpacity={0.8}>
-      {iconLeft && <IconSymbol name={iconLeft} size={size} color={styles[`variant_${variant}`].color} />}
+      {iconLeft && <Icon icon={iconLeft} size={size} color={styles[`variant_${variant}`].color} />}
       <Text numberOfLines={1} ellipsizeMode='tail' style={fontStyle}>
         {label}
       </Text>
-      {iconRight && <IconSymbol name={iconRight} size={size} />}
+      {iconRight && <Icon icon={iconRight} size={size} />}
     </TouchableOpacity>
   )
 }

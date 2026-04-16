@@ -1,5 +1,5 @@
 import { usePersistState } from '@/core/hooks/usePersistState'
-import { HelloWave, Label, LabelTypesEnum, ParallaxScrollView, ThemedView } from '@/ui'
+import { HelloWave, Label, ParallaxScrollView, ThemedView } from '@/ui'
 import { Image } from 'expo-image'
 import { Link } from 'expo-router'
 import { Button, StyleSheet } from 'react-native'
@@ -17,19 +17,16 @@ export default function HomePage() {
       headerImage={<Image source={require('@/assets/partial-react-logo.png')} style={styles.reactLogo} />}
     >
       <ThemedView style={styles.titleContainer}>
-        <Label>Welcome</Label>
+        <Label label='Welcome' />
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <Label type={LabelTypesEnum.title}>title</Label>
-        <Label type={LabelTypesEnum.subtitle}>subtitle</Label>
-        <Label type={LabelTypesEnum.defaultSemiBold}>defaultSemiBold</Label>
-        <Label>default text</Label>
+        <Label label='title' />
         <Button onPress={handlePress} title={`Press me ${state}`} />
 
         <Link href='/modal'>
           <Link.Trigger>
-            <Label type='subtitle'>Modal</Label>
+            <Label label='Modal' />
           </Link.Trigger>
           <Link.Preview />
         </Link>
