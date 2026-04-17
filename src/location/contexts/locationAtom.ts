@@ -1,4 +1,4 @@
-import { atom } from 'jotai'
+import { atom } from '@/core/lib/jotai'
 
 export const DEFAULT_LOCATION_MODAL = {
   country: '',

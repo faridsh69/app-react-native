@@ -1,5 +1,5 @@
 import { PER_PAGE } from '@/apis/constants/api.constants'
-import { atom } from 'jotai'
+import { atom } from '@/core/lib/jotai'
 
 import { FILTERS_COLORS, PRODUCT_SORTS } from '../constants/filters.constants'
 

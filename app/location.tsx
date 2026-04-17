@@ -1,12 +1,12 @@
 import { useCrudLocationIp } from '@/apis/useCruds/locationCruds'
 import { PAGES } from '@/core/constants/navigation.constants'
 import { setLsCountry, setLsRegion } from '@/core/helpers/ls.helpers'
+import { useAtom } from '@/core/lib/jotai'
 import { OptionValueType } from '@/core/types/core.types'
 import { REGIONS_LIST } from '@/location/constants/location.constants'
 import { locationAtom } from '@/location/contexts/locationAtom'
 import { AppSelect, Label } from '@/ui'
 import { Link } from 'expo-router'
-import { useAtom } from 'jotai'
 import { StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 

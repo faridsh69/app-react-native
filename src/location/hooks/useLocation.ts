@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { getLsCountry, getLsRegion } from '@/core/helpers/ls.helpers'
-import { useAtom } from 'jotai'
+import { useAtom } from '@/core/lib/jotai'
 
 import { locationAtom } from '../contexts/locationAtom'
 
