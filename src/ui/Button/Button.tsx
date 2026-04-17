@@ -53,7 +53,7 @@ export const Button = (props: ButtonProps) => {
     label,
     iconLeft,
     iconRight,
-    onClick,
+    onPress,
     variant = VariantsEnum.Primary,
     size = SizesEnum.M,
     active = false,
@@ -97,7 +97,7 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <TouchableOpacity
-      onPress={onClick}
+      onPress={onPress}
       disabled={disabled}
       style={widthStyle}
       className={containerClassName}

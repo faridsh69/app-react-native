@@ -9,6 +9,8 @@ import { IconsStory } from '@/ui/stories/IconStory'
 import { ImageStory } from '@/ui/stories/ImageStory'
 import { LabelStory } from '@/ui/stories/LabelStory'
 import { LoaderStory } from '@/ui/stories/LoaderStory'
+import { ModalStory } from '@/ui/stories/ModalStory'
+import { ModalStory2 } from '@/ui/stories/ModalStory2'
 import { ProductCardStory } from '@/ui/stories/ProductCardStory'
 import { RadioListStory } from '@/ui/stories/RadioStory'
 import { RatingStory } from '@/ui/stories/RatingStory'
@@ -25,6 +27,8 @@ export default function UiPage() {
   return (
     <ThemedView>
       <ScrollView>
+        <ModalStory2 />
+        <ModalStory />
         <SwitchStory />
         <RadioListStory />
         <CheckboxStory />
