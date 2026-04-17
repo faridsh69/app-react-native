@@ -12,18 +12,27 @@ export const styles = StyleSheet.create({
 
   tabItem: {
     backgroundColor: 'transparent',
-    height: 40,
     minHeight: 40,
     paddingHorizontal: designSpacing.m,
-    flexDirection: 'row',
-    alignItems: 'center',
-    columnGap: 10,
+    paddingVertical: 10,
+    justifyContent: 'center',
+    flexShrink: 0,
+    flexGrow: 0,
+    flexBasis: 'auto',
+    alignSelf: 'flex-start',
     borderBottomWidth: 2,
     borderBottomColor: designColors.white,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
     fontSize: designFonts.header14.fontSize,
     fontWeight: designFonts.header14.fontWeight as TextStyle['fontWeight'],
+  },
+
+  tabItemContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'nowrap',
+    gap: 8,
   },
 
   pressed: {
@@ -52,8 +61,8 @@ export const styles = StyleSheet.create({
   },
 
   label: {
-    minWidth: 50,
     flexShrink: 1,
+    minWidth: 0,
   },
 
   title: {
@@ -65,9 +74,9 @@ export const styles = StyleSheet.create({
   },
 
   badge: {
-    marginLeft: 6,
-    width: 16,
-    height: 16,
+    minWidth: 18,
+    height: 18,
+    paddingHorizontal: 4,
     borderRadius: 10,
     backgroundColor: designColors.errorLight,
     alignItems: 'center',

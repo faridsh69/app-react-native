@@ -20,9 +20,6 @@ export const CheckboxStory: React.FC = () => {
         <View style={styles.cell}>
           <Checkbox label='One' checked={checked} onChange={setChecked} />
         </View>
-        <View style={styles.cell}>
-          <Checkbox label='Two' checked={!checked} onChange={value => setChecked(!value)} />
-        </View>
       </View>
 
       <View style={styles.section}>

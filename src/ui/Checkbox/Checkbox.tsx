@@ -7,16 +7,10 @@ import { Label } from '../Label/Label'
 import { IconsEnum, SizesEnum } from '../theme/themeEnums'
 import { CheckboxProps } from './Checkbox.types'
 
-const wrapperPaddingClassMap: Record<SizesEnum, string> = {
-  [SizesEnum.S]: 'pl-space-s',
-  [SizesEnum.M]: 'pl-space-m',
-  [SizesEnum.L]: 'pl-space-l',
-}
-
 const checkboxSizeClassMap: Record<SizesEnum, string> = {
-  [SizesEnum.S]: 'h-control-s w-control-s',
-  [SizesEnum.M]: 'h-control-m w-control-m',
-  [SizesEnum.L]: 'h-control-l w-control-l',
+  [SizesEnum.S]: 'h-4 w-4',
+  [SizesEnum.M]: 'h-5 w-5',
+  [SizesEnum.L]: 'h-6 w-6',
 }
 
 export const Checkbox = ({
@@ -29,7 +23,7 @@ export const Checkbox = ({
   hint = '',
   size = SizesEnum.M,
 }: CheckboxProps) => {
-  const containerClassName = ['relative flex-row items-center', wrapperPaddingClassMap[size]].join(' ')
+  const containerClassName = 'relative flex-row items-center gap-space-s'
   const checkboxClassName = [
     'items-center justify-center rounded-control-s border border-brand-gray-600',
     checkboxSizeClassMap[size],

@@ -15,7 +15,7 @@ export const Story: React.FC<React.PropsWithChildren<StoryProps>> = ({
 }) => {
   return (
     <ScrollView>
-      <View style={[storyStyles.story, style]} {...rest}>
+      <View style={[storyStyles.story, style]} className='pl-5' {...rest}>
         {children}
       </View>
     </ScrollView>

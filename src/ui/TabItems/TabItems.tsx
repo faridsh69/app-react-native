@@ -45,7 +45,7 @@ export const TabItems = (props: TabItemsProps) => {
             ]}
           >
             {({ pressed }) => (
-              <>
+              <View style={styles.tabItemContent}>
                 {icon && icon}
                 {label && (
                   <Text
@@ -61,7 +61,7 @@ export const TabItems = (props: TabItemsProps) => {
                     <Text style={styles.badgeText}>{badge}</Text>
                   </View>
                 )}
-              </>
+              </View>
             )}
           </Pressable>
         )

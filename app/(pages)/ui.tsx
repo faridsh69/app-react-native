@@ -1,4 +1,5 @@
 import { ThemedView } from '@/ui'
+import { RadioList } from '@/ui/Radio/Radio'
 import { AvatarsStory } from '@/ui/stories/AvatarsStory'
 import { ButtonStory } from '@/ui/stories/ButtonStory'
 import { CheckboxStory } from '@/ui/stories/CheckboxStory'
@@ -9,9 +10,11 @@ import { ImageStory } from '@/ui/stories/ImageStory'
 import { LabelStory } from '@/ui/stories/LabelStory'
 import { LoaderStory } from '@/ui/stories/LoaderStory'
 import { ProductCardStory } from '@/ui/stories/ProductCardStory'
+import { RadioListStory } from '@/ui/stories/RadioStory'
 import { RatingStory } from '@/ui/stories/RatingStory'
 import { SelectStory } from '@/ui/stories/SelectStory'
 import { SliderStory } from '@/ui/stories/SliderStory'
+import { SwitchStory } from '@/ui/stories/SwitchStory'
 import { TabItemsStory } from '@/ui/stories/TabItemsStory'
 import { TextareaStory } from '@/ui/stories/TextareaStory'
 import { TextInputStory } from '@/ui/stories/TextInputStory'
@@ -22,24 +25,30 @@ export default function UiPage() {
   return (
     <ThemedView>
       <ScrollView>
+        <SwitchStory />
+        <RadioListStory />
+        <RatingStory />
+        <CheckboxStory />
+        <TextareaStory />
+        <AvatarsStory />
         <SelectStory />
         <TextInputStory />
-        <IconsStory />
-        <LabelStory />
+        <SliderStory />
+        {/* <ModalStory /> */}
+
         <ButtonStory />
-        <CheckboxStory />
+        <ChipStory />
+        <ImageStory />
         <ProductCardStory />
         <DataNotFoundStory />
-        <ChipStory />
+
         <ToastStory />
-        <AvatarsStory />
-        <ImageStory />
+
         <TabItemsStory />
-        <RatingStory />
+
         <LoaderStory />
-        <TextareaStory />
-        {/* <ModalStory /> */}
-        <SliderStory />
+        <IconsStory />
+        <LabelStory />
       </ScrollView>
     </ThemedView>
   )
