@@ -71,7 +71,7 @@ export function AppModal({
   const BodyWrapper = scrollable ? ScrollView : View
 
   return (
-    <Modal visible={visible} transparent animationType='fade' onRequestClose={onClose} statusBarTranslucent>
+    <Modal visible={visible} transparent animationType='none' onRequestClose={onClose} statusBarTranslucent>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={styles.flex}>
         <Pressable
           style={[styles.backdrop, isFull && styles.backdropFull]}

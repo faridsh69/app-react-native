@@ -10,6 +10,7 @@ import { toastConfig } from '@/ui/Toast/Toast'
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 import { useFonts } from 'expo-font'
 import { useColorScheme } from 'react-native'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import Toast from 'react-native-toast-message'
 
 export default function RootLayout() {
@@ -22,12 +23,14 @@ export default function RootLayout() {
   return (
     <GluestackUIProvider mode={ThemeModesEnum.Light}>
       <ThemeProvider value={colorScheme === ThemeModesEnum.Light ? DefaultTheme : DarkTheme}>
-        <BottomSheetModalProvider>
-          <Stack>
-            <Stack.Screen name='(pages)' options={{ headerShown: false }} />
-            <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
-          </Stack>
-        </BottomSheetModalProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <BottomSheetModalProvider>
+            <Stack>
+              <Stack.Screen name='(pages)' options={{ headerShown: false }} />
+              <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
+            </Stack>
+          </BottomSheetModalProvider>
+        </GestureHandlerRootView>
         <StatusBar style='auto' />
         <Toast config={toastConfig} position='bottom' />
       </ThemeProvider>
