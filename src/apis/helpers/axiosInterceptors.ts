@@ -9,6 +9,7 @@ import {
   setLsRefreshToken,
 } from '@/core/helpers/ls.helpers'
 import axios from 'axios'
+import { encode } from 'base-64'
 
 import { TypeAxiosRequestInterceptor, TypeErrorHandlerInterceptor } from '../types/createApiClient.types'
 
@@ -41,15 +42,15 @@ const refreshTokens = async (axiosConfig: any) => {
 }
 
 export const locationInterceptor: TypeAxiosRequestInterceptor = async config => {
-  const country = getLsCountry()
-  const region = getLsRegion()
+  const country = await getLsCountry()
+  const region = await getLsRegion()
 
   const data = JSON.stringify({
     market_country: country || 'US',
     market_region: region,
   })
 
-  const signature = Buffer.from(data).toString('base64')
+  const signature = encode(data)
 
   config.headers['x-vinovoss-market-location'] = signature
 

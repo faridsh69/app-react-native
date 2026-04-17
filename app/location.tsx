@@ -1,6 +1,6 @@
 import { useCrudLocationIp } from '@/apis/useCruds/locationCruds'
 import { PAGES } from '@/core/constants/navigation.constants'
-import { getLsCountry, getLsRegion, setLsCountry, setLsRegion } from '@/core/helpers/ls.helpers'
+import { setLsCountry, setLsRegion } from '@/core/helpers/ls.helpers'
 import { OptionValueType } from '@/core/types/core.types'
 import { REGIONS_LIST } from '@/location/constants/location.constants'
 import { locationAtom } from '@/location/contexts/locationAtom'
@@ -11,18 +11,18 @@ import { StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function LocationPage() {
-  // const [locationModal, setLocationModal] = useAtom(locationAtom)
-  // const { region } = locationModal
+  const [locationModal, setLocationModal] = useAtom(locationAtom)
+  const { region } = locationModal
 
-  // const { data: ipLocation } = useCrudLocationIp()
+  const { data: ipLocation } = useCrudLocationIp()
 
-  // const handleChangeLocation = (value: OptionValueType) => {
-  //   setLocationModal(p => ({ ...p, region: value as string }))
-  //   setLsCountry('US')
-  //   setLsRegion(value as string)
-  // }
+  console.log('1 xxx ipLocation', ipLocation)
 
-  // getLsCountry, getLsRegion,
+  const handleChangeLocation = (value: OptionValueType) => {
+    setLocationModal(p => ({ ...p, region: value as string }))
+    setLsCountry('US')
+    setLsRegion(value as string)
+  }
 
   return (
     <SafeAreaView className='flex-1' edges={['top']}>
@@ -30,7 +30,7 @@ export default function LocationPage() {
       <Label label='You are on our United States site' />
       <Label label='Set your shipping location for the best wine selection. Prices are in USD, and we ship within the United States only. For international shipping, please contact merchants directly.' />
 
-      {/* <AppSelect label='Shipping location' onChange={handleChangeLocation} options={REGIONS_LIST} value={region} /> */}
+      <AppSelect label='Shipping location' onChange={handleChangeLocation} options={REGIONS_LIST} value={region} />
 
       <Link href={PAGES.home.path as any} dismissTo style={styles.link}>
         <Label label='Back' />

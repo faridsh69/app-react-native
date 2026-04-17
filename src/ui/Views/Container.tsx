@@ -1,5 +1,8 @@
 import { PAGES } from '@/core/constants/navigation.constants'
+import { locationAtom } from '@/location/contexts/locationAtom'
+import { useLocation } from '@/location/hooks/useLocation'
 import { Link } from 'expo-router'
+import { useAtom } from 'jotai'
 import { View, type ViewProps } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -16,15 +19,20 @@ export type ContainerProps = ViewProps & {
 export const Container = ({ style, className, light, dark, children, ...otherProps }: ContainerProps) => {
   const contentClassName = ['flex-1', className].filter(Boolean).join(' ')
 
+  const { locationModal } = useLocation()
+
   return (
     <SafeAreaView className='flex-1' edges={['top']}>
       <View className='flex-row items-center justify-between px-4 pt-2 pb-3'>
         <Link href={PAGES.home.path as any}>
           <Icon icon={IconsEnum.Logo} size={SizesEnum.L} />
         </Link>
-        <Link href={PAGES.location.path as any} className='flex-row gap-2'>
-          <Label label={<Icon icon={IconsEnum.Geo} size={SizesEnum.L} />} />
-          <Label label='shipped To' font={FontsEnum.Text14} />
+        <Link href={PAGES.location.path as any}>
+          <View className='flex-row gap-1'>
+            <Label label={<Icon icon={IconsEnum.Geo} size={SizesEnum.L} />} />
+            <Label label='shipped To' font={FontsEnum.Text14} />
+            <Label label={locationModal.region} font={FontsEnum.Text14} />
+          </View>
         </Link>
       </View>
       <View style={style} className={contentClassName} {...otherProps}>
