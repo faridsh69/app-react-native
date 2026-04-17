@@ -1,16 +1,15 @@
 import { ThemedView } from '@/ui'
-import { RadioList } from '@/ui/Radio/Radio'
 import { AvatarsStory } from '@/ui/stories/AvatarsStory'
 import { ButtonStory } from '@/ui/stories/ButtonStory'
 import { CheckboxStory } from '@/ui/stories/CheckboxStory'
 import { ChipStory } from '@/ui/stories/ChipStory'
 import { DataNotFoundStory } from '@/ui/stories/DataNotFoundStory'
+import { DialogStory } from '@/ui/stories/DialogStory'
 import { IconsStory } from '@/ui/stories/IconStory'
 import { ImageStory } from '@/ui/stories/ImageStory'
 import { LabelStory } from '@/ui/stories/LabelStory'
 import { LoaderStory } from '@/ui/stories/LoaderStory'
-import { ModalStory } from '@/ui/stories/ModalStory'
-import { ModalStory2 } from '@/ui/stories/ModalStory2'
+import { PopupStory } from '@/ui/stories/PopupStory'
 import { ProductCardStory } from '@/ui/stories/ProductCardStory'
 import { RadioListStory } from '@/ui/stories/RadioStory'
 import { RatingStory } from '@/ui/stories/RatingStory'
@@ -27,17 +26,16 @@ export default function UiPage() {
   return (
     <ThemedView>
       <ScrollView>
-        <ModalStory2 />
-        <ModalStory />
-        <SwitchStory />
+        {/* <ModalStory /> */}
+        <DialogStory />
         <RadioListStory />
         <CheckboxStory />
+        <PopupStory />
+        <SwitchStory />
         <TextInputStory />
         <TextareaStory />
         <RatingStory />
         <SelectStory />
-
-        {/* <ModalStory /> */}
 
         <ButtonStory />
         <ChipStory />
@@ -58,10 +56,3 @@ export default function UiPage() {
     </ThemedView>
   )
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     marginTop: 50,
-//   },
-// })

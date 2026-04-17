@@ -16,7 +16,7 @@ export { Checkbox } from './Checkbox/Checkbox'
 
 export { Textarea } from './Textarea/Textarea'
 
-export { Modal } from './Modal/Modal'
+export { Modal } from './Popup/Popup'
 
 export { Image } from './Image/Image'
 

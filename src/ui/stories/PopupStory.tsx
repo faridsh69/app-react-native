@@ -3,12 +3,12 @@ import { StyleSheet, Text, TextInput, View } from 'react-native'
 
 import { Button } from '../Button/Button'
 import { Label } from '../Label/Label'
-import { Modal } from '../Modal/Modal'
+import { Popup } from '../Popup/Popup'
 import { ColorsEnum, FontsEnum, TextAlignEnum, VariantsEnum } from '../theme/themeEnums'
 import { Story } from './Story'
 import { codeTextStyle } from './story.style'
 
-export const ModalStory: React.FC = () => {
+export const PopupStory = () => {
   const [modal, setModal] = useState<'Login' | 'Register' | ''>('')
 
   const commonProps = {
@@ -32,7 +32,7 @@ export const ModalStory: React.FC = () => {
       </View>
 
       {/* Login Modal */}
-      <Modal
+      <Popup
         isOpen={modal === 'Login'}
         title='Login to save your favorite wines'
         variant={VariantsEnum.Secondary}
@@ -57,7 +57,7 @@ export const ModalStory: React.FC = () => {
       />
 
       {/* Register Modal */}
-      <Modal
+      <Popup
         isOpen={modal === 'Register'}
         title='Create a new account'
         variant={VariantsEnum.Secondary}

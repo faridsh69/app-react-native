@@ -53,7 +53,7 @@ const sizeStyles: Record<AppModalSize, ViewStyle> = {
   },
 }
 
-export function AppModal({
+export function Dialog({
   visible,
   onClose,
   title,

@@ -16,7 +16,7 @@ export type ModalProps = {
   width?: string | number
   closeOnClickOutside?: boolean
   variant?: VariantsEnum
-  snapPoints?: Array<string | number>
+  snapPoints?: any
   enablePanDownToClose?: boolean
 }
 

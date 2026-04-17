@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { ScrollView, Text, View } from 'react-native'
 
 import { Button } from '../Button/Button'
-import { AppModal } from '../Modal2/Modal2'
+import { Dialog } from '../Dialog/Dialog'
 import { VariantsEnum } from '../theme/themeEnums'
 
-export const ModalStory2 = () => {
+export const DialogStory = () => {
   const [defaultOpen, setDefaultOpen] = useState(false)
   const [smallOpen, setSmallOpen] = useState(false)
   const [scrollOpen, setScrollOpen] = useState(false)
@@ -18,7 +18,7 @@ export const ModalStory2 = () => {
       <Button label='Open small modal' onPress={() => setSmallOpen(true)} />
       <Button label='Open scrollable modal' onPress={() => setScrollOpen(true)} />
 
-      <AppModal
+      <Dialog
         visible={defaultOpen}
         onClose={() => setDefaultOpen(false)}
         title='Default modal'
@@ -35,9 +35,9 @@ export const ModalStory2 = () => {
         }
       >
         <Text style={{ fontSize: 15, lineHeight: 22, color: '#171717' }}>This is the default modal body.</Text>
-      </AppModal>
+      </Dialog>
 
-      <AppModal
+      <Dialog
         visible={smallOpen}
         onClose={() => setSmallOpen(false)}
         title='Small modal'
@@ -45,9 +45,9 @@ export const ModalStory2 = () => {
         footer={<Button label='Close' onPress={() => setSmallOpen(false)} />}
       >
         <Text style={{ fontSize: 15, lineHeight: 22, color: '#171717' }}>Compact modal for small confirmations.</Text>
-      </AppModal>
+      </Dialog>
 
-      <AppModal
+      <Dialog
         visible={scrollOpen}
         onClose={() => setScrollOpen(false)}
         title='Scrollable modal'
@@ -59,7 +59,7 @@ export const ModalStory2 = () => {
             .map((_, i) => `Item ${i + 1}: Lorem ipsum dolor sit amet.`)
             .join('\n\n')}
         </Text>
-      </AppModal>
+      </Dialog>
     </ScrollView>
   )
 }

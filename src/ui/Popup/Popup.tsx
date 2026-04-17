@@ -1,18 +1,14 @@
 import React, { useEffect, useRef } from 'react'
-import {
-  BottomSheetBackdrop,
-  BottomSheetScrollView,
-  BottomSheetModal as GorhomBottomSheetModal,
-} from '@gorhom/bottom-sheet'
+import { BottomSheetBackdrop, BottomSheetModal, BottomSheetScrollView } from '@gorhom/bottom-sheet'
 import { Dimensions, Platform, StyleSheet, View } from 'react-native'
 
 import { Button } from '../Button/Button'
 import { Label } from '../Label/Label'
 import { FontsEnum, IconsEnum, SizesEnum, VariantsEnum } from '../theme/themeEnums'
-import { styles } from './Modal.styles'
-import { ModalProps } from './Modal.types'
+import { styles } from './Popup.styles'
+import { ModalProps } from './Popup.types'
 
-export const Modal = (props: ModalProps) => {
+export const Popup = (props: ModalProps) => {
   const {
     title,
     body,
@@ -29,7 +25,7 @@ export const Modal = (props: ModalProps) => {
     enablePanDownToClose = true,
   } = props
 
-  const modalRef = useRef<GorhomBottomSheetModal>(null)
+  const modalRef = useRef<BottomSheetModal>(null)
   const { height: VH } = Dimensions.get('window')
   const maxHeight = Math.round(VH * 0.9)
   const MIN_HEIGHT = 250
@@ -54,7 +50,7 @@ export const Modal = (props: ModalProps) => {
   ])
 
   return (
-    <GorhomBottomSheetModal
+    <BottomSheetModal
       ref={modalRef}
       snapPoints={snapPoints}
       maxDynamicContentSize={maxHeight}
@@ -109,6 +105,6 @@ export const Modal = (props: ModalProps) => {
           <View style={styles.footer}>{actions}</View>
         </View>
       </BottomSheetScrollView>
-    </GorhomBottomSheetModal>
+    </BottomSheetModal>
   )
 }
