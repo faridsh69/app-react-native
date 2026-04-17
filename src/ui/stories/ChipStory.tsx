@@ -14,7 +14,7 @@ export const ChipStory: React.FC = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}>18) Chip</Text>
+      <Text style={styles.h4}>Chip</Text>
 
       <Text style={styles.small}>We have two size s, m, also can have onClose, and icon beside label</Text>
 

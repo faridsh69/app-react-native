@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { ScrollView } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 
 import { AppSwitch } from '../Switch/Switch'
+import { Story } from './Story'
 
 export const SwitchStory = () => {
   const [a, setA] = useState(true)
@@ -9,16 +10,33 @@ export const SwitchStory = () => {
   const [c, setC] = useState(true)
 
   return (
-    <ScrollView contentContainerStyle={{ padding: 16, gap: 24 }}>
-      <AppSwitch label='Notifications' description='Receive updates and alerts' value={a} onChange={setA} />
+    <Story>
+      <Text style={styles.h4}>Switch</Text>
 
-      <AppSwitch label='Biometric login' description='Use Face ID to sign in' value={b} onChange={setB} size='sm' />
+      <View style={styles.section}>
+        <AppSwitch label='Notifications' description='Receive updates and alerts' value={a} onChange={setA} />
+      </View>
 
-      <AppSwitch label='Required setting' value={c} onChange={setC} required />
+      <View style={styles.section}>
+        <AppSwitch label='Biometric login' description='Use Face ID to sign in' value={b} onChange={setB} size='sm' />
+      </View>
 
-      <AppSwitch label='Disabled' description='Cannot be changed right now' value onChange={() => {}} disabled />
+      <View style={styles.section}>
+        <AppSwitch label='Required setting' value={c} onChange={setC} required />
+      </View>
 
-      <AppSwitch label='Error state' value={false} onChange={() => {}} hasError errorText='This field has an error' />
-    </ScrollView>
+      <View style={styles.section}>
+        <AppSwitch label='Disabled' description='Cannot be changed right now' value onChange={() => {}} disabled />
+      </View>
+
+      <View style={styles.section}>
+        <AppSwitch label='Error state' value={false} onChange={() => {}} hasError errorText='This field has an error' />
+      </View>
+    </Story>
   )
 }
+
+const styles = StyleSheet.create({
+  h4: { fontSize: 18, fontWeight: '600' },
+  section: { gap: 12 },
+})

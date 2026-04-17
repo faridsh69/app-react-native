@@ -20,7 +20,7 @@ export const RatingStory: React.FC = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}>19) Rating</Text>
+      <Text style={styles.h4}>Rating</Text>
 
       <Text style={styles.small}>We have Rating as a 5 star component for adding review on a wine</Text>
 

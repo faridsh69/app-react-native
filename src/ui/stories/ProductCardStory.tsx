@@ -54,7 +54,7 @@ export const ProductCardStory: React.FC = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}>24) ProductCard</Text>
+      <Text style={styles.h4}>ProductCard</Text>
       <Text style={styles.small}>We are using this component to render list of wines</Text>
 
       <Text style={codeTextStyle.inline}>{'<ProductCard wine={wine} />'}</Text>

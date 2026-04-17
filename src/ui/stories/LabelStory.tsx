@@ -12,7 +12,7 @@ export const LabelStory: React.FC = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}>2) Label, Tooltip</Text>
+      <Text style={styles.h4}>Label, Tooltip</Text>
 
       <Text style={styles.small}>
         For all places we need to render text, only we should use this label component and add it proper font and color

@@ -11,7 +11,7 @@ export const IconsStory = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}>1) Icons</Text>
+      <Text style={styles.h4}>Icons</Text>
       <Text style={styles.small}>
         We should import SVGs into the project via the UI kit. Injecting raw SVG is forbidden.
       </Text>

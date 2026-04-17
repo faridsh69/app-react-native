@@ -12,7 +12,7 @@ export const ButtonStory: React.FC = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}>3) Button</Text>
+      <Text style={styles.h4}>Button</Text>
       <Text style={styles.small}>
         We have 3 variants: primary, secondary and text. Supports iconLeft and iconRight. Sizes: M and S.
       </Text>

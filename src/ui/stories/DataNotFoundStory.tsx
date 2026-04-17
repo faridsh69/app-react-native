@@ -27,7 +27,7 @@ export const DataNotFoundStory: React.FC = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}>25) DataNotFound</Text>
+      <Text style={styles.h4}>DataNotFound</Text>
       <Text style={styles.small}>It will show after search data is not found</Text>
 
       <Text style={codeTextStyle.inline}>

@@ -24,7 +24,7 @@ export const SliderStory: React.FC = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}> Slider</Text>
+      <Text style={styles.h4}>Slider</Text>
 
       <Text style={styles.small}>Slider will render the component and options</Text>
 

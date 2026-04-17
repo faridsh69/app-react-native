@@ -22,7 +22,7 @@ export const ImageStory: React.FC = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}>9) Image</Text>
+      <Text style={styles.h4}>Image</Text>
       <Text style={codeTextStyle.inline}>&lt;Image src=&#123;IMAGE_URLS.trash&#125; /&gt;</Text>
       <Text style={styles.small}>
         Load image with default skeleton before image is loaded (cached loads skip fade).

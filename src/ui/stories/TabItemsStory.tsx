@@ -11,7 +11,7 @@ export const TabItemsStory: React.FC = () => {
 
   return (
     <Story>
-      <Text style={styles.h4}>13) TabItems</Text>
+      <Text style={styles.h4}>TabItems</Text>
       <Text style={styles.small}>
         TabItems is a list of tabs that can be triggered. It accepts options, value and onChange.
       </Text>

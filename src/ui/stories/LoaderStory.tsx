@@ -8,7 +8,7 @@ import { Story } from './Story'
 export const LoaderStory: React.FC = () => {
   return (
     <Story>
-      <Text style={styles.h4}>26) Loader</Text>
+      <Text style={styles.h4}>Loader</Text>
 
       <View style={styles.section}>
         <Loader size={SizesEnum.S} label='Loading' />

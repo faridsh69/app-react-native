@@ -10,7 +10,7 @@ import { codeTextStyle } from './story.style'
 export const ToastStory: React.FC = () => {
   return (
     <Story>
-      <Text style={styles.h4}>15) Toast</Text>
+      <Text style={styles.h4}>Toast</Text>
       <Text style={styles.small}>We can render messages via toast</Text>
 
       <Text style={codeTextStyle.inline}>
