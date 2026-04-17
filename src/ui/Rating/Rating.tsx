@@ -3,7 +3,6 @@ import { Pressable, View } from 'react-native'
 
 import { Label } from '../Label/Label'
 import { SizesEnum } from '../theme/themeEnums'
-import { styles } from './Rating.styles'
 import { RatingProps } from './Rating.types'
 import { StarSvg } from './StarSvg'
 
@@ -23,12 +22,12 @@ export const Rating = (props: RatingProps) => {
   const shouldPreview = (star: number) => previewStar !== null && star <= previewStar
 
   return (
-    <View style={styles.wrapper}>
+    <View className='relative flex max-w-full flex-col items-start gap-1'>
       <Label label={label} required={required} hasError={hasError} hint={hint} disabled={disabled} />
 
-      {disabled && <View pointerEvents='none' style={styles.disabledOverlay} />}
+      {disabled && <View pointerEvents='none' className='absolute left-0 top-0 h-[70px] w-[260px] bg-transparent' />}
 
-      <View style={styles.stars} pointerEvents={noHover ? 'none' : 'auto'}>
+      <View className='flex-row-reverse justify-start' pointerEvents={noHover ? 'none' : 'auto'}>
         {[5, 4, 3, 2, 1].map(star => {
           const filled = value >= star
           const handlers =
@@ -47,7 +46,8 @@ export const Rating = (props: RatingProps) => {
               key={star}
               onPress={!disabled && !noHover ? () => onChange?.(star) : undefined}
               hitSlop={8}
-              style={({ pressed }) => [styles.star, pressed ? { transform: [{ scale: 0.98 }] } : null]}
+              className='pl-[3px]'
+              style={({ pressed }) => (pressed ? { transform: [{ scale: 0.98 }] } : undefined)}
               accessibilityRole='button'
               accessibilityLabel={`Rate ${star} star${star > 1 ? 's' : ''}`}
               accessibilityState={{ disabled }}

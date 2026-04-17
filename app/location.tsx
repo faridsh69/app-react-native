@@ -7,7 +7,6 @@ import { REGIONS_LIST } from '@/location/constants/location.constants'
 import { locationAtom } from '@/location/contexts/locationAtom'
 import { AppSelect, Label } from '@/ui'
 import { Link } from 'expo-router'
-import { StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function LocationPage() {
@@ -32,22 +31,9 @@ export default function LocationPage() {
 
       <AppSelect label='Shipping location' onChange={handleChangeLocation} options={REGIONS_LIST} value={region} />
 
-      <Link href={PAGES.home.path as any} dismissTo style={styles.link}>
+      <Link href={PAGES.home.path as any} dismissTo className='mt-4 py-4'>
         <Label label='Back' />
       </Link>
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-})

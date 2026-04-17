@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pressable, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native'
+import { Pressable, StyleProp, Text, View, ViewStyle } from 'react-native'
 
 type RadioOption = {
   label: string
@@ -71,21 +71,31 @@ export function RadioList({
   const tokens = sizeMap[size]
 
   return (
-    <View style={[styles.wrapper, containerStyle]}>
+    <View className='w-full gap-1.5' style={containerStyle}>
       {!!label && (
-        <Text style={[styles.label, hasError && styles.labelError, disabled && styles.labelDisabled]}>
+        <Text
+          className={[
+            'text-[15px] font-medium text-neutral-900',
+            hasError && 'text-red-500',
+            disabled && 'text-neutral-400',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
           {label}
-          {required ? <Text style={styles.required}> *</Text> : null}
+          {required ? <Text className='text-red-500'> *</Text> : null}
         </Text>
       )}
 
       <View
-        style={[
-          styles.optionsContainer,
-          background === 'muted' && styles.optionsContainerMuted,
-          hasError && styles.optionsContainerError,
-          disabled && styles.optionsContainerDisabled,
-        ]}
+        className={[
+          'flex-row flex-wrap items-center rounded-[10px]',
+          background === 'muted' && 'bg-neutral-100 px-2.5 py-1',
+          hasError && 'border border-red-500 px-2.5 py-1',
+          disabled && 'opacity-60',
+        ]
+          .filter(Boolean)
+          .join(' ')}
       >
         {options.map(option => {
           const selected = option.value === value
@@ -98,15 +108,13 @@ export function RadioList({
                 if (!optionDisabled) onChange(option.value)
               }}
               disabled={optionDisabled}
-              style={[
-                styles.option,
-                {
-                  gap: 10,
-                  marginRight: tokens.gap,
-                  paddingVertical: tokens.paddingVertical,
-                  paddingHorizontal: 2,
-                },
-              ]}
+              className='flex-row items-center'
+              style={{
+                gap: 10,
+                marginRight: tokens.gap,
+                paddingVertical: tokens.paddingVertical,
+                paddingHorizontal: 2,
+              }}
               accessibilityRole='radio'
               accessibilityState={{
                 checked: selected,
@@ -115,39 +123,43 @@ export function RadioList({
             >
               <View
                 style={[
-                  styles.radioOuter,
+                  {
+                    borderWidth: 1.5,
+                    borderColor: '#A3A3A3',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: '#FFFFFF',
+                  },
                   {
                     width: tokens.dotOuter,
                     height: tokens.dotOuter,
                     borderRadius: tokens.dotOuter / 2,
                   },
-                  selected && styles.radioOuterSelected,
-                  hasError && styles.radioOuterError,
-                  optionDisabled && styles.radioOuterDisabled,
+                  selected && { borderColor: '#111111' },
+                  hasError && { borderColor: '#EF4444' },
+                  optionDisabled && { borderColor: '#CFCFCF', backgroundColor: '#F5F5F5' },
                 ]}
               >
                 {selected ? (
                   <View
                     style={[
-                      styles.radioInner,
                       {
                         width: tokens.dotInner,
                         height: tokens.dotInner,
                         borderRadius: tokens.dotInner / 2,
+                        backgroundColor: optionDisabled ? '#A3A3A3' : '#111111',
                       },
-                      optionDisabled && styles.radioInnerDisabled,
                     ]}
                   />
                 ) : null}
               </View>
 
               <Text
-                style={[
-                  styles.optionLabel,
-                  { fontSize: tokens.text },
-                  selected && styles.optionLabelSelected,
-                  optionDisabled && styles.optionLabelDisabled,
-                ]}
+                style={{
+                  fontSize: tokens.text,
+                  color: optionDisabled ? '#A3A3A3' : selected ? '#111111' : '#171717',
+                  fontWeight: selected ? '500' : '400',
+                }}
               >
                 {option.label}
               </Text>
@@ -157,97 +169,10 @@ export function RadioList({
       </View>
 
       {hasError && !!errorText ? (
-        <Text style={styles.errorText}>{errorText}</Text>
+        <Text className='text-[13px] text-red-500'>{errorText}</Text>
       ) : helperText ? (
-        <Text style={styles.helperText}>{helperText}</Text>
+        <Text className='text-[13px] text-neutral-500'>{helperText}</Text>
       ) : null}
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    width: '100%',
-    gap: 6,
-  },
-  label: {
-    fontSize: 15,
-    color: '#171717',
-    fontWeight: '500',
-  },
-  required: {
-    color: '#EF4444',
-  },
-  labelError: {
-    color: '#EF4444',
-  },
-  labelDisabled: {
-    color: '#A3A3A3',
-  },
-  optionsContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    borderRadius: 10,
-  },
-  optionsContainerMuted: {
-    backgroundColor: '#F5F5F5',
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-  },
-  optionsContainerError: {
-    borderWidth: 1,
-    borderColor: '#EF4444',
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-  },
-  optionsContainerDisabled: {
-    opacity: 0.6,
-  },
-  option: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  radioOuter: {
-    borderWidth: 1.5,
-    borderColor: '#A3A3A3',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  radioOuterSelected: {
-    borderColor: '#111111',
-  },
-  radioOuterError: {
-    borderColor: '#EF4444',
-  },
-  radioOuterDisabled: {
-    borderColor: '#CFCFCF',
-    backgroundColor: '#F5F5F5',
-  },
-  radioInner: {
-    backgroundColor: '#111111',
-  },
-  radioInnerDisabled: {
-    backgroundColor: '#A3A3A3',
-  },
-  optionLabel: {
-    color: '#171717',
-    fontWeight: '400',
-  },
-  optionLabelSelected: {
-    color: '#111111',
-    fontWeight: '500',
-  },
-  optionLabelDisabled: {
-    color: '#A3A3A3',
-  },
-  helperText: {
-    fontSize: 13,
-    color: '#737373',
-  },
-  errorText: {
-    fontSize: 13,
-    color: '#EF4444',
-  },
-})

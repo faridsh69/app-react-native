@@ -1,5 +1,5 @@
 import { PropsWithChildren, useState } from 'react'
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 
 import { IconSymbol } from '../Icon/icon-symbol'
 import { Label } from '../Label/Label'
@@ -10,7 +10,7 @@ export function Accordion({ children, title }: PropsWithChildren & { title: stri
 
   return (
     <Container>
-      <TouchableOpacity style={styles.heading} onPress={() => setIsOpen(value => !value)} activeOpacity={0.8}>
+      <TouchableOpacity className='flex-row items-center gap-1.5' onPress={() => setIsOpen(value => !value)} activeOpacity={0.8}>
         <IconSymbol
           name='chevron.right'
           size={18}
@@ -21,19 +21,7 @@ export function Accordion({ children, title }: PropsWithChildren & { title: stri
 
         <Label label={title} />
       </TouchableOpacity>
-      {isOpen && <Container style={styles.content}>{children}</Container>}
+      {isOpen && <Container className='ml-6 mt-1.5'>{children}</Container>}
     </Container>
   )
 }
-
-const styles = StyleSheet.create({
-  heading: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  content: {
-    marginTop: 6,
-    marginLeft: 24,
-  },
-})

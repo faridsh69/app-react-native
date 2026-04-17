@@ -2,7 +2,6 @@ import React from 'react'
 import { ActivityIndicator, Text, View } from 'react-native'
 
 import { ColorsEnum, SIZE_MAP, SizesEnum } from '../theme/themeEnums'
-import { styles } from './Loader.styles'
 import { LoaderProps } from './Loader.types'
 
 export const Loader = ({
@@ -15,16 +14,20 @@ export const Loader = ({
 
   return (
     <View
-      style={styles.wrapper}
+      className='items-center justify-center gap-5'
       accessibilityRole='progressbar'
       accessibilityLabel={label}
       accessibilityHint={subLabel}
     >
       <ActivityIndicator size={SIZE_MAP[size]} color={ColorsEnum.PrimaryMain} />
 
-      <View style={styles.texts}>
-        <Text style={[styles.loadingText, styles.loadingTextBold]}>{label}</Text>
-        <Text style={styles.loadingText}>{subLabel}</Text>
+      <View className='items-center gap-[5px]'>
+        <Text style={{ fontSize: 14, fontWeight: '600', lineHeight: 18, marginVertical: 0, textAlign: 'center' }}>
+          {label}
+        </Text>
+        <Text style={{ fontSize: 14, fontWeight: '400', lineHeight: 18, marginVertical: 0, textAlign: 'center' }}>
+          {subLabel}
+        </Text>
       </View>
     </View>
   )
