@@ -27,19 +27,20 @@ export default function UiPage() {
       <ScrollView>
         <SwitchStory />
         <RadioListStory />
-        <RatingStory />
         <CheckboxStory />
-        <TextareaStory />
-        <AvatarsStory />
-        <SelectStory />
         <TextInputStory />
-        <SliderStory />
+        <TextareaStory />
+        <RatingStory />
+        <SelectStory />
+
         {/* <ModalStory /> */}
 
         <ButtonStory />
         <ChipStory />
         <ImageStory />
         <ProductCardStory />
+        <SliderStory />
+        <AvatarsStory />
         <DataNotFoundStory />
 
         <ToastStory />

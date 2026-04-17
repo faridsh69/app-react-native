@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native'
 
 import { AppSwitch } from '../Switch/Switch'
 
-export default function SwitchStoriesScreen() {
+export const SwitchStory = () => {
   const [a, setA] = useState(true)
   const [b, setB] = useState(false)
   const [c, setC] = useState(true)

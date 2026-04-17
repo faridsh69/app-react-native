@@ -9,7 +9,7 @@ import { codeTextStyle } from './story.style'
 export const AvatarsStory: React.FC = () => {
   return (
     <Story>
-      <Text style={styles.h4}>16) Avatar</Text>
+      <Text style={styles.h4}>Avatar</Text>
       <Text style={styles.small}>We have avatar to show user profile picture</Text>
       <Text style={codeTextStyle.inline}>{'<Avatar src="src" />'}</Text>
 
