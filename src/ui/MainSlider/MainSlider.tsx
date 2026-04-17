@@ -6,7 +6,6 @@ import { Icon } from '../Icon/Icon'
 import { Image } from '../Image/Image'
 import { Label } from '../Label/Label'
 import { FontsEnum, IconsEnum, SizesEnum, TextAlignEnum } from '../theme/themeEnums'
-import { styles } from './MainSlider.styles'
 import { MainSliderProps } from './MainSlider.types'
 
 const { width: SCREEN_W } = Dimensions.get('window')
@@ -15,7 +14,7 @@ export const MainSlider = (props: MainSliderProps) => {
   const { options } = props
 
   return (
-    <View style={styles.wrapper}>
+    <View className='w-full'>
       <Carousel
         width={SCREEN_W}
         height={360}
@@ -27,8 +26,8 @@ export const MainSlider = (props: MainSliderProps) => {
         pagingEnabled={false}
         onConfigurePanGesture={() => ({ enabled: false })}
         renderItem={({ item }) => (
-          <View style={styles.carouselSlide}>
-            <View style={styles.slideCard}>
+          <View className='items-center'>
+            <View className='flex w-[232px] flex-col items-center justify-center gap-2 rounded-2xl border border-neutral-200 p-4'>
               <Image src={item.src} alt={item.label} width={200} height={200} />
 
               <Icon icon={IconsEnum.View} size={SizesEnum.M} />

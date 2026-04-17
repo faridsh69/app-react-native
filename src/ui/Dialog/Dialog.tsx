@@ -72,24 +72,37 @@ export function Dialog({
 
   return (
     <Modal visible={visible} transparent animationType='none' onRequestClose={onClose} statusBarTranslucent>
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={styles.flex}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} className='flex-1'>
         <Pressable
-          style={[styles.backdrop, isFull && styles.backdropFull]}
+          className={['flex-1 items-center justify-center bg-black/20', isFull ? 'p-0' : 'p-5'].join(' ')}
           onPress={closeOnBackdrop ? onClose : undefined}
         >
           <Pressable
-            style={[styles.card, sizeStyles[size], isFull && styles.cardFull, contentStyle]}
+            className='overflow-hidden rounded-[20px] bg-white'
+            style={[
+              {
+                shadowColor: '#000',
+                shadowOpacity: 0.12,
+                shadowRadius: 20,
+                shadowOffset: { width: 0, height: 8 },
+                elevation: 10,
+                maxHeight: '88%',
+              },
+              sizeStyles[size],
+              isFull && { maxHeight: '100%', height: '100%' },
+              contentStyle,
+            ]}
             onPress={e => e.stopPropagation()}
           >
             {(title || description || showCloseButton) && (
-              <View style={styles.header}>
-                <View style={styles.headerText}>
-                  {!!title && <Text style={styles.title}>{title}</Text>}
-                  {!!description && <Text style={styles.description}>{description}</Text>}
+              <View className='min-h-16 flex-row items-start justify-between gap-3 border-b border-neutral-200 px-[18px] pb-[14px] pt-[18px]'>
+                <View className='flex-1 pt-0.5'>
+                  {!!title && <Text className='text-[18px] font-semibold text-neutral-900'>{title}</Text>}
+                  {!!description && <Text className='mt-1.5 text-[14px] leading-5 text-neutral-500'>{description}</Text>}
                 </View>
 
                 {showCloseButton ? (
-                  <Pressable onPress={onClose} hitSlop={8} style={styles.closeButton}>
+                  <Pressable onPress={onClose} hitSlop={8} className='h-8 w-8 items-center justify-center rounded-full'>
                     <Ionicons name='close' size={22} color='#171717' />
                   </Pressable>
                 ) : null}
@@ -97,96 +110,17 @@ export function Dialog({
             )}
 
             <BodyWrapper
-              style={styles.body}
-              contentContainerStyle={scrollable ? styles.bodyScrollContent : undefined}
+              className='p-[18px]'
+              contentContainerStyle={scrollable ? { paddingBottom: 4 } : undefined}
               showsVerticalScrollIndicator={false}
             >
               {children}
             </BodyWrapper>
 
-            {footer ? <View style={styles.footer}>{footer}</View> : null}
+            {footer ? <View className='border-t border-neutral-200 px-[18px] pb-[18px] pt-2'>{footer}</View> : null}
           </Pressable>
         </Pressable>
       </KeyboardAvoidingView>
     </Modal>
   )
 }
-
-const styles = StyleSheet.create({
-  flex: {
-    flex: 1,
-  },
-  backdrop: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: 'rgba(0,0,0,0.22)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  backdropFull: {
-    padding: 0,
-  },
-  card: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOpacity: 0.12,
-    shadowRadius: 20,
-    shadowOffset: { width: 0, height: 8 },
-    elevation: 10,
-    maxHeight: '88%',
-  },
-  cardFull: {
-    maxHeight: '100%',
-    height: '100%',
-  },
-  header: {
-    minHeight: 64,
-    paddingTop: 18,
-    paddingBottom: 14,
-    paddingHorizontal: 18,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#E5E5E5',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    gap: 12,
-  },
-  headerText: {
-    flex: 1,
-    paddingTop: 2,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#171717',
-  },
-  description: {
-    marginTop: 6,
-    fontSize: 14,
-    lineHeight: 20,
-    color: '#737373',
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  body: {
-    flexGrow: 0,
-    padding: 18,
-  },
-  bodyScrollContent: {
-    paddingBottom: 4,
-  },
-  footer: {
-    paddingHorizontal: 18,
-    paddingTop: 8,
-    paddingBottom: 18,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: '#E5E5E5',
-  },
-})

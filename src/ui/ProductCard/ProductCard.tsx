@@ -27,31 +27,31 @@ export const ProductCard = (props: ProductCardProps) => {
       <View style={styles.image}>
         <ProductImage src={src} height={220} width={220} alt={label} />
       </View>
-      <View style={styles.content}>
+      <View className='min-w-0'>
         <Label
           label={`${label} ${vintage}${litr ? `, ${litr}ml` : ''}`}
           font={FontsEnum.Label16}
           linesCount={2}
           cursorPointer
         />
-        <View style={styles.priceRow}>
+        <View className='mt-1.5 min-w-0 flex-row flex-wrap items-center'>
           {hasPrice && <Label label={`$${price}`} font={FontsEnum.Header16} cursorPointer />}
-          <View style={styles.rateRow}>
+          <View className='flex-row items-center gap-2'>
             <Icon icon={IconsEnum.Star} size={SizesEnum.S} />
             <Label label={`${rate} (${rateCount})`} font={FontsEnum.Label14} cursorPointer />
           </View>
         </View>
-        <View style={styles.tagsWrap}>
-          <View style={styles.tagItem}>
+        <View className='mb-2.5 mt-1.5 min-w-0 flex-row flex-wrap items-center'>
+          <View className='mb-1.5 mr-1.5 min-w-0 shrink'>
             {/* <Chip label={country} size={SizesEnum.S} country={mappingDataCountryNameToFlag(country)} noHover /> */}
           </View>
           {tags.map((tag: any) => (
-            <View key={String(tag)} style={styles.tagItem}>
+            <View key={String(tag)} className='mb-1.5 mr-1.5 min-w-0 shrink'>
               <Chip label={tag} size={SizesEnum.S} icon={IconsEnum.Star} noHover />
             </View>
           ))}
         </View>
-        <View style={styles.cta}>
+        <View className='self-start'>
           {hasPrice ? (
             <Button
               iconLeft={IconsEnum.Plus}

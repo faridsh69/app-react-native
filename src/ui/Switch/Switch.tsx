@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleProp, StyleSheet, Switch, Text, View, ViewStyle } from 'react-native'
+import { StyleProp, Switch, Text, View, ViewStyle } from 'react-native'
 
 type AppSwitchSize = 'sm' | 'md'
 
@@ -50,20 +50,18 @@ export function AppSwitch({
   const tokens = sizeMap[size]
 
   return (
-    <View style={[styles.wrapper, containerStyle]}>
-      <View style={[styles.row, disabled && styles.rowDisabled, hasError && styles.rowError]}>
-        <View style={[styles.textBlock, { marginRight: tokens.gap }]}>
+    <View className='w-full gap-1.5' style={containerStyle}>
+      <View className={['min-h-[52px] flex-row items-center justify-between rounded-xl bg-white px-[14px] py-3', disabled && 'opacity-60', hasError && 'border border-red-500'].filter(Boolean).join(' ')}>
+        <View style={{ flex: 1, marginRight: tokens.gap }}>
           {!!label && (
-            <Text style={[styles.label, { fontSize: tokens.labelSize }, disabled && styles.labelDisabled]}>
+            <Text style={{ fontSize: tokens.labelSize, color: disabled ? '#A3A3A3' : '#171717', fontWeight: '500' }}>
               {label}
-              {required ? <Text style={styles.required}> *</Text> : null}
+              {required ? <Text className='text-red-500'> *</Text> : null}
             </Text>
           )}
 
           {!!description && (
-            <Text
-              style={[styles.description, { fontSize: tokens.descriptionSize }, disabled && styles.descriptionDisabled]}
-            >
+            <Text style={{ marginTop: 4, fontSize: tokens.descriptionSize, color: disabled ? '#A3A3A3' : '#737373' }}>
               {description}
             </Text>
           )}
@@ -89,62 +87,10 @@ export function AppSwitch({
       </View>
 
       {hasError && !!errorText ? (
-        <Text style={styles.errorText}>{errorText}</Text>
+        <Text className='text-[13px] text-red-500'>{errorText}</Text>
       ) : helperText ? (
-        <Text style={styles.helperText}>{helperText}</Text>
+        <Text className='text-[13px] text-neutral-500'>{helperText}</Text>
       ) : null}
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    width: '100%',
-    gap: 6,
-  },
-  row: {
-    minHeight: 52,
-    borderRadius: 12,
-    backgroundColor: '#FFFFFF',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-  },
-  rowDisabled: {
-    opacity: 0.6,
-  },
-  rowError: {
-    borderWidth: 1,
-    borderColor: '#EF4444',
-  },
-  textBlock: {
-    flex: 1,
-  },
-  label: {
-    color: '#171717',
-    fontWeight: '500',
-  },
-  labelDisabled: {
-    color: '#A3A3A3',
-  },
-  required: {
-    color: '#EF4444',
-  },
-  description: {
-    color: '#737373',
-    marginTop: 4,
-  },
-  descriptionDisabled: {
-    color: '#A3A3A3',
-  },
-  helperText: {
-    fontSize: 13,
-    color: '#737373',
-  },
-  errorText: {
-    fontSize: 13,
-    color: '#EF4444',
-  },
-})

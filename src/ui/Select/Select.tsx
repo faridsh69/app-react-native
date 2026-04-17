@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { Picker } from '@react-native-picker/picker'
-import { Modal, Platform, Pressable, StyleProp, StyleSheet, Text, useColorScheme, View, ViewStyle } from 'react-native'
+import { Modal, Platform, Pressable, StyleProp, Text, useColorScheme, View, ViewStyle } from 'react-native'
 
 export type SelectOption = {
   label: string
@@ -84,39 +84,52 @@ export function AppSelect({
 
   return (
     <>
-      <View style={[styles.wrapper, containerStyle]}>
+      <View className='w-full gap-1.5' style={containerStyle}>
         {!!label && (
-          <Text style={[styles.label, hasError && styles.labelError, disabled && styles.labelDisabled]}>{label}</Text>
+          <Text
+            className={[
+              'text-[15px] font-medium text-neutral-900',
+              hasError && 'text-red-500',
+              disabled && 'text-neutral-400',
+            ]
+              .filter(Boolean)
+              .join(' ')}
+          >
+            {label}
+          </Text>
         )}
 
         <Pressable
           onPress={open}
           disabled={disabled}
-          style={[
-            styles.inputContainer,
-            focused && styles.inputContainerFocused,
-            hasError && styles.inputContainerError,
-            disabled && styles.inputContainerDisabled,
-            inputContainerStyle,
-          ]}
+          className={[
+            'min-h-[52px] flex-row items-center rounded-[10px] border border-zinc-300 bg-white px-[14px]',
+            focused && 'border-[#2F2F31] bg-[#2F2F31]',
+            hasError && 'border-red-500',
+            disabled && 'border-neutral-200 bg-neutral-100',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          style={inputContainerStyle}
         >
-          {leftIcon ? <View style={styles.leftIcon}>{leftIcon}</View> : null}
+          {leftIcon ? <View className='items-center justify-center'>{leftIcon}</View> : null}
 
           <Text
             numberOfLines={1}
-            style={[
-              styles.valueText,
-              // @ts-ignore
-              leftIcon && styles.valueTextWithLeftIcon,
-              isPlaceholder && styles.placeholderText,
-              focused && styles.valueTextFocused,
-              disabled && styles.valueTextDisabled,
-            ]}
+            className={[
+              'flex-1 py-[14px] text-[16px] text-neutral-900',
+              leftIcon && 'ml-2.5',
+              isPlaceholder && 'text-neutral-400',
+              focused && 'text-white',
+              disabled && 'text-neutral-400',
+            ]
+              .filter(Boolean)
+              .join(' ')}
           >
             {displayText}
           </Text>
 
-          <View style={styles.rightSide}>
+          <View className='ml-2.5 flex-row items-center gap-2'>
             {clearable && value != null && !disabled ? (
               <Pressable
                 onPress={e => {
@@ -124,7 +137,7 @@ export function AppSelect({
                   onChange(null)
                 }}
                 hitSlop={8}
-                style={styles.iconButton}
+                className='items-center justify-center'
               >
                 <Ionicons name='close-circle' size={18} color={focused ? '#FFFFFF' : '#111827'} />
               </Pressable>
@@ -135,33 +148,35 @@ export function AppSelect({
         </Pressable>
 
         {hasError && !!errorText ? (
-          <Text style={styles.errorText}>{errorText}</Text>
+          <Text className='text-[13px] text-red-500'>{errorText}</Text>
         ) : helperText ? (
-          <Text style={styles.helperText}>{helperText}</Text>
+          <Text className='text-[13px] text-neutral-500'>{helperText}</Text>
         ) : null}
       </View>
 
       <Modal visible={visible} animationType='none' transparent onRequestClose={close}>
-        <Pressable style={styles.backdrop} onPress={close}>
-          <Pressable onPress={e => e.stopPropagation()} style={[styles.sheet, isDark && styles.sheetDark]}>
-            <View style={[styles.toolbar, isDark && styles.toolbarDark]}>
+        <Pressable className='flex-1 justify-end bg-black/20' onPress={close}>
+          <Pressable onPress={e => e.stopPropagation()} className={['overflow-hidden rounded-t-[18px]', isDark ? 'bg-[#1C1C1E]' : 'bg-[#F2F2F7]'].join(' ')}>
+            <View className={['min-h-[52px] flex-row items-center justify-between border-b px-4', isDark ? 'border-[#3A3A3C] bg-[#2C2C2E]' : 'border-[#D1D1D6] bg-[#F9F9F9]'].join(' ')}>
               <Pressable onPress={close} hitSlop={8}>
-                <Text style={styles.toolbarAction}>Cancel</Text>
+                <Text className='text-[17px] font-medium text-[#007AFF]'>Cancel</Text>
               </Pressable>
 
-              <Text style={[styles.toolbarTitle, isDark && styles.toolbarTitleDark]}>{label ?? 'Select'}</Text>
+              <Text className={['text-[15px] font-semibold', isDark ? 'text-white' : 'text-[#111827]'].join(' ')}>
+                {label ?? 'Select'}
+              </Text>
 
               <Pressable onPress={confirm} hitSlop={8}>
-                <Text style={styles.toolbarAction}>Done</Text>
+                <Text className='text-[17px] font-medium text-[#007AFF]'>Done</Text>
               </Pressable>
             </View>
 
-            <View style={styles.pickerWrapper}>
+            <View style={{ backgroundColor: isDark ? '#1C1C1E' : '#F2F2F7', paddingBottom: Platform.OS === 'ios' ? 24 : 12 }}>
               <Picker
                 selectedValue={tempValue}
                 onValueChange={itemValue => setTempValue(itemValue)}
-                itemStyle={[styles.pickerItem, isDark && styles.pickerItemDark]}
-                style={styles.picker}
+                itemStyle={{ fontSize: 22, color: isDark ? '#FFFFFF' : '#111827' }}
+                style={{ width: '100%', height: 216 }}
                 // @ts-ignore
                 themeVariant={isDark ? 'dark' : 'light'}
               >
@@ -172,9 +187,9 @@ export function AppSelect({
             </View>
 
             {clearable && value != null ? (
-              <View style={[styles.footer, isDark && styles.footerDark]}>
+              <View style={{ paddingHorizontal: 16, paddingTop: 8, paddingBottom: 24, alignItems: 'center', backgroundColor: isDark ? '#1C1C1E' : '#F2F2F7' }}>
                 <Pressable onPress={clear}>
-                  <Text style={styles.clearText}>Clear selection</Text>
+                  <Text className='text-[16px] font-medium text-[#FF3B30]'>Clear selection</Text>
                 </Pressable>
               </View>
             ) : null}
@@ -184,154 +199,3 @@ export function AppSelect({
     </>
   )
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    width: '100%',
-    gap: 6,
-  },
-  label: {
-    fontSize: 15,
-    color: '#171717',
-    fontWeight: '500',
-  },
-  labelError: {
-    color: '#EF4444',
-  },
-  labelDisabled: {
-    color: '#A3A3A3',
-  },
-  inputContainer: {
-    minHeight: 52,
-    borderWidth: 1,
-    borderColor: '#D4D4D8',
-    borderRadius: 10,
-    backgroundColor: '#FFFFFF',
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 14,
-  },
-  inputContainerFocused: {
-    backgroundColor: '#2F2F31',
-    borderColor: '#2F2F31',
-  },
-  inputContainerError: {
-    borderColor: '#EF4444',
-  },
-  inputContainerDisabled: {
-    backgroundColor: '#F5F5F5',
-    borderColor: '#E5E5E5',
-  },
-  leftIcon: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  valueText: {
-    flex: 1,
-    fontSize: 16,
-    color: '#171717',
-    paddingVertical: 14,
-  },
-  valueTextWithLeftIcon: {
-    marginLeft: 10,
-  },
-  valueTextFocused: {
-    color: '#FFFFFF',
-  },
-  valueTextDisabled: {
-    color: '#A3A3A3',
-  },
-  placeholderText: {
-    color: '#A3A3A3',
-  },
-  rightSide: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    marginLeft: 10,
-  },
-  iconButton: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  helperText: {
-    fontSize: 13,
-    color: '#737373',
-  },
-  errorText: {
-    fontSize: 13,
-    color: '#EF4444',
-  },
-
-  backdrop: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    backgroundColor: 'rgba(0,0,0,0.2)',
-  },
-  sheet: {
-    backgroundColor: '#F2F2F7',
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
-    overflow: 'hidden',
-  },
-  sheetDark: {
-    backgroundColor: '#1C1C1E',
-  },
-  toolbar: {
-    minHeight: 52,
-    paddingHorizontal: 16,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#D1D1D6',
-    backgroundColor: '#F9F9F9',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  toolbarDark: {
-    backgroundColor: '#2C2C2E',
-    borderBottomColor: '#3A3A3C',
-  },
-  toolbarAction: {
-    fontSize: 17,
-    color: '#007AFF',
-    fontWeight: '500',
-  },
-  toolbarTitle: {
-    fontSize: 15,
-    color: '#111827',
-    fontWeight: '600',
-  },
-  toolbarTitleDark: {
-    color: '#FFFFFF',
-  },
-  pickerWrapper: {
-    backgroundColor: '#F2F2F7',
-    paddingBottom: Platform.OS === 'ios' ? 24 : 12,
-  },
-  picker: {
-    width: '100%',
-    height: 216,
-  },
-  pickerItem: {
-    fontSize: 22,
-    color: '#111827',
-  },
-  pickerItemDark: {
-    color: '#FFFFFF',
-  },
-  footer: {
-    paddingHorizontal: 16,
-    paddingTop: 8,
-    paddingBottom: 24,
-    alignItems: 'center',
-    backgroundColor: '#F2F2F7',
-  },
-  footerDark: {
-    backgroundColor: '#1C1C1E',
-  },
-  clearText: {
-    fontSize: 16,
-    color: '#FF3B30',
-    fontWeight: '500',
-  },
-})

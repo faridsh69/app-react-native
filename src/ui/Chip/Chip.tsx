@@ -3,7 +3,6 @@ import { Platform, Pressable } from 'react-native'
 import { Icon } from '../Icon/Icon'
 import { Label } from '../Label/Label'
 import { ColorsEnum, FontsEnum, IconsEnum, SIZE_MAP_CHIP, SizesEnum } from '../theme/themeEnums'
-import { styles } from './Chip.styles'
 import { ChipProps } from './Chip.types'
 
 const FONTS_SIZES_MAP = {
@@ -18,8 +17,14 @@ export const Chip = (props: ChipProps) => {
   const isWeb = Platform.OS === 'web'
 
   const containerStyle: any = [
-    styles.wrapper,
     {
+      alignSelf: 'flex-start',
+      maxWidth: '100%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderRadius: 100,
+      borderWidth: 1,
+      gap: 8,
       height,
       paddingHorizontal,
       width,
@@ -28,7 +33,7 @@ export const Chip = (props: ChipProps) => {
       userSelect: 'none',
     },
     !noHover && isWeb && { borderColor: ColorsEnum.PrimaryMain },
-    noHover && styles.noHover,
+    noHover && { pointerEvents: 'none', borderColor: ColorsEnum.Grey400 },
   ]
 
   return (
@@ -41,7 +46,7 @@ export const Chip = (props: ChipProps) => {
       <Label label={label} font={FONTS_SIZES_MAP[size]} cursorPointer />
 
       {!!onClose && (
-        <Pressable onPress={onClose} hitSlop={8} style={styles.close}>
+        <Pressable onPress={onClose} hitSlop={8} className='px-1.5 py-0.5'>
           <Icon icon={IconsEnum.CloseMedium} size={SizesEnum.S} />
         </Pressable>
       )}

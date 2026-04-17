@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import * as Clipboard from 'expo-clipboard'
-import { Pressable, StyleProp, StyleSheet, Text, TextInput, TextInputProps, View, ViewStyle } from 'react-native'
+import { Pressable, StyleProp, Text, TextInput, TextInputProps, View, ViewStyle } from 'react-native'
 
 type RightElementType = 'unit' | 'clearable' | 'password' | 'copyable' | 'custom'
 
@@ -95,37 +95,49 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
       onCopy?.(stringValue)
     }
 
-    const containerStyles = [
-      styles.inputContainer,
-      focused && styles.inputContainerFocused,
-      hasError && styles.inputContainerError,
-      disabled && styles.inputContainerDisabled,
-      inputContainerStyle,
-    ]
-
-    const textInputStyles = [
-      styles.input,
-      leftIcon ? styles.inputWithLeftIcon : null,
-      rightType ? styles.inputWithRightElement : null,
-      disabled && styles.inputDisabled,
-      focused && styles.inputFocused,
-      style,
-    ]
-
     return (
-      <View style={[styles.wrapper, containerStyle]}>
+      <View className='w-full gap-1.5' style={containerStyle}>
         {!!label && (
-          <Text style={[styles.label, hasError && styles.labelError, disabled && styles.labelDisabled]}>{label}</Text>
+          <Text
+            className={[
+              'text-[15px] font-medium text-neutral-900',
+              hasError && 'text-red-500',
+              disabled && 'text-neutral-400',
+            ]
+              .filter(Boolean)
+              .join(' ')}
+          >
+            {label}
+          </Text>
         )}
 
-        <View style={containerStyles}>
-          {leftIcon ? <View style={styles.leftIcon}>{leftIcon}</View> : null}
+        <View
+          className={[
+            'min-h-[52px] flex-row items-center rounded-[10px] border border-zinc-300 bg-white px-[14px]',
+            focused && 'border-[#2F2F31] bg-[#2F2F31]',
+            hasError && 'border-red-500',
+            disabled && 'border-neutral-200 bg-neutral-100',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          style={inputContainerStyle}
+        >
+          {leftIcon ? <View className='items-center justify-center'>{leftIcon}</View> : null}
 
           <TextInput
             ref={ref}
             value={value}
             editable={isEditable}
-            style={textInputStyles}
+            style={style}
+            className={[
+              'flex-1 py-3 text-[16px] text-neutral-900',
+              leftIcon && 'ml-2.5',
+              rightType && 'mr-2.5',
+              disabled && 'text-neutral-400',
+              focused && 'text-white',
+            ]
+              .filter(Boolean)
+              .join(' ')}
             placeholderTextColor={disabled ? '#C7C7C7' : '#A3A3A3'}
             secureTextEntry={passwordToggle ? hidePassword : secureTextEntry}
             onFocus={handleFocus}
@@ -134,33 +146,33 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
             {...props}
           />
 
-          {rightType === 'unit' && <Text style={styles.unitText}>{unit}</Text>}
+          {rightType === 'unit' && <Text className='text-[16px] font-medium text-neutral-400'>{unit}</Text>}
 
           {rightType === 'clearable' && (
-            <Pressable onPress={handleClear} hitSlop={8} style={styles.iconButton}>
+            <Pressable onPress={handleClear} hitSlop={8} className='items-center justify-center'>
               <Ionicons name='close-circle' size={18} color='#111827' />
             </Pressable>
           )}
 
           {rightType === 'password' && (
-            <Pressable onPress={() => setHidePassword(prev => !prev)} hitSlop={8} style={styles.iconButton}>
+            <Pressable onPress={() => setHidePassword(prev => !prev)} hitSlop={8} className='items-center justify-center'>
               <Ionicons name={hidePassword ? 'eye-off-outline' : 'eye-outline'} size={20} color='#525252' />
             </Pressable>
           )}
 
           {rightType === 'copyable' && (
-            <Pressable onPress={handleCopy} hitSlop={8} style={styles.iconButton}>
+            <Pressable onPress={handleCopy} hitSlop={8} className='items-center justify-center'>
               <Ionicons name='copy-outline' size={20} color='#111827' />
             </Pressable>
           )}
 
-          {rightType === 'custom' && <View style={styles.rightCustom}>{rightElement}</View>}
+          {rightType === 'custom' && <View className='items-center justify-center'>{rightElement}</View>}
         </View>
 
         {hasError && !!errorText ? (
-          <Text style={styles.errorText}>{errorText}</Text>
+          <Text className='text-[13px] text-red-500'>{errorText}</Text>
         ) : helperText ? (
-          <Text style={styles.helperText}>{helperText}</Text>
+          <Text className='text-[13px] text-neutral-500'>{helperText}</Text>
         ) : null}
       </View>
     )
@@ -168,85 +180,3 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
 )
 
 AppTextInput.displayName = 'AppTextInput'
-
-const styles = StyleSheet.create({
-  wrapper: {
-    width: '100%',
-    gap: 6,
-  },
-  label: {
-    fontSize: 15,
-    color: '#171717',
-    fontWeight: '500',
-  },
-  labelError: {
-    color: '#EF4444',
-  },
-  labelDisabled: {
-    color: '#A3A3A3',
-  },
-  inputContainer: {
-    minHeight: 52,
-    borderWidth: 1,
-    borderColor: '#D4D4D8',
-    borderRadius: 10,
-    backgroundColor: '#FFFFFF',
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 14,
-  },
-  inputContainerFocused: {
-    backgroundColor: '#2F2F31',
-    borderColor: '#2F2F31',
-  },
-  inputContainerError: {
-    borderColor: '#EF4444',
-  },
-  inputContainerDisabled: {
-    backgroundColor: '#F5F5F5',
-    borderColor: '#E5E5E5',
-  },
-  input: {
-    flex: 1,
-    color: '#171717',
-    fontSize: 16,
-    paddingVertical: 12,
-  },
-  inputFocused: {
-    color: '#FFFFFF',
-  },
-  inputDisabled: {
-    color: '#A3A3A3',
-  },
-  inputWithLeftIcon: {
-    marginLeft: 10,
-  },
-  inputWithRightElement: {
-    marginRight: 10,
-  },
-  leftIcon: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  iconButton: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  rightCustom: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  unitText: {
-    fontSize: 16,
-    color: '#A3A3A3',
-    fontWeight: '500',
-  },
-  helperText: {
-    fontSize: 13,
-    color: '#737373',
-  },
-  errorText: {
-    fontSize: 13,
-    color: '#EF4444',
-  },
-})

@@ -1,5 +1,5 @@
 import type { PropsWithChildren, ReactElement } from 'react'
-import { StyleSheet, useColorScheme } from 'react-native'
+import { useColorScheme } from 'react-native'
 import Animated, { interpolate, useAnimatedRef, useAnimatedStyle, useScrollOffset } from 'react-native-reanimated'
 
 import { Label } from '../Label/Label'
@@ -29,9 +29,7 @@ export const ParallaxScrollView = ({ children, headerImage, headerBackgroundColo
 
   return (
     <Animated.ScrollView ref={scrollRef} style={{ backgroundColor: 'black', flex: 1 }} scrollEventThrottle={16}>
-      <Animated.View
-        style={[styles.header, { backgroundColor: headerBackgroundColor[colorScheme] }, headerAnimatedStyle]}
-      >
+      <Animated.View className='overflow-hidden' style={[{ height: HEADER_HEIGHT, backgroundColor: headerBackgroundColor[colorScheme] }, headerAnimatedStyle]}>
         {headerImage}
       </Animated.View>
       <Label label={children} />
@@ -43,19 +41,3 @@ type Props = PropsWithChildren<{
   headerImage: ReactElement
   headerBackgroundColor: { dark: string; light: string }
 }>
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    height: HEADER_HEIGHT,
-    overflow: 'hidden',
-  },
-  content: {
-    flex: 1,
-    padding: 32,
-    gap: 16,
-    overflow: 'hidden',
-  },
-})

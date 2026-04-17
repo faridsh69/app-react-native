@@ -5,7 +5,6 @@ import { Image } from '../Image/Image'
 import { Label } from '../Label/Label'
 import { Loader } from '../Loader/Loader'
 import { FontsEnum, IconsEnum, SizesEnum } from '../theme/themeEnums'
-import { styles } from './DataNotFound.styles'
 import { DataNotFoundProps } from './DataNotFound.types'
 
 export const DataNotFound = (props: DataNotFoundProps) => {
@@ -19,9 +18,11 @@ export const DataNotFound = (props: DataNotFoundProps) => {
   const label = isLoading ? 'Searching...' : finalLabel
 
   return (
-    <View style={[styles.wrapper]}>
+    <View className='w-full items-center justify-center px-4 py-6'>
       {isLoading && <Loader label='' subLabel='' size={SizesEnum.L} />}
-      {!isLoading && !image && <Icon icon={icon || IconsEnum.EmptyWine} style={[styles.icon, style]} />}
+      {!isLoading && !image && (
+        <Icon icon={icon || IconsEnum.EmptyWine} style={[{ width: 56, height: 56, marginBottom: 12 }, style]} />
+      )}
       {!isLoading && image && <Image src={image} />}
       <Label label={label} font={FontsEnum.Text14} disabled />
     </View>
