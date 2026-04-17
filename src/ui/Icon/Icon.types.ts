@@ -1,6 +1,6 @@
 import { SymbolWeight } from 'expo-symbols'
 
-import { IconsEnum, SizesEnum } from '../theme/enums'
+import { IconsEnum, SizesEnum } from '../theme/themeEnums'
 
 export type IconProps = {
   icon: IconsEnum

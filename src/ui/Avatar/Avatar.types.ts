@@ -1,4 +1,4 @@
-import { SizesEnum } from '../theme/enums'
+import { SizesEnum } from '../theme/themeEnums'
 
 export type AvatarProps = {
   src?: string

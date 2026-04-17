@@ -1,3 +1,5 @@
+const { themeTokens } = require('./src/ui/theme/themeTokens')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: process.env.DARK_MODE ? process.env.DARK_MODE : 'class',
@@ -19,6 +21,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          primary: themeTokens.colors.primaryMain,
+          inverse: themeTokens.colors.primaryInverse,
+          surface: themeTokens.colors.secondaryMain,
+          muted: themeTokens.colors.secondaryTransparent,
+          border: themeTokens.colors.secondaryInverse,
+          danger: themeTokens.colors.error,
+          success: themeTokens.colors.success,
+          warning: themeTokens.colors.warning,
+          disabled: themeTokens.colors.disabledMain,
+          'disabled-foreground': themeTokens.colors.disabledInverse,
+          beige: themeTokens.colors.beige,
+          ink: themeTokens.colors.black,
+          white: themeTokens.colors.white,
+          gray: {
+            100: themeTokens.colors.grey100,
+            200: themeTokens.colors.grey200,
+            300: themeTokens.colors.grey300,
+            400: themeTokens.colors.grey400,
+            500: themeTokens.colors.grey500,
+            600: themeTokens.colors.grey600,
+            700: themeTokens.colors.grey700,
+            800: themeTokens.colors.grey800,
+          },
+        },
         primary: {
           0: 'rgb(var(--color-primary-0)/<alpha-value>)',
           50: 'rgb(var(--color-primary-50)/<alpha-value>)',
@@ -174,6 +201,32 @@ module.exports = {
           error: 'rgb(var(--color-indicator-error)/<alpha-value>)',
         },
       },
+      spacing: {
+        'space-s': `${themeTokens.spacing.s}px`,
+        'space-m': `${themeTokens.spacing.m}px`,
+        'space-l': `${themeTokens.spacing.l}px`,
+      },
+      width: {
+        'control-s': `${themeTokens.sizes.s}px`,
+        'control-m': `${themeTokens.sizes.m}px`,
+        'control-l': `${themeTokens.sizes.l}px`,
+      },
+      height: {
+        'control-s': `${themeTokens.sizes.s}px`,
+        'control-m': `${themeTokens.sizes.m}px`,
+        'control-l': `${themeTokens.sizes.l}px`,
+      },
+      minHeight: {
+        'control-s': `${themeTokens.sizes.s}px`,
+        'control-m': `${themeTokens.sizes.m}px`,
+        'control-l': `${themeTokens.sizes.l}px`,
+      },
+      borderRadius: {
+        'control-s': `${themeTokens.radii.s}px`,
+        'control-m': `${themeTokens.radii.m}px`,
+        'control-l': `${themeTokens.radii.l}px`,
+        pill: `${themeTokens.radii.pill}px`,
+      },
       fontFamily: {
         heading: undefined,
         body: undefined,
@@ -203,4 +256,4 @@ module.exports = {
       },
     },
   },
-};
+}

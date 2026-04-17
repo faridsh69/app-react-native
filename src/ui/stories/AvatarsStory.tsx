@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Avatar } from '../Avatar/Avatar'
-import { SizesEnum } from '../theme/enums'
-import { codeTextStyle } from '../theme/story.style'
+import { SizesEnum } from '../theme/themeEnums'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const AvatarsStory: React.FC = () => {
   return (

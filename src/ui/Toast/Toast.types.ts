@@ -1,4 +1,4 @@
-import { ColorsEnumType, IconsEnum } from '../theme/enums'
+import { ColorsEnumType, IconsEnum } from '../theme/themeEnums'
 
 export type ToastCardProps = {
   title?: string

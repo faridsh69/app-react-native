@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from 'react'
 
 import { ButtonProps } from '../Button/Button.types'
-import { VariantsEnum } from '../theme/enums'
+import { VariantsEnum } from '../theme/themeEnums'
 
 export type ModalProps = {
   title?: string

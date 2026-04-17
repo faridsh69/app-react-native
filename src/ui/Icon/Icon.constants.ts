@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react'
 import { FontAwesome } from '@expo/vector-icons'
 
-import { IconsEnum, SizesEnum } from '../theme/enums'
+import { IconsEnum, SizesEnum } from '../theme/themeEnums'
 import EmptyWineIcon from './svgs/EmptyWineIcon'
 import LogoIcon from './svgs/LogoIcon'
 import ViewIcon from './svgs/ViewIcon'

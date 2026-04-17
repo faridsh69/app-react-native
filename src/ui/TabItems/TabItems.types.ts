@@ -1,6 +1,6 @@
 import { OptionValueType } from '@/core/types/core.types'
 
-import { ColorsEnumType, DirectionsEnum, IconsEnum } from '../theme/enums'
+import { ColorsEnumType, DirectionsEnum, IconsEnum } from '../theme/themeEnums'
 
 export type TabItemValue = string | number
 

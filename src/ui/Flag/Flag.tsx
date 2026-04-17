@@ -1,4 +1,4 @@
-import { CountriesEnum } from '../theme/enums'
+import { CountriesEnum } from '../theme/themeEnums'
 import FranceFlag from './flags/FranceFlag'
 
 type FlagProps = {

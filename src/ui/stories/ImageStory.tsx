@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Image } from '../Image/Image'
 import { IMAGE_URLS } from '../Image/Image.constants'
 import { ImageProps } from '../Image/Image.types'
-import { codeTextStyle } from '../theme/story.style'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 const bigSizeImage =
   'https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?cs=srgb&dl=pexels-dominikagregus-672532.jpg&fm=jpg'

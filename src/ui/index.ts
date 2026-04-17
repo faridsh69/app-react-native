@@ -9,7 +9,6 @@ export { Icon } from './Icon/Icon'
 export type { IconProps } from './Icon/Icon.types'
 
 export { Label } from './Label/Label'
-export type { LabelProps } from './Label/Label.types'
 
 export { Button } from './Button/Button'
 export type { ButtonProps } from './Button/Button.types'
@@ -51,7 +50,7 @@ export type { SkeletProps } from './Skelet/Skelet.types'
 
 export { toastError, toastSuccess, toastWarning } from './Toast/Toast'
 
-export { ThemeModesEnum } from './theme/theme.constants'
+export { ThemeModesEnum } from './theme/themeEnums'
 
 export { GluestackUIProvider } from './theme/gluestack-ui-provider'
 
@@ -59,9 +58,8 @@ export { ProductCard } from './ProductCard/ProductCard'
 export { ProductImage } from './ProductImage/ProductImage'
 export type { ProductImageProps } from './ProductImage/ProductImage.types'
 
-export { SizesEnum, VariantsEnum, ColorsEnum, FontsEnum, IconsEnum, SidesEnum, FontsEnumType } from './theme/enums'
+export { SizesEnum, VariantsEnum, ColorsEnum, FontsEnum, IconsEnum, SidesEnum, FontsEnumType } from './theme/themeEnums'
 
-export { Colors } from './theme/theme.constants'
 // export { Radio } from './Radio/Radio'
 // export type { RadioProps } from './Radio/Radio.types'
 

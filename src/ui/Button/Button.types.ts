@@ -1,4 +1,4 @@
-import { FontsEnumType, IconsEnum, SidesEnum, SizesEnum, VariantsEnum } from '../theme/enums'
+import { FontsEnumType, IconsEnum, SidesEnum, SizesEnum, VariantsEnum } from '../theme/themeEnums'
 
 export type ButtonProps = {
   type?: string

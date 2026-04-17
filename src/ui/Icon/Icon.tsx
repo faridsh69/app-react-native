@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesome } from '@expo/vector-icons'
 import Svg from 'react-native-svg'
 
-import { ColorsEnum, SizesEnum } from '../theme/enums'
+import { ColorsEnum, SizesEnum } from '../theme/themeEnums'
 import { FontAwesomeMapping, sizeMapping, svgMapping } from './Icon.constants'
 import { IconProps } from './Icon.types'
 

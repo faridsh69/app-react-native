@@ -1,10 +1,9 @@
-import { useThemeColor } from '@/ui/theme/hooks/useThemeColor'
 import { StyleSheet, View, type ViewProps } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { Button } from '../Button/Button'
 import { Icon } from '../Icon/Icon'
-import { IconsEnum, SizesEnum, VariantsEnum } from '../theme/enums'
+import { IconsEnum, SizesEnum, VariantsEnum } from '../theme/themeEnums'
 
 export type ThemedViewProps = ViewProps & {
   light?: string
@@ -12,15 +11,13 @@ export type ThemedViewProps = ViewProps & {
 }
 
 export function ThemedView({ style, light, dark, children, ...otherProps }: ThemedViewProps) {
-  const backgroundColor = useThemeColor({ light, dark }, 'background')
-
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor }]} edges={['top']}>
+    <SafeAreaView style={[styles.safeArea]} edges={['top']}>
       <View style={styles.header}>
         <Icon icon={IconsEnum.Logo} size={SizesEnum.L} />
         <Button label='shipped To' size={SizesEnum.S} variant={VariantsEnum.Secondary} />
       </View>
-      <View style={[styles.content, { backgroundColor }, style]} {...otherProps}>
+      <View style={[styles.content, style]} {...otherProps}>
         {children}
       </View>
     </SafeAreaView>

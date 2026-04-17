@@ -5,7 +5,7 @@ import Carousel from 'react-native-reanimated-carousel'
 import { Icon } from '../Icon/Icon'
 import { Image } from '../Image/Image'
 import { Label } from '../Label/Label'
-import { FontsEnum, IconsEnum, SizesEnum, TextAlignEnum } from '../theme/enums'
+import { FontsEnum, IconsEnum, SizesEnum, TextAlignEnum } from '../theme/themeEnums'
 import { styles } from './MainSlider.styles'
 import { MainSliderProps } from './MainSlider.types'
 

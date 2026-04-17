@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { TextInput, View } from 'react-native'
 
 import { Label } from '../Label/Label'
-import { FontsEnum, PlacementsEnum } from '../theme/enums'
+import { FontsEnum, PlacementsEnum } from '../theme/themeEnums'
 import { CharacterCounter } from './CharacterCounter'
 import { SIZE_MAP_TEXTAREA, TextareaSizes } from './Textarea.enums'
 import { styles } from './Textarea.styles'

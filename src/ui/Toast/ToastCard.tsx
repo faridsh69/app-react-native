@@ -4,7 +4,7 @@ import Toast from 'react-native-toast-message'
 
 import { Icon } from '../Icon/Icon'
 import { Label } from '../Label/Label'
-import { ColorsEnum, FontsEnum, IconsEnum, SizesEnum } from '../theme/enums'
+import { ColorsEnum, FontsEnum, IconsEnum, SizesEnum } from '../theme/themeEnums'
 import { ToastCardProps } from './Toast.types'
 import { styles } from './ToastCard.styles'
 

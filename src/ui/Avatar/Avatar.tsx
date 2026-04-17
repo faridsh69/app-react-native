@@ -3,7 +3,7 @@ import { StyleProp, View, ViewStyle } from 'react-native'
 
 import { Icon } from '../Icon/Icon'
 import { Image } from '../Image/Image'
-import { IconsEnum, SizesEnum } from '../theme/enums'
+import { IconsEnum, SizesEnum } from '../theme/themeEnums'
 import { styles } from './Avatar.styles'
 import { AvatarProps } from './Avatar.types'
 

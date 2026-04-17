@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Rating } from '../Rating/Rating'
-import { SizesEnum } from '../theme/enums'
-import { codeTextStyle } from '../theme/story.style'
+import { SizesEnum } from '../theme/themeEnums'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const RatingStory: React.FC = () => {
   const [value, setValue] = useState(2)

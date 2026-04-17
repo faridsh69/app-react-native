@@ -2,7 +2,7 @@ import { Platform, Pressable } from 'react-native'
 
 import { Icon } from '../Icon/Icon'
 import { Label } from '../Label/Label'
-import { ColorsEnum, FontsEnum, IconsEnum, SIZE_MAP_CHIP, SizesEnum } from '../theme/enums'
+import { ColorsEnum, FontsEnum, IconsEnum, SIZE_MAP_CHIP, SizesEnum } from '../theme/themeEnums'
 import { styles } from './Chip.styles'
 import { ChipProps } from './Chip.types'
 

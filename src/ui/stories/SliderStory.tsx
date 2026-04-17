@@ -2,8 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { MainSlider } from '../MainSlider/MainSlider'
-import { codeTextStyle } from '../theme/story.style'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const SliderStory: React.FC = () => {
   const image1 = require('./extra/images/1.png')

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Checkbox } from '../Checkbox/Checkbox'
-import { codeTextStyle } from '../theme/story.style'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const CheckboxStory: React.FC = () => {
   const [checked, setChecked] = useState(false)

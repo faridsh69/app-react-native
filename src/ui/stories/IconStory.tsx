@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Icon } from '../Icon/Icon'
-import { ColorsEnum, IconsEnum, SizesEnum } from '../theme/enums'
-import { codeTextStyle } from '../theme/story.style'
+import { ColorsEnum, IconsEnum, SizesEnum } from '../theme/themeEnums'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const IconsStory = () => {
   const iconEntries = Object.entries(IconsEnum)

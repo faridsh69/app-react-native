@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Label } from '../Label/Label'
-import { ColorsEnum, FontsEnum } from '../theme/enums'
-import { codeTextStyle } from '../theme/story.style'
+import { ColorsEnum, FontsEnum } from '../theme/themeEnums'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const LabelStory: React.FC = () => {
   const fontEntries = Object.entries(FontsEnum)

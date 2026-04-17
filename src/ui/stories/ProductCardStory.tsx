@@ -4,8 +4,8 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native'
 
 import { ProductCard } from '../ProductCard/ProductCard'
 import { ProductImage } from '../ProductImage/ProductImage'
-import { codeTextStyle } from '../theme/story.style'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 const Wine1 = require('../../assets/w1.png')
 const Wine2 = require('../../assets/w2.png')

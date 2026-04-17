@@ -2,10 +2,10 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Button } from '../Button/Button'
-import { IconsEnum, VariantsEnum } from '../theme/enums'
-import { codeTextStyle } from '../theme/story.style'
+import { IconsEnum, VariantsEnum } from '../theme/themeEnums'
 import { toastError, toastSuccess, toastWarning } from '../Toast/Toast'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const ToastStory: React.FC = () => {
   return (

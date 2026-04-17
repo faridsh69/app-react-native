@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { TabItems } from '../TabItems/TabItems'
-import { DirectionsEnum } from '../theme/enums'
-import { codeTextStyle } from '../theme/story.style'
+import { DirectionsEnum } from '../theme/themeEnums'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const TabItemsStory: React.FC = () => {
   const [value, setValue] = useState<any>(1)

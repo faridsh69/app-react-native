@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import Toast from 'react-native-toast-message'
 
-import { ColorsEnum, IconsEnum } from '../theme/enums'
+import { ColorsEnum, IconsEnum } from '../theme/themeEnums'
 import { ShowToastOptions, ToastCardProps } from './Toast.types'
 import { ToastCard } from './ToastCard'
 

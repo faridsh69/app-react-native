@@ -2,7 +2,7 @@ import { Pressable, View } from 'react-native'
 
 import { Image } from '../Image/Image'
 import { Label } from '../Label/Label'
-import { ColorsEnum, FontsEnum } from '../theme/enums'
+import { ColorsEnum, FontsEnum } from '../theme/themeEnums'
 import { styles } from './ProductImage.styles'
 import { ProductImageProps } from './ProductImage.types'
 

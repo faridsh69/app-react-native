@@ -1,7 +1,7 @@
 import React from 'react'
 import { ActivityIndicator, Text, View } from 'react-native'
 
-import { ColorsEnum, SIZE_MAP, SizesEnum } from '../theme/enums'
+import { ColorsEnum, SIZE_MAP, SizesEnum } from '../theme/themeEnums'
 import { styles } from './Loader.styles'
 import { LoaderProps } from './Loader.types'
 

@@ -4,9 +4,9 @@ import { StyleSheet, Text, TextInput, View } from 'react-native'
 import { Button } from '../Button/Button'
 import { Label } from '../Label/Label'
 import { Modal } from '../Modal/Modal'
-import { ColorsEnum, FontsEnum, TextAlignEnum, VariantsEnum } from '../theme/enums'
-import { codeTextStyle } from '../theme/story.style'
+import { ColorsEnum, FontsEnum, TextAlignEnum, VariantsEnum } from '../theme/themeEnums'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const ModalStory: React.FC = () => {
   const [modal, setModal] = useState<'Login' | 'Register' | ''>('')

@@ -1,10 +1,7 @@
-import React, { useMemo } from 'react'
-import { useThemeColor } from '@/ui/theme/hooks/useThemeColor'
-import { Pressable, Text, View } from 'react-native'
+import React, { ReactNode, useMemo } from 'react'
+import { Pressable, Text, TextStyle, View } from 'react-native'
 
-import { ColorsEnum, FontsEnum } from '../theme/enums'
-import { styles } from './Label.styles'
-import { LabelProps } from './Label.types'
+import { ColorsEnum, ColorsEnumType, FontsEnum, FontsEnumType, PlacementsEnumType } from '../theme/themeEnums'
 
 export const Label = (props: LabelProps) => {
   const {
@@ -32,18 +29,23 @@ export const Label = (props: LabelProps) => {
     return color ?? stateColor
   }, [hasError, disabled, active, color, errorColor, disabledColor, activeColor, baseColor])
 
-  const wrapperStyle = [styles.wrapper, cursorPointer && styles.cursorPointer]
-  const textStyle = [font, styles.textBase, { color: textColor, textAlign }]
+  const wrapperClassName = [
+    'max-w-full min-w-0 flex-row items-start gap-space-s',
+    cursorPointer && 'web:cursor-pointer',
+  ]
+    .filter(Boolean)
+    .join(' ')
+  const textStyle = [font as TextStyle | undefined, { color: textColor, textAlign }].filter(Boolean) as TextStyle[]
 
   const Content = (
-    <View style={styles.textContainer}>
-      {/* @ts-ignore */}
-      <Text style={textStyle} numberOfLines={linesCount} ellipsizeMode='tail'>
+    <View className='max-w-full min-w-0 flex-row items-center shrink'>
+      <Text style={textStyle} numberOfLines={linesCount} ellipsizeMode='tail' className='max-w-full min-w-0 shrink'>
         {label}
       </Text>
       {required ? (
         <Text
-          style={[styles.required, { color: ColorsEnum.Error }]}
+          style={{ color: ColorsEnum.Error }}
+          className='ml-space-s w-3.5 text-center'
           accessibilityElementsHidden
           importantForAccessibility='no'
         >
@@ -54,21 +56,41 @@ export const Label = (props: LabelProps) => {
   )
 
   if (!onClick) {
-    return <View style={wrapperStyle}>{Content}</View>
+    return <View className={wrapperClassName}>{Content}</View>
   }
 
   return (
-    <View style={wrapperStyle}>
+    <View className={wrapperClassName}>
       <Pressable
         onPress={onClick}
         disabled={disabled}
         accessibilityRole='button'
         accessibilityState={{ disabled, selected: active }}
         android_ripple={{}}
-        style={styles.pressable}
+        className='max-w-full min-w-0 shrink'
       >
         {Content}
       </Pressable>
     </View>
   )
+}
+
+type LabelProps = {
+  label?: string | number | null | ReactNode
+  font?: FontsEnumType
+  disabled?: boolean
+  linesCount?: number
+  hasError?: boolean
+  active?: boolean
+  hint?: string
+  zIndex?: number
+  hintZIndex?: number
+  mouseEnterDelay?: number
+  forceTooltip?: boolean
+  color?: ColorsEnumType
+  textAlign?: TextStyle['textAlign']
+  required?: boolean
+  tooltipPlacement?: PlacementsEnumType
+  onClick?: () => void
+  cursorPointer?: boolean
 }

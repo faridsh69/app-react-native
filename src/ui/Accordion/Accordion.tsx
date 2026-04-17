@@ -1,14 +1,12 @@
 import { PropsWithChildren, useState } from 'react'
-import { StyleSheet, TouchableOpacity, useColorScheme } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 
 import { IconSymbol } from '../Icon/icon-symbol'
 import { Label } from '../Label/Label'
-import { Colors } from '../theme/theme.constants'
 import { ThemedView } from '../Views/ThemedView'
 
 export function Accordion({ children, title }: PropsWithChildren & { title: string }) {
   const [isOpen, setIsOpen] = useState(false)
-  const theme = useColorScheme() ?? 'light'
 
   return (
     <ThemedView>
@@ -17,7 +15,7 @@ export function Accordion({ children, title }: PropsWithChildren & { title: stri
           name='chevron.right'
           size={18}
           weight='medium'
-          color={theme === 'light' ? Colors.light.icon : Colors.dark.icon}
+          color={'black'}
           style={{ transform: [{ rotate: isOpen ? '90deg' : '0deg' }] }}
         />
 

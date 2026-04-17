@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Pressable, View } from 'react-native'
 
 import { Label } from '../Label/Label'
-import { SizesEnum } from '../theme/enums'
+import { SizesEnum } from '../theme/themeEnums'
 import { styles } from './Rating.styles'
 import { RatingProps } from './Rating.types'
 import { StarSvg } from './StarSvg'

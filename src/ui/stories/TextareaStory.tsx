@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Textarea } from '../Textarea/Textarea'
-import { codeTextStyle } from '../theme/story.style'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const TextareaStory: React.FC = () => {
   const [value, setValue] = useState('Value')

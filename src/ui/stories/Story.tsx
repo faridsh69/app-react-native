@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView, View, ViewProps } from 'react-native'
 
-import { storyStyles } from '../theme/story.style'
+import { storyStyles } from './story.style'
 
 type StoryProps = ViewProps & {
   showsVerticalScrollIndicator?: boolean

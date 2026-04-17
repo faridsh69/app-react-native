@@ -2,7 +2,7 @@ import React from 'react'
 import { designColors } from '@/ui/theme/common.style'
 import Svg, { Path } from 'react-native-svg'
 
-import { SizesEnum } from '../theme/enums'
+import { SizesEnum } from '../theme/themeEnums'
 import { StarSvgProps } from './Rating.types'
 
 const sizePx = (size: SizesEnum | undefined) => (size === SizesEnum.S ? 20 : 36)

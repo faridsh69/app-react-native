@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Loader } from '../Loader/Loader'
-import { SizesEnum } from '../theme/enums'
+import { SizesEnum } from '../theme/themeEnums'
 import { Story } from './Story'
 
 export const LoaderStory: React.FC = () => {

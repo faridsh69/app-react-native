@@ -1,4 +1,4 @@
-import { IconsEnum } from '../theme/enums'
+import { IconsEnum } from '../theme/themeEnums'
 
 export type DataNotFoundProps = {
   isLoading?: boolean

@@ -1,6 +1,6 @@
 import { Platform, StyleSheet } from 'react-native'
 
-import { designColors } from './common.style'
+import { designColors } from '../theme/common.style'
 
 export const storyStyles = StyleSheet.create({
   scroll: {

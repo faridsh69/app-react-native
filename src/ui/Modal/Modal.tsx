@@ -8,7 +8,7 @@ import { Dimensions, Platform, View } from 'react-native'
 
 import { Button } from '../Button/Button'
 import { Label } from '../Label/Label'
-import { FontsEnum, IconsEnum, SizesEnum, VariantsEnum } from '../theme/enums'
+import { FontsEnum, IconsEnum, SizesEnum, VariantsEnum } from '../theme/themeEnums'
 import { styles } from './Modal.styles'
 import { ModalProps } from './Modal.types'
 

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Chip } from '../Chip/Chip'
-import { IconsEnum, SizesEnum } from '../theme/enums'
-import { codeTextStyle } from '../theme/story.style'
+import { IconsEnum, SizesEnum } from '../theme/themeEnums'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const ChipStory: React.FC = () => {
   const sizes = [SizesEnum.M, SizesEnum.S]

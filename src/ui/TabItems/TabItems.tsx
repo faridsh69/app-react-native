@@ -2,7 +2,7 @@ import React from 'react'
 import { designColors } from '@/ui/theme/common.style'
 import { Pressable, ScrollView, Text, View } from 'react-native'
 
-import { DirectionsEnum } from '../theme/enums'
+import { DirectionsEnum } from '../theme/themeEnums'
 import { styles } from './TabItems.styles'
 import { TabItemsOption, TabItemsProps } from './TabItems.types'
 

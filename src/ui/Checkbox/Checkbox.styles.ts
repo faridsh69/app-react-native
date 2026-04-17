@@ -31,8 +31,4 @@ export const styles = StyleSheet.create({
   error: {
     borderColor: designColors.error,
   },
-
-  label: {
-    marginLeft: designSpacing.s,
-  },
 })

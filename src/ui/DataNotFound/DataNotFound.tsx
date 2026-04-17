@@ -4,7 +4,7 @@ import { Icon } from '../Icon/Icon'
 import { Image } from '../Image/Image'
 import { Label } from '../Label/Label'
 import { Loader } from '../Loader/Loader'
-import { FontsEnum, IconsEnum, SizesEnum } from '../theme/enums'
+import { FontsEnum, IconsEnum, SizesEnum } from '../theme/themeEnums'
 import { styles } from './DataNotFound.styles'
 import { DataNotFoundProps } from './DataNotFound.types'
 

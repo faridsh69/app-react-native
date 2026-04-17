@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native'
 
 import { Button } from '../Button/Button'
 import { DataNotFound } from '../DataNotFound/DataNotFound'
-import { IconsEnum } from '../theme/enums'
-import { codeTextStyle } from '../theme/story.style'
+import { IconsEnum } from '../theme/themeEnums'
 import { Story } from './Story'
+import { codeTextStyle } from './story.style'
 
 export const DataNotFoundStory: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false)

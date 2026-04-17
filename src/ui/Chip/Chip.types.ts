@@ -1,4 +1,4 @@
-import { CountriesEnum, IconsEnum, SizesEnum } from '../theme/enums'
+import { CountriesEnum, IconsEnum, SizesEnum } from '../theme/themeEnums'
 
 export type ChipProps = {
   onClose?: () => void
