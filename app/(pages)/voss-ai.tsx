@@ -1,4 +1,4 @@
-import { ThemedView } from '@/ui'
+import { Container } from '@/ui'
 import { AvatarsStory } from '@/ui/stories/AvatarsStory'
 import { ButtonStory } from '@/ui/stories/ButtonStory'
 import { CheckboxStory } from '@/ui/stories/CheckboxStory'
@@ -24,7 +24,7 @@ import { ScrollView } from 'react-native'
 
 export default function UiPage() {
   return (
-    <ThemedView>
+    <Container>
       <ScrollView>
         {/* <ModalStory /> */}
         <DialogStory />
@@ -53,6 +53,6 @@ export default function UiPage() {
         <IconsStory />
         <LabelStory />
       </ScrollView>
-    </ThemedView>
+    </Container>
   )
 }

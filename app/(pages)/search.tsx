@@ -1,11 +1,11 @@
-import { Label, ThemedView } from '@/ui'
+import { Container, Label } from '@/ui'
 import { StyleSheet } from 'react-native'
 
 export default function SearchPage() {
   return (
-    <ThemedView style={styles.container}>
+    <Container style={styles.container}>
       <Label label='Search Page' />
-    </ThemedView>
+    </Container>
   )
 }
 

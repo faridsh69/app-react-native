@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar'
 import 'react-native-reanimated'
 import '../global.css'
 
+import { PAGES } from '@/core/constants/navigation.constants'
 import { GluestackUIProvider, ThemeModesEnum } from '@/ui'
 import { toastConfig } from '@/ui/Toast/Toast'
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
@@ -27,7 +28,7 @@ export default function RootLayout() {
           <BottomSheetModalProvider>
             <Stack>
               <Stack.Screen name='(pages)' options={{ headerShown: false }} />
-              <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
+              <Stack.Screen name={PAGES.locationModal.name} options={{ presentation: 'modal', title: 'Location' }} />
             </Stack>
           </BottomSheetModalProvider>
         </GestureHandlerRootView>

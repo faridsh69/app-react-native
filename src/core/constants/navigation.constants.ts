@@ -24,14 +24,20 @@ export const PAGES = {
     hasFooterLink: true,
   },
   ui: {
-    name: 'ui',
-    path: '/ui',
+    name: 'voss-ai',
+    path: '/voss-ai',
     icon: 'uiwindow.split.2x1',
     hasFooterLink: true,
   },
   wine: {
     name: 'wine',
     path: '/wine',
+    icon: '',
+    hasFooterLink: false,
+  },
+  locationModal: {
+    name: 'location-modal',
+    path: '/location-modal',
     icon: '',
     hasFooterLink: false,
   },

@@ -1,4 +1,4 @@
-import { Accordion, Label, ThemedView } from '@/ui'
+import { Accordion, Container, Label } from '@/ui'
 import { ExternalLink } from '@/ui/ExternalLink/ExternalLink'
 import { IconSymbol } from '@/ui/Icon/icon-symbol'
 import { ParallaxScrollView } from '@/ui/Views/ParallaxScrollView'
@@ -18,9 +18,9 @@ export default function ExplorePage() {
         />
       }
     >
-      <ThemedView style={styles.titleContainer}>
+      <Container style={styles.titleContainer}>
         <Label label='Explore' />
-      </ThemedView>
+      </Container>
       <Accordion title='File-based routing'>
         <ExternalLink href='https://docs.expo.dev/router/introduction'></ExternalLink>
       </Accordion>

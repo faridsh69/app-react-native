@@ -1,9 +1,8 @@
-export { ThemedView } from './Views/ThemedView'
+export { Container } from './Views/Container'
 export { ParallaxScrollView } from './Views/ParallaxScrollView'
 export { IconSymbol } from './Icon/icon-symbol'
 export { ExternalLink } from './ExternalLink/ExternalLink'
 export { HapticTab } from './HapticTab/HapticTab'
-export { HelloWave } from './Animations/HelloWave'
 
 export { Icon } from './Icon/Icon'
 export type { IconProps } from './Icon/Icon.types'
@@ -16,7 +15,7 @@ export { Checkbox } from './Checkbox/Checkbox'
 
 export { Textarea } from './Textarea/Textarea'
 
-export { Modal } from './Popup/Popup'
+export { Popup } from './Popup/Popup'
 
 export { Image } from './Image/Image'
 

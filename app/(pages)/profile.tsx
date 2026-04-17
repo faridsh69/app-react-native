@@ -1,11 +1,11 @@
-import { Label, ThemedView } from '@/ui'
+import { Container, Label } from '@/ui'
 import { StyleSheet } from 'react-native'
 
 export default function ProfilePage() {
   return (
-    <ThemedView style={styles.container}>
+    <Container style={styles.container}>
       <Label label='Profile Page' />
-    </ThemedView>
+    </Container>
   )
 }
 

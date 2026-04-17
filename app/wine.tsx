@@ -1,5 +1,5 @@
 import { usePersistState } from '@/core/hooks/usePersistState'
-import { HelloWave, Label, ParallaxScrollView, ThemedView } from '@/ui'
+import { Container, HelloWave, Label, ParallaxScrollView } from '@/ui'
 import { Image } from 'expo-image'
 import { Link } from 'expo-router'
 import { Button, StyleSheet } from 'react-native'
@@ -16,11 +16,11 @@ export default function WinePage() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={<Image source={require('@/assets/partial-react-logo.png')} style={styles.reactLogo} />}
     >
-      <ThemedView style={styles.titleContainer}>
+      <Container style={styles.titleContainer}>
         <Label label='Welcome' />
         <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
+      </Container>
+      <Container style={styles.stepContainer}>
         <Label label='title' />
         <Button onPress={handlePress} title={`Press me ${state}`} />
 
@@ -30,7 +30,7 @@ export default function WinePage() {
           </Link.Trigger>
           <Link.Preview />
         </Link>
-      </ThemedView>
+      </Container>
     </ParallaxScrollView>
   )
 }

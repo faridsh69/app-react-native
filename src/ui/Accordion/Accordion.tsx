@@ -3,13 +3,13 @@ import { StyleSheet, TouchableOpacity } from 'react-native'
 
 import { IconSymbol } from '../Icon/icon-symbol'
 import { Label } from '../Label/Label'
-import { ThemedView } from '../Views/ThemedView'
+import { Container } from '../Views/Container'
 
 export function Accordion({ children, title }: PropsWithChildren & { title: string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <ThemedView>
+    <Container>
       <TouchableOpacity style={styles.heading} onPress={() => setIsOpen(value => !value)} activeOpacity={0.8}>
         <IconSymbol
           name='chevron.right'
@@ -21,8 +21,8 @@ export function Accordion({ children, title }: PropsWithChildren & { title: stri
 
         <Label label={title} />
       </TouchableOpacity>
-      {isOpen && <ThemedView style={styles.content}>{children}</ThemedView>}
-    </ThemedView>
+      {isOpen && <Container style={styles.content}>{children}</Container>}
+    </Container>
   )
 }
 
