@@ -22,7 +22,7 @@ import { TextInputStory } from '@/ui/stories/TextInputStory'
 import { ToastStory } from '@/ui/stories/ToastStory'
 import { ScrollView } from 'react-native'
 
-export default function UiPage() {
+export default function AiPage() {
   return (
     <Container>
       <ScrollView>

@@ -28,7 +28,7 @@ export default function RootLayout() {
           <BottomSheetModalProvider>
             <Stack>
               <Stack.Screen name='(pages)' options={{ headerShown: false }} />
-              <Stack.Screen name={PAGES.locationModal.name} options={{ presentation: 'modal', title: 'Location' }} />
+              <Stack.Screen name={PAGES.location.name} options={{ presentation: 'modal', title: 'Location' }} />
             </Stack>
           </BottomSheetModalProvider>
         </GestureHandlerRootView>

@@ -1,50 +1,19 @@
-import { usePersistState } from '@/core/hooks/usePersistState'
-import { Container, HelloWave, Label, ParallaxScrollView } from '@/ui'
+import { Label, ParallaxScrollView } from '@/ui'
 import { Image } from 'expo-image'
-import { Link } from 'expo-router'
-import { Button, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 export default function WinePage() {
-  const [state, setState] = usePersistState('state', 0)
-
-  const handlePress = () => {
-    setState(state + 1)
-  }
-
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={<Image source={require('@/assets/partial-react-logo.png')} style={styles.reactLogo} />}
     >
-      <Container style={styles.titleContainer}>
-        <Label label='Welcome' />
-        <HelloWave />
-      </Container>
-      <Container style={styles.stepContainer}>
-        <Label label='title' />
-        <Button onPress={handlePress} title={`Press me ${state}`} />
-
-        <Link href='/modal'>
-          <Link.Trigger>
-            <Label label='Modal' />
-          </Link.Trigger>
-          <Link.Preview />
-        </Link>
-      </Container>
+      <Label label='Welcome' />
     </ParallaxScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
   reactLogo: {
     height: 178,
     width: 290,

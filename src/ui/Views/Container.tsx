@@ -22,8 +22,8 @@ export const Container = ({ style, className, light, dark, children, ...otherPro
         <Link href={PAGES.home.path as any}>
           <Icon icon={IconsEnum.Logo} size={SizesEnum.L} />
         </Link>
-        <Link href={PAGES.locationModal.path as any} className='flex-row gap-2 items-center'>
-          <Icon icon={IconsEnum.Geo} size={SizesEnum.L} />
+        <Link href={PAGES.location.path as any} className='flex-row gap-2'>
+          <Label label={<Icon icon={IconsEnum.Geo} size={SizesEnum.L} />} />
           <Label label='shipped To' font={FontsEnum.Text14} />
         </Link>
       </View>
