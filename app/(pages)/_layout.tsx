@@ -2,15 +2,11 @@ import React from 'react'
 import { PAGES } from '@/core/constants/navigation.constants'
 import { HapticTab, IconSymbol } from '@/ui'
 import { Tabs } from 'expo-router'
-import { useColorScheme } from 'react-native'
 
 export default function PagesLayout() {
-  const colorScheme = useColorScheme()
-
   return (
     <Tabs
       screenOptions={{
-        // tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
       }}
