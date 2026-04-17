@@ -1,5 +1,5 @@
 import React, { ReactNode, useMemo } from 'react'
-import { Pressable, Text, TextStyle, View } from 'react-native'
+import { Text, TextStyle, View } from 'react-native'
 
 import { ColorsEnum, ColorsEnumType, FontsEnum, FontsEnumType, PlacementsEnumType } from '../theme/themeEnums'
 
@@ -14,7 +14,6 @@ export const Label = (props: LabelProps) => {
     color,
     textAlign = 'left',
     required = false,
-    onClick,
     cursorPointer = false,
   } = props
 
@@ -55,24 +54,7 @@ export const Label = (props: LabelProps) => {
     </View>
   )
 
-  if (!onClick) {
-    return <View className={wrapperClassName}>{Content}</View>
-  }
-
-  return (
-    <View className={wrapperClassName}>
-      <Pressable
-        onPress={onClick}
-        disabled={disabled}
-        accessibilityRole='button'
-        accessibilityState={{ disabled, selected: active }}
-        android_ripple={{}}
-        className='max-w-full min-w-0 shrink'
-      >
-        {Content}
-      </Pressable>
-    </View>
-  )
+  return <View className={wrapperClassName}>{Content}</View>
 }
 
 type LabelProps = {
@@ -91,6 +73,5 @@ type LabelProps = {
   textAlign?: TextStyle['textAlign']
   required?: boolean
   tooltipPlacement?: PlacementsEnumType
-  onClick?: () => void
   cursorPointer?: boolean
 }

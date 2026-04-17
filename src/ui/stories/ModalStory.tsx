@@ -27,8 +27,8 @@ export const ModalStory: React.FC = () => {
       </Text>
 
       <View style={styles.actionsRow}>
-        <Button onClick={() => setModal('Login')} label='Open Modal Login' />
-        <Button onClick={() => setModal('Register')} label='Open Modal Register' />
+        <Button onPress={() => setModal('Login')} label='Open Modal Login' />
+        <Button onPress={() => setModal('Register')} label='Open Modal Register' />
       </View>
 
       {/* Login Modal */}

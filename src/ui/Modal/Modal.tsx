@@ -4,7 +4,7 @@ import {
   BottomSheetScrollView,
   BottomSheetModal as GorhomBottomSheetModal,
 } from '@gorhom/bottom-sheet'
-import { Dimensions, Platform, View } from 'react-native'
+import { Dimensions, Platform, StyleSheet, View } from 'react-native'
 
 import { Button } from '../Button/Button'
 import { Label } from '../Label/Label'
@@ -46,6 +46,12 @@ export const Modal = (props: ModalProps) => {
     setIsOpen?.(false)
   }
   const isSecondary = variant === VariantsEnum.Secondary
+  const contentContainerStyle = StyleSheet.flatten([
+    styles.content,
+    bodyPadding && styles.bodyPadding,
+    isSecondary && styles.variantSecondaryBody,
+    { minHeight: MIN_HEIGHT },
+  ])
 
   return (
     <GorhomBottomSheetModal
@@ -72,12 +78,7 @@ export const Modal = (props: ModalProps) => {
       <BottomSheetScrollView
         // @ts-ignore
         style={[styles.sheet, { alignSelf: 'center', width }]}
-        contentContainerStyle={[
-          styles.content,
-          bodyPadding && styles.bodyPadding,
-          isSecondary && styles.variantSecondaryBody,
-          { minHeight: MIN_HEIGHT },
-        ]}
+        contentContainerStyle={contentContainerStyle}
         keyboardShouldPersistTaps='handled'
       >
         {(title || isSecondary) && (
@@ -92,7 +93,7 @@ export const Modal = (props: ModalProps) => {
                 variant={VariantsEnum.Text}
                 size={SizesEnum.M}
                 iconLeft={IconsEnum.CloseSmall}
-                onClick={handleClose}
+                onPress={handleClose}
               />
             </View>
           </View>

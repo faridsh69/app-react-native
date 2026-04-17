@@ -9,7 +9,6 @@ export type ButtonProps = {
   disabled?: boolean
   iconLeft?: IconsEnum
   iconRight?: IconsEnum
-  onClick?: () => void
   noBorderRadius?: SidesEnum[]
   width?: string | number
   font?: FontsEnumType

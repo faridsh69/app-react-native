@@ -22,7 +22,7 @@ export const ToastStory: React.FC = () => {
           label='Success'
           iconLeft={IconsEnum.Success}
           variant={VariantsEnum.Secondary}
-          onClick={() =>
+          onPress={() =>
             toastSuccess({
               title: 'Success',
               description: 'Your product added to basket successfully',
@@ -34,7 +34,7 @@ export const ToastStory: React.FC = () => {
           label='Warning'
           iconLeft={IconsEnum.Warning}
           variant={VariantsEnum.Secondary}
-          onClick={() =>
+          onPress={() =>
             toastWarning({
               title: 'Warning',
               description: 'Your data didn’t save.',
@@ -46,7 +46,7 @@ export const ToastStory: React.FC = () => {
           label='Danger'
           iconLeft={IconsEnum.Error}
           variant={VariantsEnum.Secondary}
-          onClick={() =>
+          onPress={() =>
             toastError({
               title: 'Danger',
               description: 'Your username or password is wrong.',

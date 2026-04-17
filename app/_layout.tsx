@@ -7,6 +7,7 @@ import '../global.css'
 
 import { GluestackUIProvider, ThemeModesEnum } from '@/ui'
 import { toastConfig } from '@/ui/Toast/Toast'
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 import { useFonts } from 'expo-font'
 import { useColorScheme } from 'react-native'
 import Toast from 'react-native-toast-message'
@@ -21,10 +22,12 @@ export default function RootLayout() {
   return (
     <GluestackUIProvider mode={ThemeModesEnum.Light}>
       <ThemeProvider value={colorScheme === ThemeModesEnum.Light ? DefaultTheme : DarkTheme}>
-        <Stack>
-          <Stack.Screen name='(pages)' options={{ headerShown: false }} />
-          <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
-        </Stack>
+        <BottomSheetModalProvider>
+          <Stack>
+            <Stack.Screen name='(pages)' options={{ headerShown: false }} />
+            <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
+          </Stack>
+        </BottomSheetModalProvider>
         <StatusBar style='auto' />
         <Toast config={toastConfig} position='bottom' />
       </ThemeProvider>

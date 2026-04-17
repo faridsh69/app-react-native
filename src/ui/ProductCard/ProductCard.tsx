@@ -58,7 +58,7 @@ export const ProductCard = (props: ProductCardProps) => {
               variant={VariantsEnum.Primary}
               label='Add to cart'
               size={SizesEnum.S}
-              onClick={handleAddBasket}
+              onPress={handleAddBasket}
             />
           ) : (
             <Button label='Not available' size={SizesEnum.S} disabled />
