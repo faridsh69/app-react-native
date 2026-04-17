@@ -10,6 +10,7 @@ import { LabelStory } from '@/ui/stories/LabelStory'
 import { LoaderStory } from '@/ui/stories/LoaderStory'
 import { ProductCardStory } from '@/ui/stories/ProductCardStory'
 import { RatingStory } from '@/ui/stories/RatingStory'
+import { SelectStory } from '@/ui/stories/SelectStory'
 import { SliderStory } from '@/ui/stories/SliderStory'
 import { TabItemsStory } from '@/ui/stories/TabItemsStory'
 import { TextareaStory } from '@/ui/stories/TextareaStory'
@@ -21,6 +22,7 @@ export default function UiPage() {
   return (
     <ThemedView>
       <ScrollView>
+        <SelectStory />
         <TextInputStory />
         <IconsStory />
         <LabelStory />
