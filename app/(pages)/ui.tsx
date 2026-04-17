@@ -13,6 +13,7 @@ import { RatingStory } from '@/ui/stories/RatingStory'
 import { SliderStory } from '@/ui/stories/SliderStory'
 import { TabItemsStory } from '@/ui/stories/TabItemsStory'
 import { TextareaStory } from '@/ui/stories/TextareaStory'
+import { TextInputStory } from '@/ui/stories/TextInputStory'
 import { ToastStory } from '@/ui/stories/ToastStory'
 import { ScrollView } from 'react-native'
 
@@ -20,6 +21,7 @@ export default function UiPage() {
   return (
     <ThemedView>
       <ScrollView>
+        <TextInputStory />
         <IconsStory />
         <LabelStory />
         <ButtonStory />
