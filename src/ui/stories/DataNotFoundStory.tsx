@@ -35,7 +35,7 @@ export const DataNotFoundStory: React.FC = () => {
       </Text>
 
       <View style={styles.section}>
-        <Button label='start searching' onClick={handleSearch} />
+        <Button label='start searching' onPress={handleSearch} />
 
         <View style={{ width: 160 }}>
           <DataNotFound isLoading={isLoading} label='Items not found.' icon={IconsEnum.EmptyWine} />

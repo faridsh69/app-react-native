@@ -14,9 +14,9 @@ export default function LocationPage() {
   const [locationModal, setLocationModal] = useAtom(locationAtom)
   const { region } = locationModal
 
-  const { data: ipLocation } = useCrudLocationIp()
+  const { data: ipLocation, error } = useCrudLocationIp()
 
-  console.log('1 xxx ipLocation', ipLocation)
+  console.log('1 xxx ipLocation', ipLocation, error)
 
   const handleChangeLocation = (value: OptionValueType) => {
     setLocationModal(p => ({ ...p, region: value as string }))

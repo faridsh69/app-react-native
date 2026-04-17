@@ -1,8 +1,6 @@
 import { PAGES } from '@/core/constants/navigation.constants'
-import { locationAtom } from '@/location/contexts/locationAtom'
 import { useLocation } from '@/location/hooks/useLocation'
 import { Link } from 'expo-router'
-import { useAtom } from 'jotai'
 import { View, type ViewProps } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
