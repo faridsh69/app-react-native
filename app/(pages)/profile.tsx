@@ -1,11 +1,13 @@
 import { LoginModal } from '@/auth/components/LoginModal/LoginModal'
+import { ProfilePage } from '@/auth/components/ProfilePage'
 import { Container, Label } from '@/ui'
 
-export default function ProfilePage() {
+export default function Profile() {
   return (
-    <Container className='flex-1 items-center justify-center'>
+    <Container>
       <Label label='Profile Page' />
       <LoginModal />
+      <ProfilePage />
     </Container>
   )
 }

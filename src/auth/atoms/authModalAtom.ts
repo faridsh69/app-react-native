@@ -1,4 +1,4 @@
-import { atom } from 'jotai'
+import { atom } from '@/core/lib/jotai'
 
 import { AUTH_STEPS } from '../constants/auth.constants'
 

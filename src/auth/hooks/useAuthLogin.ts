@@ -4,8 +4,8 @@ import {
   useCrudAuthRefreshToken,
 } from '@/apis/useCruds/authCruds'
 import { setLsAuthUser, setLsBearerToken, setLsRefreshToken } from '@/core/helpers/ls.helpers'
+import { useAtom } from '@/core/lib/jotai'
 import { toastError } from '@/ui'
-import { useAtom } from 'jotai'
 
 import { authAtom } from '../atoms/authAtom'
 import { authModalAtom, DEFAULT_AUTH_MODAL_ATOM } from '../atoms/authModalAtom'

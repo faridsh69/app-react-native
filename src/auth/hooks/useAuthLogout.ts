@@ -5,8 +5,8 @@ import {
   removeLsBearerToken,
   removeLsRefreshToken,
 } from '@/core/helpers/ls.helpers'
+import { useAtom } from '@/core/lib/jotai'
 import { router } from 'expo-router'
-import { useAtom } from 'jotai'
 
 import { authAtom, EMPTY_AUTH_ATOM } from '../atoms/authAtom'
 
