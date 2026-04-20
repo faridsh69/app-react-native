@@ -1,3 +1,5 @@
+import { Text, View } from 'react-native'
+
 import { formStyles, getColumnStyle } from './Form.styles'
 
 type TypeFormProgress = { all: number; invalids: number }
@@ -29,28 +31,28 @@ export const ValidationBar = (props: TypeFormProgress) => {
   const { isSuccess, color, percentage } = getValidationBarData(all, invalids)
 
   return (
-    <div
+    <View
       style={{
         ...getColumnStyle(12),
         ...formStyles.validationBar,
         ...(isSuccess ? formStyles.validationSuccess : formStyles.validationDanger),
       }}
     >
-      <div style={formStyles.flexRow}>
-        <span style={{ color }}>{isSuccess ? 'Completed' : `${invalids} errors`}</span>
-      </div>
-      <div style={formStyles.flexRow}>
-        <div style={formStyles.validationTrack}>
-          <div
+      <View style={formStyles.flexRow}>
+        <Text style={{ color }}>{isSuccess ? 'Completed' : `${invalids} errors`}</Text>
+      </View>
+      <View style={formStyles.flexRow}>
+        <View style={formStyles.validationTrack}>
+          <View
             style={{
               ...formStyles.validationFill,
               backgroundColor: color,
               width: `${percentage}%`,
             }}
           />
-        </div>
-        <span style={{ color }}>{`${percentage}%`}</span>
-      </div>
-    </div>
+        </View>
+        <Text style={{ color }}>{`${percentage}%`}</Text>
+      </View>
+    </View>
   )
 }

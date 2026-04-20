@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { getTitleCase } from '@/core/helpers/string.helpers'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import { View } from 'react-native'
 
 import { getInputController } from './Form.helpers'
 import { formStyles, getColumnStyle } from './Form.styles'
@@ -45,12 +46,12 @@ export const Form = (props: FormProps) => {
   }
 
   return (
-    <div style={formStyles.form}>
+    <View style={formStyles.form}>
       {schema && showValidationBar && (
         <ValidationBar all={inputs.length} invalids={Object.values(errors).length} />
       )}
 
-      <div style={formStyles.row}>
+      <View style={formStyles.row}>
         {inputs.map(input => {
           const { component, name, columns = 12, label: inputLabel, ...rest } = input
 
@@ -58,7 +59,7 @@ export const Form = (props: FormProps) => {
           const label = inputLabel === '' ? '' : inputLabel || getTitleCase(name)
 
           return (
-            <div key={input.name} style={getColumnStyle(columns)}>
+            <View key={input.name} style={getColumnStyle(columns)}>
               <InputController
                 control={control}
                 name={name}
@@ -67,10 +68,10 @@ export const Form = (props: FormProps) => {
                 onChangeInput={onChangeInput}
                 {...rest}
               />
-            </div>
+            </View>
           )
         })}
-      </div>
-    </div>
+      </View>
+    </View>
   )
 }

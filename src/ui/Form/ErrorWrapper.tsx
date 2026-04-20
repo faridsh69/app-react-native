@@ -1,4 +1,5 @@
 import { getFirstLetterUpperCases } from '@/core/helpers/string.helpers'
+import { View } from 'react-native'
 
 import { Label } from '../Label/Label'
 import { FontsEnum } from '../theme/themeEnums'
@@ -11,11 +12,11 @@ export const ErrorWrapper = (props: inputWrapperProps) => {
   const errorMessage = getFirstLetterUpperCases(error?.message as string).replace('_', ' ')
 
   return (
-    <div style={formStyles.inputWrapper}>
-      <div style={formStyles.inputComponent}>{children}</div>
-      <div style={formStyles.errorWrapper}>
+    <View style={formStyles.inputWrapper}>
+      <View style={formStyles.inputComponent}>{children}</View>
+      <View style={formStyles.errorWrapper}>
         <Label label={errorMessage} font={FontsEnum.Text12} hasError />
-      </div>
-    </div>
+      </View>
+    </View>
   )
 }

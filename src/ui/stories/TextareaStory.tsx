@@ -11,6 +11,7 @@ export const TextareaStory: React.FC = () => {
   const onChangeText = (text: string) => setValue(text)
 
   const props = {
+    name: 'textarea-story',
     value,
     onChange,
     onChangeText,

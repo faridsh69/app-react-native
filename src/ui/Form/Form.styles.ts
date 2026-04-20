@@ -1,19 +1,22 @@
-import type { CSSProperties } from 'react'
+import type { DimensionValue, TextStyle, ViewStyle } from 'react-native'
+
+import { ColorsEnum } from '../theme/themeEnums'
 
 const GRID_COLUMNS = 12
 const GRID_GUTTER = 8
 
-export const getColumnStyle = (columns = GRID_COLUMNS): CSSProperties => {
+export const getColumnStyle = (columns = GRID_COLUMNS): ViewStyle => {
   const safeColumns = Math.min(Math.max(columns, 1), GRID_COLUMNS)
-  const width = `${(safeColumns / GRID_COLUMNS) * 100}%`
+  const width = `${(safeColumns / GRID_COLUMNS) * 100}%` as DimensionValue
 
   return {
-    boxSizing: 'border-box',
-    flex: `0 0 ${width}`,
+    flexBasis: width,
+    flexGrow: 0,
+    flexShrink: 0,
     maxWidth: width,
     paddingLeft: GRID_GUTTER,
     paddingRight: GRID_GUTTER,
-    width: '100%',
+    width,
   }
 }
 
@@ -21,99 +24,92 @@ export const formStyles = {
   form: {
     width: '100%',
     maxWidth: '100%',
-  } satisfies CSSProperties,
+  } satisfies ViewStyle,
   row: {
-    display: 'flex',
     flexWrap: 'wrap',
     marginLeft: -GRID_GUTTER,
     marginRight: -GRID_GUTTER,
     rowGap: 12,
-  } satisfies CSSProperties,
+    flexDirection: 'row',
+  } satisfies ViewStyle,
   inputWrapper: {
-    display: 'flex',
     flexDirection: 'column',
-  } satisfies CSSProperties,
+  } satisfies ViewStyle,
   inputComponent: {
-    display: 'flex',
     flexDirection: 'column',
-  } satisfies CSSProperties,
+  } satisfies ViewStyle,
   errorWrapper: {
-    display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     minHeight: 23,
     paddingTop: 5,
-  } satisfies CSSProperties,
+  } satisfies ViewStyle,
   validationBar: {
-    display: 'flex',
     flexDirection: 'row',
     gap: 10,
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 15,
     borderRadius: 6,
-    padding: '7px 10px',
-  } satisfies CSSProperties,
+    paddingVertical: 7,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+  } satisfies ViewStyle,
   validationSuccess: {
-    color: 'var(--success)',
-    border: '1px solid var(--success)',
-  } satisfies CSSProperties,
+    borderColor: ColorsEnum.Success,
+  } satisfies ViewStyle,
   validationDanger: {
-    color: 'var(--error)',
-    border: '1px solid var(--error)',
-  } satisfies CSSProperties,
+    borderColor: ColorsEnum.Error,
+  } satisfies ViewStyle,
   flexRow: {
-    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-  } satisfies CSSProperties,
+  } satisfies ViewStyle,
   validationTrack: {
     width: 134,
     height: 14,
     borderRadius: 7,
-    background: 'rgba(0, 0, 0, 0.1)',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
     overflow: 'hidden',
-  } satisfies CSSProperties,
+  } satisfies ViewStyle,
   validationFill: {
     height: '100%',
     width: '0%',
     borderRadius: 7,
-  } satisfies CSSProperties,
+  } satisfies ViewStyle,
   groupsWrapper: {
-    display: 'flex',
     flexDirection: 'column',
     gap: 5,
     alignItems: 'flex-start',
     width: '100%',
-    padding: '10px 0',
-  } satisfies CSSProperties,
+    paddingVertical: 10,
+  } satisfies ViewStyle,
   groups: {
     width: '100%',
-    display: 'flex',
     flexDirection: 'column',
     gap: 5,
-  } satisfies CSSProperties,
+  } satisfies ViewStyle,
   noItems: {
     paddingBottom: 20,
-  } satisfies CSSProperties,
+  } satisfies ViewStyle,
   group: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     gap: 15,
     backgroundColor: 'rgba(0, 0, 0, 0.03)',
     borderRadius: 8,
-    padding: '15px 20px',
-  } satisfies CSSProperties,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+  } satisfies ViewStyle,
   groupInputs: {
-    width: '100%',
-  } satisfies CSSProperties,
+    width: '90%',
+  } satisfies ViewStyle,
   hasError: {
-    color: 'var(--error)',
+    color: ColorsEnum.Error,
     fontSize: 12,
-    lineHeight: '16px',
+    lineHeight: 16,
     minHeight: 16,
-  } satisfies CSSProperties,
+  } satisfies TextStyle,
 } as const

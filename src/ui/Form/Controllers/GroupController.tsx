@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
 import { useFieldArray } from 'react-hook-form'
+import { Text, View } from 'react-native'
 
 import { Button } from '../../Button/Button'
 import { IconsEnum, SizesEnum, VariantsEnum } from '../../theme/themeEnums'
@@ -50,17 +51,17 @@ export const GroupController = (props: InputControllerProps) => {
   const showActionButtons = !disabled
 
   return (
-    <div style={formStyles.groupsWrapper}>
-      <div style={formStyles.groups}>
+    <View style={formStyles.groupsWrapper}>
+      <View style={formStyles.groups}>
         {!fields.length && (
-          <div style={formStyles.noItems}>
-            <span>{noItemsLabel}</span>
-          </div>
+          <View style={formStyles.noItems}>
+            <Text>{noItemsLabel}</Text>
+          </View>
         )}
         {fields.map((_, fieldIndex) => {
           return (
-            <div style={formStyles.group} key={fieldIndex}>
-              <div style={{ ...formStyles.groupInputs, ...formStyles.row }}>
+            <View style={formStyles.group} key={fieldIndex}>
+              <View style={{ ...formStyles.groupInputs, ...formStyles.row }}>
                 {inputs.map(input => {
                   const { name, columns = 12, component, ...rest } = input
                   if (hideInput(input, fieldIndex)) return null
@@ -69,35 +70,35 @@ export const GroupController = (props: InputControllerProps) => {
                   const inputName = `${groupName}.${fieldIndex}.${name}`
 
                   return (
-                    <div key={inputName} style={getColumnStyle(columns)}>
+                    <View key={inputName} style={getColumnStyle(columns)}>
                       <InputController
                         name={inputName}
                         control={control}
                         onChangeInput={onChangeInput}
                         {...rest}
                       />
-                    </div>
+                    </View>
                   )
                 })}
-              </div>
+              </View>
               {showActionButtons && (
                 <Button
                   onPress={() => handleRemoveRow(fieldIndex)}
-                  iconRight={IconsEnum.CloseBold}
+                  iconRight={IconsEnum.CloseSmall}
                   variant={VariantsEnum.Text}
                   size={SizesEnum.S}
                 />
               )}
-            </div>
+            </View>
           )
         })}
-      </div>
-      <span style={formStyles.hasError}>{rootErrorMessage}</span>
+      </View>
+      <Text style={formStyles.hasError}>{rootErrorMessage}</Text>
       {showActionButtons && (
-        <div>
+        <View>
           <Button label={'+ ' + label} onPress={handleAddRow} size={SizesEnum.S} />
-        </div>
+        </View>
       )}
-    </div>
+    </View>
   )
 }

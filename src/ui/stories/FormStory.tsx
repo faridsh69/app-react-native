@@ -54,21 +54,21 @@ export const FormStory = () => {
       required: true,
     },
     {
+      name: 'salary',
+      label: 'Salary',
+      columns: 12,
+      component: InputComponentsEnum.Text,
+      unit: '$',
+      keyboardType: 'numeric',
+    },
+    {
       name: 'bio',
       columns: 12,
       component: InputComponentsEnum.Textarea,
     },
     {
-      name: 'salary',
-      label: 'Salary',
-      columns: 6,
-      component: InputComponentsEnum.Text,
-      unit: '$',
-    },
-
-    {
       name: 'role',
-      columns: 6,
+      columns: 12,
       component: InputComponentsEnum.Select,
       multiple: false,
       options: [
@@ -88,12 +88,12 @@ export const FormStory = () => {
     },
     {
       name: 'birth_date',
-      columns: 6,
+      columns: 12,
       component: InputComponentsEnum.Date,
     },
     {
       name: 'gender',
-      columns: 6,
+      columns: 12,
       component: InputComponentsEnum.RadioList,
       options: [
         { value: 'male', label: 'Male' },
@@ -102,18 +102,13 @@ export const FormStory = () => {
     },
     {
       name: 'accept_term_and_conditions',
-      columns: 6,
+      columns: 12,
       component: InputComponentsEnum.Checkbox,
     },
     {
       name: 'Are you happy?',
-      columns: 6,
-      component: InputComponentsEnum.Toggle,
-    },
-    {
-      name: 'email',
       columns: 12,
-      component: InputComponentsEnum.Editor,
+      component: InputComponentsEnum.Toggle,
     },
     {
       name: 'family',
@@ -125,18 +120,22 @@ export const FormStory = () => {
         {
           name: 'first_name',
           label: 'First name',
-          columns: 6,
+          columns: 12,
           component: InputComponentsEnum.Text,
         },
         {
           name: 'last_name',
           label: 'Last name',
-          columns: 6,
+          columns: 12,
           component: InputComponentsEnum.Text,
         },
       ],
     },
   ]
+
+  const handleSubmit = () => {
+    console.log('submitted', formData)
+  }
 
   return (
     <Story>
@@ -151,7 +150,7 @@ export const FormStory = () => {
           showErrorOnMount={true}
           showValidationBar={false}
         />
-        <Button onPress={() => {}} label='Submit' disabled={!isValid} />
+        <Button onPress={handleSubmit} label='Submit' disabled={!isValid} />
       </View>
     </Story>
   )
