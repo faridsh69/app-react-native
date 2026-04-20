@@ -11,6 +11,7 @@ import {
   TabItems,
   VariantsEnum,
 } from '@/ui'
+import { View } from 'react-native'
 
 import { useAuthLogout } from '../hooks/useAuthLogout'
 
@@ -48,7 +49,7 @@ export const ProfilePage = () => {
   const { handleLogout } = useAuthLogout()
 
   return (
-    <div className='container'>
+    <View className='w-full max-w-5xl self-center px-4 py-6'>
       {/* <Breadcrumb
         options={[
           {
@@ -61,53 +62,61 @@ export const ProfilePage = () => {
           },
         ]}
       /> */}
-      <Label label='Profile Settings' font={FontsEnum.Label40} />
+      <View className='gap-5'>
+        <Label label='Profile Settings' font={FontsEnum.Label40} />
 
-      <TabItems options={tabOptions} onChange={handleTabChange} value={tab} />
-      <Form
-        inputs={[
-          {
-            name: 'avatar',
-            component: InputComponentsEnum.Uploader,
-          },
-          {
-            name: 'username',
-            component: InputComponentsEnum.Text,
-            placeholder: 'username',
-          },
-          {
-            name: 'Your wine experience',
-            component: InputComponentsEnum.Textarea,
-          },
-          {
-            name: 'dob',
-            component: InputComponentsEnum.Date,
-            multiple: false,
-          },
-          {
-            name: 'pronouns',
-            component: InputComponentsEnum.Select,
-            multiple: false,
-            options: PRONOUNS.map(pronoun => ({
-              label: pronoun,
-              value: pronoun,
-            })),
-          },
-          {
-            name: 'privacy',
-            component: InputComponentsEnum.Select,
-            multiple: false,
-            options: POST_REVIEW_PRIVACY_OPTIONS,
-          },
-        ]}
-      />
-      <Button label='Save Changes' />
-      <Button
-        size={SizesEnum.S}
-        onPress={handleLogout}
-        label='logout'
-        variant={VariantsEnum.Text}
-      />
-    </div>
+        <TabItems options={tabOptions} onChange={handleTabChange} value={tab} />
+
+        <View className='rounded-[24px] border border-neutral-200 bg-white p-4'>
+          <Form
+            inputs={[
+              {
+                name: 'avatar',
+                component: InputComponentsEnum.Uploader,
+              },
+              {
+                name: 'username',
+                component: InputComponentsEnum.Text,
+                placeholder: 'username',
+              },
+              {
+                name: 'Your wine experience',
+                component: InputComponentsEnum.Textarea,
+              },
+              {
+                name: 'dob',
+                component: InputComponentsEnum.Date,
+                multiple: false,
+              },
+              {
+                name: 'pronouns',
+                component: InputComponentsEnum.Select,
+                multiple: false,
+                options: PRONOUNS.map(pronoun => ({
+                  label: pronoun,
+                  value: pronoun,
+                })),
+              },
+              {
+                name: 'privacy',
+                component: InputComponentsEnum.Select,
+                multiple: false,
+                options: POST_REVIEW_PRIVACY_OPTIONS,
+              },
+            ]}
+          />
+        </View>
+
+        <View className='gap-3'>
+          <Button label='Save Changes' />
+          <Button
+            size={SizesEnum.S}
+            onPress={handleLogout}
+            label='Logout'
+            variant={VariantsEnum.Text}
+          />
+        </View>
+      </View>
+    </View>
   )
 }

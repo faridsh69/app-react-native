@@ -88,9 +88,6 @@ export const LoginModal = () => {
     [AUTH_STEPS.enterEmail]: (
       <View className='gap-5'>
         <View className='items-center gap-3'>
-          <View className='rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1.5'>
-            <Label label='Welcome back' font={FontsEnum.Text14} />
-          </View>
           <View className='gap-2'>
             <Label
               label='Log in or create your account'
@@ -120,9 +117,6 @@ export const LoginModal = () => {
     [AUTH_STEPS.login]: (
       <View className='gap-5'>
         <View className='items-center gap-3'>
-          <View className='rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5'>
-            <Label label='Account found' font={FontsEnum.Text14} />
-          </View>
           <View className='gap-2'>
             <Label label='Welcome back' font={FontsEnum.Label30} textAlign={TextAlignEnum.Center} />
             <Label
@@ -274,8 +268,18 @@ export const LoginModal = () => {
   } as const
 
   return (
-    <ScrollView className=' items-center justify-center bg-sky-50'>
+    <ScrollView
+      contentContainerStyle={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 16,
+        paddingVertical: 24,
+        gap: 16,
+      }}
+    >
       {auth.isLoggedIn && <Label label={`Welcome  ${auth.user?.email}`} font={FontsEnum.Label30} />}
+      {auth.isLoggedIn && <ProfilePage />}
+
       {!auth.isLoggedIn && <Label label={'you are not signed in'} font={FontsEnum.Label30} />}
       {!auth.isLoggedIn && (
         <Button
@@ -306,7 +310,6 @@ export const LoginModal = () => {
         snapPoints={['70%']}
         enablePanDownToClose
       />
-      <ProfilePage />
     </ScrollView>
   )
 }
