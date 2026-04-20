@@ -1,7 +1,17 @@
 import React, { forwardRef, useMemo, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import * as Clipboard from 'expo-clipboard'
-import { Pressable, StyleProp, Text, TextInput, TextInputProps, View, ViewStyle } from 'react-native'
+import {
+  Pressable,
+  StyleProp,
+  Text,
+  TextInput,
+  TextInputProps,
+  View,
+  ViewStyle,
+} from 'react-native'
+
+import { toastSuccess } from '../Toast/Toast'
 
 type RightElementType = 'unit' | 'clearable' | 'password' | 'copyable' | 'custom'
 
@@ -93,6 +103,7 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
     const handleCopy = async () => {
       await Clipboard.setStringAsync(stringValue)
       onCopy?.(stringValue)
+      toastSuccess({ title: 'Success', description: 'Copied to clipboard.' })
     }
 
     return (
@@ -134,7 +145,7 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
               leftIcon && 'ml-2.5',
               rightType && 'mr-2.5',
               disabled && 'text-neutral-400',
-              focused && 'text-white',
+              // focused && 'text-white',
             ]
               .filter(Boolean)
               .join(' ')}
@@ -146,7 +157,9 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
             {...props}
           />
 
-          {rightType === 'unit' && <Text className='text-[16px] font-medium text-neutral-400'>{unit}</Text>}
+          {rightType === 'unit' && (
+            <Text className='text-[16px] font-medium text-neutral-400'>{unit}</Text>
+          )}
 
           {rightType === 'clearable' && (
             <Pressable onPress={handleClear} hitSlop={8} className='items-center justify-center'>
@@ -155,8 +168,16 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
           )}
 
           {rightType === 'password' && (
-            <Pressable onPress={() => setHidePassword(prev => !prev)} hitSlop={8} className='items-center justify-center'>
-              <Ionicons name={hidePassword ? 'eye-off-outline' : 'eye-outline'} size={20} color='#525252' />
+            <Pressable
+              onPress={() => setHidePassword(prev => !prev)}
+              hitSlop={8}
+              className='items-center justify-center'
+            >
+              <Ionicons
+                name={hidePassword ? 'eye-off-outline' : 'eye-outline'}
+                size={20}
+                color='#525252'
+              />
             </Pressable>
           )}
 
@@ -166,7 +187,9 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
             </Pressable>
           )}
 
-          {rightType === 'custom' && <View className='items-center justify-center'>{rightElement}</View>}
+          {rightType === 'custom' && (
+            <View className='items-center justify-center'>{rightElement}</View>
+          )}
         </View>
 
         {hasError && !!errorText ? (

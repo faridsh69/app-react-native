@@ -26,19 +26,18 @@ export default function AiPage() {
   return (
     <Container>
       <ScrollView>
-        {/* <ModalStory /> */}
-        <DialogStory />
-        <RadioListStory />
         <CheckboxStory />
-        <PopupStory />
+        <RadioListStory />
         <SwitchStory />
-        <TextInputStory />
-        <TextareaStory />
         <RatingStory />
+        <TextareaStory />
+        <TextInputStory />
         <SelectStory />
-
         <ButtonStory />
         <ChipStory />
+        <PopupStory />
+        <DialogStory />
+
         <ImageStory />
         <ProductCardStory />
         <SliderStory />

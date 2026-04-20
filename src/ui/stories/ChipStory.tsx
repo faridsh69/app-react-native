@@ -16,7 +16,9 @@ export const ChipStory: React.FC = () => {
     <Story>
       <Text style={styles.h4}>Chip</Text>
 
-      <Text style={styles.small}>We have two size s, m, also can have onClose, and icon beside label</Text>
+      <Text style={styles.small}>
+        We have two size s, m, also can have onClose, and icon beside label
+      </Text>
 
       <Text style={codeTextStyle.inline}>{'<Chip label="chip" size={SizesEnum.M} />'}</Text>
 
@@ -32,10 +34,10 @@ export const ChipStory: React.FC = () => {
         {closableSizes.map(size => (
           <Chip
             key={`closable-${size}`}
-            label='with icon and close'
+            label='Back'
             size={size}
-            icon={IconsEnum.ArrowRight}
-            onClose={() => handleClose(size)}
+            icon={IconsEnum.ArrowLeft}
+            // onClose={() => handleClose(size)}
           />
         ))}
       </View>

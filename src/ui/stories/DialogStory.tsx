@@ -12,9 +12,9 @@ export const DialogStory = () => {
 
   return (
     <ScrollView contentContainerStyle={{ padding: 16, gap: 16 }}>
-      <Button label='Open default modal' onPress={() => setDefaultOpen(true)} />
-      <Button label='Open small modal' onPress={() => setSmallOpen(true)} />
-      <Button label='Open scrollable modal' onPress={() => setScrollOpen(true)} />
+      <Button label='Open default dialog' onPress={() => setDefaultOpen(true)} />
+      <Button label='Open small dialog' onPress={() => setSmallOpen(true)} />
+      <Button label='Open scrollable dialog' onPress={() => setScrollOpen(true)} />
 
       <Dialog
         visible={defaultOpen}
@@ -24,7 +24,11 @@ export const DialogStory = () => {
         footer={
           <View style={{ flexDirection: 'row', gap: 12 }}>
             <View style={{ flex: 1 }}>
-              <Button label='Cancel' variant={VariantsEnum.Secondary} onPress={() => setDefaultOpen(false)} />
+              <Button
+                label='Cancel'
+                variant={VariantsEnum.Secondary}
+                onPress={() => setDefaultOpen(false)}
+              />
             </View>
             <View style={{ flex: 1 }}>
               <Button label='Save' onPress={() => setDefaultOpen(false)} />
@@ -32,7 +36,9 @@ export const DialogStory = () => {
           </View>
         }
       >
-        <Text style={{ fontSize: 15, lineHeight: 22, color: '#171717' }}>This is the default modal body.</Text>
+        <Text style={{ fontSize: 15, lineHeight: 22, color: '#171717' }}>
+          This is the default modal body.
+        </Text>
       </Dialog>
 
       <Dialog
@@ -42,7 +48,9 @@ export const DialogStory = () => {
         size='sm'
         footer={<Button label='Close' onPress={() => setSmallOpen(false)} />}
       >
-        <Text style={{ fontSize: 15, lineHeight: 22, color: '#171717' }}>Compact modal for small confirmations.</Text>
+        <Text style={{ fontSize: 15, lineHeight: 22, color: '#171717' }}>
+          Compact modal for small confirmations.
+        </Text>
       </Dialog>
 
       <Dialog

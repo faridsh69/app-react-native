@@ -17,7 +17,9 @@ export const TabItemsStory: React.FC = () => {
       </Text>
 
       <Text style={codeTextStyle.inline}>
-        {'<TabItems options={[{ value: 1, label: "Latest activity" }]} value={1} onChange={setValue} />'}
+        {
+          '<TabItems options={[{ value: 1, label: "Latest activity" }]} value={1} onChange={setValue} />'
+        }
       </Text>
 
       {/* Horizontal (scrollable like web overflow-x) */}
@@ -36,7 +38,7 @@ export const TabItemsStory: React.FC = () => {
       </View>
 
       {/* Vertical with title (parity with web) */}
-      <View style={styles.section}>
+      {/* <View style={styles.section}>
         <TabItems
           value={value}
           onChange={setValue}
@@ -48,7 +50,7 @@ export const TabItemsStory: React.FC = () => {
             { label: 'Notifications', value: 3, badge: 1 },
           ]}
         />
-      </View>
+      </View> */}
 
       {/* Disabled + badge showcase */}
       <View style={styles.section}>
