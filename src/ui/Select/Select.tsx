@@ -1,14 +1,23 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { Picker } from '@react-native-picker/picker'
-import { Modal, Platform, Pressable, StyleProp, Text, useColorScheme, View, ViewStyle } from 'react-native'
+import {
+  Modal,
+  Platform,
+  Pressable,
+  StyleProp,
+  Text,
+  useColorScheme,
+  View,
+  ViewStyle,
+} from 'react-native'
 
 export type SelectOption = {
   label: string
   value: string
 }
 
-type AppSelectProps = {
+export type AppSelectProps = {
   label?: string
   placeholder?: string
   helperText?: string
@@ -156,13 +165,29 @@ export function AppSelect({
 
       <Modal visible={visible} animationType='none' transparent onRequestClose={close}>
         <Pressable className='flex-1 justify-end bg-black/20' onPress={close}>
-          <Pressable onPress={e => e.stopPropagation()} className={['overflow-hidden rounded-t-[18px]', isDark ? 'bg-[#1C1C1E]' : 'bg-[#F2F2F7]'].join(' ')}>
-            <View className={['min-h-[52px] flex-row items-center justify-between border-b px-4', isDark ? 'border-[#3A3A3C] bg-[#2C2C2E]' : 'border-[#D1D1D6] bg-[#F9F9F9]'].join(' ')}>
+          <Pressable
+            onPress={e => e.stopPropagation()}
+            className={[
+              'overflow-hidden rounded-t-[18px]',
+              isDark ? 'bg-[#1C1C1E]' : 'bg-[#F2F2F7]',
+            ].join(' ')}
+          >
+            <View
+              className={[
+                'min-h-[52px] flex-row items-center justify-between border-b px-4',
+                isDark ? 'border-[#3A3A3C] bg-[#2C2C2E]' : 'border-[#D1D1D6] bg-[#F9F9F9]',
+              ].join(' ')}
+            >
               <Pressable onPress={close} hitSlop={8}>
                 <Text className='text-[17px] font-medium text-[#007AFF]'>Cancel</Text>
               </Pressable>
 
-              <Text className={['text-[15px] font-semibold', isDark ? 'text-white' : 'text-[#111827]'].join(' ')}>
+              <Text
+                className={[
+                  'text-[15px] font-semibold',
+                  isDark ? 'text-white' : 'text-[#111827]',
+                ].join(' ')}
+              >
                 {label ?? 'Select'}
               </Text>
 
@@ -171,7 +196,12 @@ export function AppSelect({
               </Pressable>
             </View>
 
-            <View style={{ backgroundColor: isDark ? '#1C1C1E' : '#F2F2F7', paddingBottom: Platform.OS === 'ios' ? 24 : 12 }}>
+            <View
+              style={{
+                backgroundColor: isDark ? '#1C1C1E' : '#F2F2F7',
+                paddingBottom: Platform.OS === 'ios' ? 24 : 12,
+              }}
+            >
               <Picker
                 selectedValue={tempValue}
                 onValueChange={itemValue => setTempValue(itemValue)}
@@ -187,7 +217,15 @@ export function AppSelect({
             </View>
 
             {clearable && value != null ? (
-              <View style={{ paddingHorizontal: 16, paddingTop: 8, paddingBottom: 24, alignItems: 'center', backgroundColor: isDark ? '#1C1C1E' : '#F2F2F7' }}>
+              <View
+                style={{
+                  paddingHorizontal: 16,
+                  paddingTop: 8,
+                  paddingBottom: 24,
+                  alignItems: 'center',
+                  backgroundColor: isDark ? '#1C1C1E' : '#F2F2F7',
+                }}
+              >
                 <Pressable onPress={clear}>
                   <Text className='text-[16px] font-medium text-[#FF3B30]'>Clear selection</Text>
                 </Pressable>

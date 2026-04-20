@@ -10,7 +10,7 @@ type RadioOption = {
 type RadioListSize = 'sm' | 'md' | 'lg'
 type RadioListBackground = 'transparent' | 'muted'
 
-type RadioListProps = {
+export type RadioListProps = {
   options: RadioOption[]
   value?: string | null
   onChange: (value: string) => void

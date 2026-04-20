@@ -10,6 +10,7 @@ import { TextareaProps } from './Textarea.types'
 
 export const Textarea = (props: TextareaProps) => {
   const {
+    name,
     value = '',
     onChange,
     onBlur,
@@ -72,12 +73,24 @@ export const Textarea = (props: TextareaProps) => {
           textAlignVertical='top'
           style={textareaStyle}
           accessibilityState={{ disabled }}
+          // @ts-ignore
+          name={name}
           {...textareaProps}
         />
-        <CharacterCounter valueLength={valueLength} invalidLength={invalidLength} min={min} max={max} />
+        <CharacterCounter
+          valueLength={valueLength}
+          invalidLength={invalidLength}
+          min={min}
+          max={max}
+        />
       </View>
       {errorText?.trim() && (
-        <Label label={errorText} hasError font={FontsEnum.Text14} tooltipPlacement={PlacementsEnum.Bottom} />
+        <Label
+          label={errorText}
+          hasError
+          font={FontsEnum.Text14}
+          tooltipPlacement={PlacementsEnum.Bottom}
+        />
       )}
     </View>
   )

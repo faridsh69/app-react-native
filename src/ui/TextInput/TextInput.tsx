@@ -15,7 +15,7 @@ import { toastSuccess } from '../Toast/Toast'
 
 type RightElementType = 'unit' | 'clearable' | 'password' | 'copyable' | 'custom'
 
-type AppTextInputProps = Omit<TextInputProps, 'editable'> & {
+export type AppTextInputProps = Omit<TextInputProps, 'editable'> & {
   label?: string
   helperText?: string
   errorText?: string

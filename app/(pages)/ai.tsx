@@ -5,6 +5,7 @@ import { CheckboxStory } from '@/ui/stories/CheckboxStory'
 import { ChipStory } from '@/ui/stories/ChipStory'
 import { DataNotFoundStory } from '@/ui/stories/DataNotFoundStory'
 import { DialogStory } from '@/ui/stories/DialogStory'
+import { FormStory } from '@/ui/stories/FormStory'
 import { IconsStory } from '@/ui/stories/IconStory'
 import { ImageStory } from '@/ui/stories/ImageStory'
 import { LabelStory } from '@/ui/stories/LabelStory'
@@ -27,6 +28,7 @@ export default function AiPage() {
   return (
     <Container>
       <ScrollView>
+        <FormStory />
         <SkeletonStory />
         <CheckboxStory />
         <RadioListStory />

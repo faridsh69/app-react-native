@@ -3,6 +3,7 @@ import type { StyleProp, TextInputProps, TextStyle } from 'react-native'
 import { TextareaSizes } from './Textarea.enums'
 
 export interface TextareaProps extends Omit<TextInputProps, 'onChange'> {
+  name: string
   value?: string
   onChange?: (text: string) => void
   onBlur?: () => void
