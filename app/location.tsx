@@ -5,20 +5,18 @@ import { OptionValueType } from '@/core/types/core.types'
 import { REGIONS_LIST } from '@/location/constants/location.constants'
 import { locationAtom } from '@/location/contexts/locationAtom'
 import { AppSelect, FontsEnum, Label } from '@/ui'
-import { Link, useNavigation } from 'expo-router'
+import { Link, router } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function LocationPage() {
   const [locationModal, setLocationModal] = useAtom(locationAtom)
   const { region } = locationModal
 
-  const { navigate } = useNavigation()
-
   const handleChangeLocation = (value: OptionValueType) => {
     setLocationModal(p => ({ ...p, region: value as string }))
     setLsCountry('US')
     setLsRegion(value as string)
-    navigate(PAGES.home.name as any)
+    router.dismissTo(PAGES.home.path as any)
   }
 
   return (
@@ -44,7 +42,7 @@ export default function LocationPage() {
         options={REGIONS_LIST}
         value={region}
       />
-      <Link href={PAGES.home.name as any} dismissTo className='mt-4 py-4'>
+      <Link href={PAGES.home.path as any} dismissTo className='mt-4 py-4'>
         <Label label='Back' />
       </Link>
     </SafeAreaView>

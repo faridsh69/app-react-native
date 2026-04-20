@@ -1,8 +1,7 @@
 import { PAGES } from '@/core/constants/navigation.constants'
+import { useAtom } from '@/core/lib/jotai'
 import { locationAtom } from '@/location/contexts/locationAtom'
-import { useLocation } from '@/location/hooks/useLocation'
 import { Link } from 'expo-router'
-import { useAtom } from 'jotai'
 import { View, type ViewProps } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -16,7 +15,14 @@ export type ContainerProps = ViewProps & {
   dark?: string
 }
 
-export const Container = ({ style, className, light, dark, children, ...otherProps }: ContainerProps) => {
+export const Container = ({
+  style,
+  className,
+  light,
+  dark,
+  children,
+  ...otherProps
+}: ContainerProps) => {
   const contentClassName = ['flex-1', className].filter(Boolean).join(' ')
 
   const [locationModal] = useAtom(locationAtom)
