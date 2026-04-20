@@ -35,7 +35,7 @@ export const FormStory = () => {
   })
 
   const onChangeInput = (formData: any) => {
-    console.log(formData)
+    // console.log(formData)
   }
 
   const inputs: FormInput[] = [

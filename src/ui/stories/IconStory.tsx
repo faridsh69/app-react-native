@@ -15,7 +15,9 @@ export const IconsStory = () => {
       <Text style={styles.small}>
         We should import SVGs into the project via the UI kit. Injecting raw SVG is forbidden.
       </Text>
-      <Text style={codeTextStyle.inline}>{'<Icon icon={IconsEnum.ArrowRight} color={ColorsEnum.Primary} />'}</Text>
+      <Text style={codeTextStyle.inline}>
+        {'<Icon icon={IconsEnum.ArrowRight} color={ColorsEnum.Primary} />'}
+      </Text>
 
       <View style={styles.row}>
         {iconEntries.map(([name, value]) => (

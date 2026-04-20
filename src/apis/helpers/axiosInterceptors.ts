@@ -1,4 +1,3 @@
-import { postUseRefreshToken } from '@/apis/apis/authApis'
 import {
   getLsAuthUser,
   getLsBearerToken,
@@ -11,9 +10,13 @@ import {
 import axios from 'axios'
 import { encode } from 'base-64'
 
-import { TypeAxiosRequestInterceptor, TypeErrorHandlerInterceptor } from '../types/createApiClient.types'
+import {
+  TypeAxiosRequestInterceptor,
+  TypeErrorHandlerInterceptor,
+} from '../types/createApiClient.types'
 
 const UNAUTHORIZED_CODE = 401
+const API_URL = process.env.EXPO_PUBLIC_API_URL || ''
 
 const prepareToken = (token?: string) => (token ? `Bearer ${token}` : undefined)
 
@@ -30,10 +33,16 @@ const refreshTokens = async (axiosConfig: any) => {
     })
   }
 
-  const newTokens = await postUseRefreshToken({
-    token: refreshToken,
-    email,
-  })
+  const newTokens = await axios.post<{ access_token: string; refresh_token: string }>(
+    'auth/refresh/use',
+    {
+      token: refreshToken,
+      email,
+    },
+    {
+      baseURL: API_URL,
+    },
+  )
 
   setLsBearerToken(newTokens.data.access_token)
   setLsRefreshToken(newTokens.data.refresh_token)
@@ -71,7 +80,11 @@ export const authInterceptor: TypeAxiosRequestInterceptor = async config => {
 export const errorHandlerInterceptor: TypeErrorHandlerInterceptor = async error => {
   const axiosConfig = error.config
 
-  if (error?.response?.status === UNAUTHORIZED_CODE && axiosConfig && axiosConfig.headers.Authorization) {
+  if (
+    error?.response?.status === UNAUTHORIZED_CODE &&
+    axiosConfig &&
+    axiosConfig.headers.Authorization
+  ) {
     const newTokens = await refreshTokens(axiosConfig)
 
     return axios({

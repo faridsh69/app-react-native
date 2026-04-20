@@ -66,7 +66,11 @@ export const setLsMedusaBaskets = async (baskets: TypeBasket[]): Promise<void> =
   await setLs(LS_KEYS.medusa.baskets, baskets)
 }
 
-export const getLs = async <T>(lsKey: string, defaultValue: T, appLsKey = APP_LS_KEY): Promise<T> => {
+export const getLs = async <T>(
+  lsKey: string,
+  defaultValue: T,
+  appLsKey = APP_LS_KEY,
+): Promise<T> => {
   if (!isClient) {
     return defaultValue
   }

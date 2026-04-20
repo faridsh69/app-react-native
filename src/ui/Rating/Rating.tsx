@@ -23,9 +23,20 @@ export const Rating = (props: RatingProps) => {
 
   return (
     <View className='relative flex max-w-full flex-col items-start gap-1'>
-      <Label label={label} required={required} hasError={hasError} hint={hint} disabled={disabled} />
+      <Label
+        label={label}
+        required={required}
+        hasError={hasError}
+        hint={hint}
+        disabled={disabled}
+      />
 
-      {disabled && <View pointerEvents='none' className='absolute left-0 top-0 h-[70px] w-[260px] bg-transparent' />}
+      {disabled && (
+        <View
+          pointerEvents='none'
+          className='absolute left-0 top-0 h-[70px] w-[260px] bg-transparent'
+        />
+      )}
 
       <View className='flex-row-reverse justify-start' pointerEvents={noHover ? 'none' : 'auto'}>
         {[5, 4, 3, 2, 1].map(star => {
@@ -53,7 +64,12 @@ export const Rating = (props: RatingProps) => {
               accessibilityState={{ disabled }}
               {...handlers}
             >
-              <StarSvg size={size} fill={filled} preview={shouldPreview(star)} disabled={disabled} />
+              <StarSvg
+                size={size}
+                fill={filled}
+                preview={shouldPreview(star)}
+                disabled={disabled}
+              />
             </Pressable>
           )
         })}

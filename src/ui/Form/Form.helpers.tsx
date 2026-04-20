@@ -4,7 +4,6 @@ import { ChipsController } from './Controllers/ChipsController'
 import { CustomController } from './Controllers/CustomComponentController'
 import { DateController } from './Controllers/DateController'
 // import { EditorController } from './Controllers/EditorController'
-import { GroupController } from './Controllers/GroupController'
 import { RadioController } from './Controllers/RadioController'
 import { RatingController } from './Controllers/RatingController'
 import { SelectController } from './Controllers/SelectController'
@@ -28,8 +27,11 @@ export const getInputController = (component?: InputComponentsEnum) => {
     // [InputComponentsEnum.Uploader]: UploaderController,
     [InputComponentsEnum.Chips]: ChipsController,
     // [InputComponentsEnum.Editor]: EditorController,
-    [InputComponentsEnum.Group]: GroupController,
     [InputComponentsEnum.Custom]: CustomController,
+  }
+
+  if (component === InputComponentsEnum.Group) {
+    return require('./Controllers/GroupController').GroupController
   }
 
   return component && inputs[component] ? inputs[component] : TextController

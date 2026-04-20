@@ -7,7 +7,11 @@ import { invalidateQueryKey } from './invalidateQueryKey'
 import { QUERY_CLIENT } from './reactQuery.constants'
 import { getApiMapping } from './reactQuery.helpers'
 
-export const useCrud = <T>({ queryKey, filters = {}, configs = {} }: TypeUseCrudProps): TypeUseCrudReturn<T> => {
+export const useCrud = <T>({
+  queryKey,
+  filters = {},
+  configs = {},
+}: TypeUseCrudProps): TypeUseCrudReturn<T> => {
   const { listApi } = getApiMapping(queryKey)
 
   const { data, error, isFetching } = useQuery({

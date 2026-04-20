@@ -31,7 +31,9 @@ export const DataNotFoundStory: React.FC = () => {
       <Text style={styles.small}>It will show after search data is not found</Text>
 
       <Text style={codeTextStyle.inline}>
-        {'<DataNotFound isLoading={isLoading} label="Items not found." icon={IconsEnum.EmptyWine} />'}
+        {
+          '<DataNotFound isLoading={isLoading} label="Items not found." icon={IconsEnum.EmptyWine} />'
+        }
       </Text>
 
       <View style={styles.section}>

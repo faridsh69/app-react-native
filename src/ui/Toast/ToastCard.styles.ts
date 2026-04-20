@@ -15,11 +15,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     borderLeftWidth: 6,
-    shadowColor: '#000',
-    shadowOpacity: 0.15,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 4,
+    boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.15)',
     gap: 8,
   },
 

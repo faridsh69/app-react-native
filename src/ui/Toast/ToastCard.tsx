@@ -15,7 +15,9 @@ export const ToastCard = (props: ToastCardProps) => {
     <View style={styles.wrap} pointerEvents='box-none'>
       <View style={[styles.toast, { borderLeftColor: iconColor }]}>
         <View style={styles.header}>
-          <View style={styles.check}>{icon && <Icon icon={icon} color={iconColor} size={SizesEnum.M} />}</View>
+          <View style={styles.check}>
+            {icon && <Icon icon={icon} color={iconColor} size={SizesEnum.M} />}
+          </View>
 
           <View style={styles.title}>
             <Label label={title} font={FontsEnum.Label16} color={ColorsEnum.Black} />
@@ -30,7 +32,9 @@ export const ToastCard = (props: ToastCardProps) => {
           </TouchableOpacity>
         </View>
 
-        {!!description && <Label label={description} font={FontsEnum.Text14} color={ColorsEnum.Black} />}
+        {!!description && (
+          <Label label={description} font={FontsEnum.Text14} color={ColorsEnum.Black} />
+        )}
 
         {/* TODO: progress bar */}
       </View>

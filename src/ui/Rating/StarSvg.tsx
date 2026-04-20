@@ -15,7 +15,8 @@ export const StarSvg = (props: StarSvgProps) => {
 
   const isFilled = !!fill
   const fillColor = isFilled ? (disabled ? grey600 : primary) : 'none'
-  const strokeColor = (isFilled && !disabled) || preview ? primary : isFilled && disabled ? grey600 : grey500
+  const strokeColor =
+    (isFilled && !disabled) || preview ? primary : isFilled && disabled ? grey600 : grey500
 
   return (
     <Svg width={sizePx(size)} height={sizePx(size)} viewBox='0 0 24 25'>

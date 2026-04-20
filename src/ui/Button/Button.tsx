@@ -89,9 +89,10 @@ export const Button = (props: ButtonProps) => {
       ? activeTextColorValueMap[variant]
       : textColorValueMap[variant]
 
-  const fontStyle = [{ textAlign: 'center', includeFontPadding: false }, font as TextStyle | undefined].filter(
-    Boolean,
-  ) as TextStyle[]
+  const fontStyle = [
+    { textAlign: 'center', includeFontPadding: false },
+    font as TextStyle | undefined,
+  ].filter(Boolean) as TextStyle[]
   const widthStyle: ViewStyle | undefined =
     width !== undefined ? ({ width: width as ViewStyle['width'] } as ViewStyle) : undefined
 
@@ -103,11 +104,20 @@ export const Button = (props: ButtonProps) => {
       className={containerClassName}
       activeOpacity={0.8}
     >
-      {iconLeft && <Icon icon={iconLeft} size={size} className={contentColorClassName} color={contentColor} />}
-      <Text numberOfLines={1} ellipsizeMode='tail' style={fontStyle} className={contentColorClassName}>
+      {iconLeft && (
+        <Icon icon={iconLeft} size={size} className={contentColorClassName} color={contentColor} />
+      )}
+      <Text
+        numberOfLines={1}
+        ellipsizeMode='tail'
+        style={fontStyle}
+        className={contentColorClassName}
+      >
         {label}
       </Text>
-      {iconRight && <Icon icon={iconRight} size={size} className={contentColorClassName} color={contentColor} />}
+      {iconRight && (
+        <Icon icon={iconRight} size={size} className={contentColorClassName} color={contentColor} />
+      )}
     </TouchableOpacity>
   )
 }

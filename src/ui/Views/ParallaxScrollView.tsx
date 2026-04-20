@@ -1,6 +1,11 @@
 import type { PropsWithChildren, ReactElement } from 'react'
 import { useColorScheme } from 'react-native'
-import Animated, { interpolate, useAnimatedRef, useAnimatedStyle, useScrollOffset } from 'react-native-reanimated'
+import Animated, {
+  interpolate,
+  useAnimatedRef,
+  useAnimatedStyle,
+  useScrollOffset,
+} from 'react-native-reanimated'
 
 import { Label } from '../Label/Label'
 
@@ -28,8 +33,18 @@ export const ParallaxScrollView = ({ children, headerImage, headerBackgroundColo
   })
 
   return (
-    <Animated.ScrollView ref={scrollRef} style={{ backgroundColor: 'black', flex: 1 }} scrollEventThrottle={16}>
-      <Animated.View className='overflow-hidden' style={[{ height: HEADER_HEIGHT, backgroundColor: headerBackgroundColor[colorScheme] }, headerAnimatedStyle]}>
+    <Animated.ScrollView
+      ref={scrollRef}
+      style={{ backgroundColor: 'black', flex: 1 }}
+      scrollEventThrottle={16}
+    >
+      <Animated.View
+        className='overflow-hidden'
+        style={[
+          { height: HEADER_HEIGHT, backgroundColor: headerBackgroundColor[colorScheme] },
+          headerAnimatedStyle,
+        ]}
+      >
         {headerImage}
       </Animated.View>
       <Label label={children} />

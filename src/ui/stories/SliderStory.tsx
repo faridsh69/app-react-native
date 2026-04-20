@@ -28,7 +28,9 @@ export const SliderStory: React.FC = () => {
 
       <Text style={styles.small}>Slider will render the component and options</Text>
 
-      <Text style={codeTextStyle.inline}>{'<Slider label="Add photo" options={productCards} />'}</Text>
+      <Text style={codeTextStyle.inline}>
+        {'<Slider label="Add photo" options={productCards} />'}
+      </Text>
 
       <View style={styles.section}>
         <MainSlider options={productCards} />

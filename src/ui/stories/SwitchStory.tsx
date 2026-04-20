@@ -14,11 +14,22 @@ export const SwitchStory = () => {
       <Text style={styles.h4}>Switch</Text>
 
       <View style={styles.section}>
-        <AppSwitch label='Notifications' description='Receive updates and alerts' value={a} onChange={setA} />
+        <AppSwitch
+          label='Notifications'
+          description='Receive updates and alerts'
+          value={a}
+          onChange={setA}
+        />
       </View>
 
       <View style={styles.section}>
-        <AppSwitch label='Biometric login' description='Use Face ID to sign in' value={b} onChange={setB} size='sm' />
+        <AppSwitch
+          label='Biometric login'
+          description='Use Face ID to sign in'
+          value={b}
+          onChange={setB}
+          size='sm'
+        />
       </View>
 
       <View style={styles.section}>
@@ -26,11 +37,23 @@ export const SwitchStory = () => {
       </View>
 
       <View style={styles.section}>
-        <AppSwitch label='Disabled' description='Cannot be changed right now' value onChange={() => {}} disabled />
+        <AppSwitch
+          label='Disabled'
+          description='Cannot be changed right now'
+          value
+          onChange={() => {}}
+          disabled
+        />
       </View>
 
       <View style={styles.section}>
-        <AppSwitch label='Error state' value={false} onChange={() => {}} hasError errorText='This field has an error' />
+        <AppSwitch
+          label='Error state'
+          value={false}
+          onChange={() => {}}
+          hasError
+          errorText='This field has an error'
+        />
       </View>
     </Story>
   )

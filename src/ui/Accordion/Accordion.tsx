@@ -10,7 +10,11 @@ export function Accordion({ children, title }: PropsWithChildren & { title: stri
 
   return (
     <Container>
-      <TouchableOpacity className='flex-row items-center gap-1.5' onPress={() => setIsOpen(value => !value)} activeOpacity={0.8}>
+      <TouchableOpacity
+        className='flex-row items-center gap-1.5'
+        onPress={() => setIsOpen(value => !value)}
+        activeOpacity={0.8}
+      >
         <IconSymbol
           name='chevron.right'
           size={18}

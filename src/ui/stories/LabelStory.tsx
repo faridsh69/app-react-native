@@ -15,9 +15,9 @@ export const LabelStory: React.FC = () => {
       <Text style={styles.h4}>Label, Tooltip</Text>
 
       <Text style={styles.small}>
-        For all places we need to render text, only we should use this label component and add it proper font and color
-        from props. Injecting any type of classname or style is forbidden. It will wrap the text and show tooltip if the
-        label text space is not enough.
+        For all places we need to render text, only we should use this label component and add it
+        proper font and color from props. Injecting any type of classname or style is forbidden. It
+        will wrap the text and show tooltip if the label text space is not enough.
       </Text>
 
       <Text style={codeTextStyle.inline}>

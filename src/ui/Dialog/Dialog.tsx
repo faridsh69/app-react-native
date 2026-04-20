@@ -7,7 +7,6 @@ import {
   Pressable,
   ScrollView,
   StyleProp,
-  StyleSheet,
   Text,
   View,
   ViewStyle,
@@ -71,21 +70,29 @@ export function Dialog({
   const BodyWrapper = scrollable ? ScrollView : View
 
   return (
-    <Modal visible={visible} transparent animationType='none' onRequestClose={onClose} statusBarTranslucent>
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} className='flex-1'>
+    <Modal
+      visible={visible}
+      transparent
+      animationType='none'
+      onRequestClose={onClose}
+      statusBarTranslucent
+    >
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        className='flex-1'
+      >
         <Pressable
-          className={['flex-1 items-center justify-center bg-black/20', isFull ? 'p-0' : 'p-5'].join(' ')}
+          className={[
+            'flex-1 items-center justify-center bg-black/20',
+            isFull ? 'p-0' : 'p-5',
+          ].join(' ')}
           onPress={closeOnBackdrop ? onClose : undefined}
         >
           <Pressable
             className='overflow-hidden rounded-[20px] bg-white'
             style={[
               {
-                shadowColor: '#000',
-                shadowOpacity: 0.12,
-                shadowRadius: 20,
-                shadowOffset: { width: 0, height: 8 },
-                elevation: 10,
+                boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.12)',
                 maxHeight: '88%',
               },
               sizeStyles[size],
@@ -97,12 +104,22 @@ export function Dialog({
             {(title || description || showCloseButton) && (
               <View className='min-h-16 flex-row items-start justify-between gap-3 border-b border-neutral-200 px-[18px] pb-[14px] pt-[18px]'>
                 <View className='flex-1 pt-0.5'>
-                  {!!title && <Text className='text-[18px] font-semibold text-neutral-900'>{title}</Text>}
-                  {!!description && <Text className='mt-1.5 text-[14px] leading-5 text-neutral-500'>{description}</Text>}
+                  {!!title && (
+                    <Text className='text-[18px] font-semibold text-neutral-900'>{title}</Text>
+                  )}
+                  {!!description && (
+                    <Text className='mt-1.5 text-[14px] leading-5 text-neutral-500'>
+                      {description}
+                    </Text>
+                  )}
                 </View>
 
                 {showCloseButton ? (
-                  <Pressable onPress={onClose} hitSlop={8} className='h-8 w-8 items-center justify-center rounded-full'>
+                  <Pressable
+                    onPress={onClose}
+                    hitSlop={8}
+                    className='h-8 w-8 items-center justify-center rounded-full'
+                  >
                     <Ionicons name='close' size={22} color='#171717' />
                   </Pressable>
                 ) : null}
@@ -117,7 +134,9 @@ export function Dialog({
               {children}
             </BodyWrapper>
 
-            {footer ? <View className='border-t border-neutral-200 px-[18px] pb-[18px] pt-2'>{footer}</View> : null}
+            {footer ? (
+              <View className='border-t border-neutral-200 px-[18px] pb-[18px] pt-2'>{footer}</View>
+            ) : null}
           </Pressable>
         </Pressable>
       </KeyboardAvoidingView>

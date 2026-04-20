@@ -26,8 +26,12 @@ export const TextareaStory: React.FC = () => {
   return (
     <Story>
       <Text style={styles.h4}>Textarea</Text>
-      <Text style={styles.small}>We have min, max that shows minimum and maximum length of content</Text>
-      <Text style={codeTextStyle.inline}>{'<Textarea min={20} max={100} width={400} rows={7} label="label" />'}</Text>
+      <Text style={styles.small}>
+        We have min, max that shows minimum and maximum length of content
+      </Text>
+      <Text style={codeTextStyle.inline}>
+        {'<Textarea min={20} max={100} width={400} rows={7} label="label" />'}
+      </Text>
 
       <View style={styles.section}>
         <Textarea {...props} />

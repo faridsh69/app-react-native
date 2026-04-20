@@ -12,9 +12,13 @@ export const CheckboxStory: React.FC = () => {
   return (
     <Story>
       <Text style={styles.h4}>Checkbox</Text>
-      <Text style={styles.small}>Checkbox supports label, required, hint, disabled, and error states.</Text>
+      <Text style={styles.small}>
+        Checkbox supports label, required, hint, disabled, and error states.
+      </Text>
 
-      <Text style={codeTextStyle.inline}>{'<Checkbox label="One" checked={checked} onChange={setChecked} />'}</Text>
+      <Text style={codeTextStyle.inline}>
+        {'<Checkbox label="One" checked={checked} onChange={setChecked} />'}
+      </Text>
 
       <View style={styles.row}>
         <View style={styles.cell}>

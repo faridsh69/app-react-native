@@ -22,10 +22,26 @@ export const Loader = ({
       <ActivityIndicator size={SIZE_MAP[size]} color={ColorsEnum.PrimaryMain} />
 
       <View className='items-center gap-[5px]'>
-        <Text style={{ fontSize: 14, fontWeight: '600', lineHeight: 18, marginVertical: 0, textAlign: 'center' }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontWeight: '600',
+            lineHeight: 18,
+            marginVertical: 0,
+            textAlign: 'center',
+          }}
+        >
           {label}
         </Text>
-        <Text style={{ fontSize: 14, fontWeight: '400', lineHeight: 18, marginVertical: 0, textAlign: 'center' }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontWeight: '400',
+            lineHeight: 18,
+            marginVertical: 0,
+            textAlign: 'center',
+          }}
+        >
           {subLabel}
         </Text>
       </View>

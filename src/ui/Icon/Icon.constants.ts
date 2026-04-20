@@ -27,7 +27,9 @@ export const svgMapping: any = {
   },
 }
 
-export const FontAwesomeMapping: Partial<Record<IconsEnum, ComponentProps<typeof FontAwesome>['name']>> = {
+export const FontAwesomeMapping: Partial<
+  Record<IconsEnum, ComponentProps<typeof FontAwesome>['name']>
+> = {
   [IconsEnum.Share]: 'share',
   [IconsEnum.Comment]: 'comment',
   [IconsEnum.Like]: 'heart',

@@ -1,6 +1,12 @@
 import { Platform } from 'react-native'
 
-import { designBorderRadius, designColors, designFonts, designHeights, designSpacing } from './common.style'
+import {
+  designBorderRadius,
+  designColors,
+  designFonts,
+  designHeights,
+  designSpacing,
+} from './common.style'
 
 export const Fonts = Platform.select({
   ios: {

@@ -6,7 +6,15 @@ import { IMAGE_STATES, MINIMUM_TIME_FOR_SHOW_ANIMATION } from './Image.constants
 import { ImageProps } from './Image.types'
 
 export const Image = (props: ImageProps) => {
-  const { src, alt = 'image', width, height, borderRadius = 0, keepRatio = true, aspectRatio = 1 } = props
+  const {
+    src,
+    alt = 'image',
+    width,
+    height,
+    borderRadius = 0,
+    keepRatio = true,
+    aspectRatio = 1,
+  } = props
 
   const [imageState, setImageState] = useState(IMAGE_STATES.loading)
   const [mountingTime] = useState(Date.now())
@@ -33,7 +41,10 @@ export const Image = (props: ImageProps) => {
 
   const containerStyle: any = [{ overflow: 'hidden', borderRadius }, ...sizeStyle]
 
-  const imageStyles: any = [imageState === IMAGE_STATES.loading && { opacity: 0 }, { position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }]
+  const imageStyles: any = [
+    imageState === IMAGE_STATES.loading && { opacity: 0 },
+    { position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 },
+  ]
 
   return (
     <View style={[containerStyle]} accessible accessibilityLabel={alt}>

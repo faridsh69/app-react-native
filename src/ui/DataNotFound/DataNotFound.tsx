@@ -21,7 +21,10 @@ export const DataNotFound = (props: DataNotFoundProps) => {
     <View className='w-full items-center justify-center px-4 py-6'>
       {isLoading && <Loader label='' subLabel='' size={SizesEnum.L} />}
       {!isLoading && !image && (
-        <Icon icon={icon || IconsEnum.EmptyWine} style={[{ width: 56, height: 56, marginBottom: 12 }, style]} />
+        <Icon
+          icon={icon || IconsEnum.EmptyWine}
+          style={[{ width: 56, height: 56, marginBottom: 12 }, style]}
+        />
       )}
       {!isLoading && image && <Image src={image} />}
       <Label label={label} font={FontsEnum.Text14} disabled />

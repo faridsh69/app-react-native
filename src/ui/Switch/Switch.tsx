@@ -51,17 +51,37 @@ export function AppSwitch({
 
   return (
     <View className='w-full gap-1.5' style={containerStyle}>
-      <View className={['min-h-[52px] flex-row items-center justify-between rounded-xl bg-white px-[14px] py-3', disabled && 'opacity-60', hasError && 'border border-red-500'].filter(Boolean).join(' ')}>
+      <View
+        className={[
+          'min-h-[52px] flex-row items-center justify-between rounded-xl bg-white px-[14px] py-3',
+          disabled && 'opacity-60',
+          hasError && 'border border-red-500',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
         <View style={{ flex: 1, marginRight: tokens.gap }}>
           {!!label && (
-            <Text style={{ fontSize: tokens.labelSize, color: disabled ? '#A3A3A3' : '#171717', fontWeight: '500' }}>
+            <Text
+              style={{
+                fontSize: tokens.labelSize,
+                color: disabled ? '#A3A3A3' : '#171717',
+                fontWeight: '500',
+              }}
+            >
               {label}
               {required ? <Text className='text-red-500'> *</Text> : null}
             </Text>
           )}
 
           {!!description && (
-            <Text style={{ marginTop: 4, fontSize: tokens.descriptionSize, color: disabled ? '#A3A3A3' : '#737373' }}>
+            <Text
+              style={{
+                marginTop: 4,
+                fontSize: tokens.descriptionSize,
+                color: disabled ? '#A3A3A3' : '#737373',
+              }}
+            >
               {description}
             </Text>
           )}

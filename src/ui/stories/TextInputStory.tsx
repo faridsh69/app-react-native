@@ -32,7 +32,12 @@ export const TextInputStory = () => {
         leftIcon={<Ionicons name='search-outline' size={20} color='#A3A3A3' />}
       />
 
-      <AppTextInput label='clearable' value={clearableValue} onChangeText={setClearableValue} clearable />
+      <AppTextInput
+        label='clearable'
+        value={clearableValue}
+        onChangeText={setClearableValue}
+        clearable
+      />
 
       <AppTextInput
         label='hideable'
@@ -58,7 +63,13 @@ export const TextInputStory = () => {
         errorText='Wrong password'
       />
 
-      <AppTextInput label='disabled' value='' onChangeText={() => {}} placeholder='Disabled input' disabled />
+      <AppTextInput
+        label='disabled'
+        value=''
+        onChangeText={() => {}}
+        placeholder='Disabled input'
+        disabled
+      />
 
       <AppTextInput placeholder='With placeholder' />
     </ScrollView>

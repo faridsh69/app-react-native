@@ -59,7 +59,11 @@ export const ProductCardStory: React.FC = () => {
 
       <Text style={codeTextStyle.inline}>{'<ProductCard wine={wine} />'}</Text>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.row}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.row}
+      >
         {wines.map(wine => (
           <View key={`card-${wine.id}`} style={styles.cardWrap}>
             <ProductCard wine={wine} />

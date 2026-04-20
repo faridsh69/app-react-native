@@ -23,19 +23,34 @@ const showToast = (
 export const toastSuccess = ({ title = 'Success', description = '' }) =>
   showToast(
     'success',
-    <ToastCard title={title} description={description} icon={IconsEnum.Success} iconColor={ColorsEnum.Success} />,
+    <ToastCard
+      title={title}
+      description={description}
+      icon={IconsEnum.Success}
+      iconColor={ColorsEnum.Success}
+    />,
   )
 
 export const toastWarning = ({ title = 'Warning', description = '' }) =>
   showToast(
     'warning',
-    <ToastCard title={title} description={description} icon={IconsEnum.Warning} iconColor={ColorsEnum.Warning} />,
+    <ToastCard
+      title={title}
+      description={description}
+      icon={IconsEnum.Warning}
+      iconColor={ColorsEnum.Warning}
+    />,
   )
 
 export const toastError = ({ title = 'Error', description = '' }) =>
   showToast(
     'error',
-    <ToastCard title={title} description={description} icon={IconsEnum.Error} iconColor={ColorsEnum.Error} />,
+    <ToastCard
+      title={title}
+      description={description}
+      icon={IconsEnum.Error}
+      iconColor={ColorsEnum.Error}
+    />,
   )
 
 export const toastConfig = {

@@ -11,7 +11,11 @@ export const ProductImage = (props: ProductImageProps) => {
 
   const hasImage = !!src && src !== 'None'
 
-  const containerStyle: any = [styles.imageHolder, width ? { width } : { width: '100%' }, height ? { height } : null]
+  const containerStyle: any = [
+    styles.imageHolder,
+    width ? { width } : { width: '100%' },
+    height ? { height } : null,
+  ]
 
   return (
     <Pressable
@@ -23,7 +27,12 @@ export const ProductImage = (props: ProductImageProps) => {
         <Image src={src} width={width} height={height} alt={alt} />
       ) : (
         <View style={styles.emptyWineText}>
-          <Label label='Image is unavailable' font={FontsEnum.Label16} color={ColorsEnum.Grey700} linesCount={2} />
+          <Label
+            label='Image is unavailable'
+            font={FontsEnum.Label16}
+            color={ColorsEnum.Grey700}
+            linesCount={2}
+          />
         </View>
       )}
     </Pressable>

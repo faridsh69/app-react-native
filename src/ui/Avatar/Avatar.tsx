@@ -29,9 +29,19 @@ export const Avatar = (props: AvatarProps) => {
   ]
 
   return (
-    <View style={containerStyle} accessibilityRole='image' accessibilityLabel={src ? 'User avatar' : 'Default avatar'}>
+    <View
+      style={containerStyle}
+      accessibilityRole='image'
+      accessibilityLabel={src ? 'User avatar' : 'Default avatar'}
+    >
       {!!src && (
-        <Image src={src} alt={alt || 'user avatar'} width={width} height={width} borderRadius={width ? width / 2 : 0} />
+        <Image
+          src={src}
+          alt={alt || 'user avatar'}
+          width={width}
+          height={width}
+          borderRadius={width ? width / 2 : 0}
+        />
       )}
       {!src && <Icon icon={IconsEnum.User} />}
     </View>

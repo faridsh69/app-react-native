@@ -1,4 +1,8 @@
-export const formatCurrency = (value: number | string | null, currency: string, locale: string = 'en-US'): string => {
+export const formatCurrency = (
+  value: number | string | null,
+  currency: string,
+  locale: string = 'en-US',
+): string => {
   return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency,
@@ -9,7 +13,11 @@ export const formatNumber = (value: number, locale: string = 'en-US'): string =>
   return new Intl.NumberFormat(locale).format(value)
 }
 
-export const formatPercent = (value: number, locale: string = 'en-US', minimumFractionDigits: number = 0): string => {
+export const formatPercent = (
+  value: number,
+  locale: string = 'en-US',
+  minimumFractionDigits: number = 0,
+): string => {
   return new Intl.NumberFormat(locale, {
     style: 'percent',
     minimumFractionDigits,

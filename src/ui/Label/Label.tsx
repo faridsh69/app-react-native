@@ -1,7 +1,13 @@
 import React, { ReactNode, useMemo } from 'react'
 import { Text, TextStyle, View } from 'react-native'
 
-import { ColorsEnum, ColorsEnumType, FontsEnum, FontsEnumType, PlacementsEnumType } from '../theme/themeEnums'
+import {
+  ColorsEnum,
+  ColorsEnumType,
+  FontsEnum,
+  FontsEnumType,
+  PlacementsEnumType,
+} from '../theme/themeEnums'
 
 export const Label = (props: LabelProps) => {
   const {
@@ -23,7 +29,13 @@ export const Label = (props: LabelProps) => {
   const activeColor = ColorsEnum.PrimaryMain
 
   const textColor = useMemo(() => {
-    const stateColor = hasError ? errorColor : disabled ? disabledColor : active ? activeColor : baseColor
+    const stateColor = hasError
+      ? errorColor
+      : disabled
+        ? disabledColor
+        : active
+          ? activeColor
+          : baseColor
 
     return color ?? stateColor
   }, [hasError, disabled, active, color, errorColor, disabledColor, activeColor, baseColor])
@@ -34,11 +46,18 @@ export const Label = (props: LabelProps) => {
   ]
     .filter(Boolean)
     .join(' ')
-  const textStyle = [font as TextStyle | undefined, { color: textColor, textAlign }].filter(Boolean) as TextStyle[]
+  const textStyle = [font as TextStyle | undefined, { color: textColor, textAlign }].filter(
+    Boolean,
+  ) as TextStyle[]
 
   const Content = (
     <View className='max-w-full min-w-0 flex-row items-center shrink'>
-      <Text style={textStyle} numberOfLines={linesCount} ellipsizeMode='tail' className='max-w-full min-w-0 shrink'>
+      <Text
+        style={textStyle}
+        numberOfLines={linesCount}
+        ellipsizeMode='tail'
+        className='max-w-full min-w-0 shrink'
+      >
         {label}
       </Text>
       {required ? (

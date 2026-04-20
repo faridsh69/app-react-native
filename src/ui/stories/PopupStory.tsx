@@ -21,9 +21,13 @@ export const PopupStory = () => {
   return (
     <Story>
       <Text style={styles.h4}>Modal</Text>
-      <Text style={styles.small}>We have modal with 2 sizes S and M, it has title, body and footer</Text>
+      <Text style={styles.small}>
+        We have modal with 2 sizes S and M, it has title, body and footer
+      </Text>
       <Text style={codeTextStyle.inline}>
-        {'<Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Modal Title" body={<View>Modal Body</View>} />'}
+        {
+          '<Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Modal Title" body={<View>Modal Body</View>} />'
+        }
       </Text>
 
       <View style={styles.actionsRow}>

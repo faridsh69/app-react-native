@@ -14,11 +14,14 @@ export const ButtonStory: React.FC = () => {
     <Story>
       <Text style={styles.h4}>Button</Text>
       <Text style={styles.small}>
-        We have 3 variants: primary, secondary and text. Supports iconLeft and iconRight. Sizes: M and S.
+        We have 3 variants: primary, secondary and text. Supports iconLeft and iconRight. Sizes: M
+        and S.
       </Text>
 
       <Text style={codeTextStyle.inline}>
-        {'<Button label="Button" size={SizesEnum.M} variant={VariantsEnum.Primary} iconRight={IconsEnum.ArrowRight} />'}
+        {
+          '<Button label="Button" size={SizesEnum.M} variant={VariantsEnum.Primary} iconRight={IconsEnum.ArrowRight} />'
+        }
       </Text>
 
       {/* Matrix: rows per size, cells per variant (fixed width like web: 300) */}

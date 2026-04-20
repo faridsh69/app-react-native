@@ -65,8 +65,23 @@ export const Popup = (props: ModalProps) => {
         />
       )}
       style={[zIndex != null && { zIndex }]}
-      backgroundStyle={[{ backgroundColor: '#FFFFFF', borderTopLeftRadius: 16, borderTopRightRadius: 16, borderRightWidth: 1, borderRightColor: '#A3A3A3' }]}
-      handleIndicatorStyle={{ width: 40, height: 4, borderRadius: 2, backgroundColor: '#D1D5DB', alignSelf: 'center', marginTop: 6 }}
+      backgroundStyle={[
+        {
+          backgroundColor: '#FFFFFF',
+          borderTopLeftRadius: 16,
+          borderTopRightRadius: 16,
+          borderRightWidth: 1,
+          borderRightColor: '#A3A3A3',
+        },
+      ]}
+      handleIndicatorStyle={{
+        width: 40,
+        height: 4,
+        borderRadius: 2,
+        backgroundColor: '#D1D5DB',
+        alignSelf: 'center',
+        marginTop: 6,
+      }}
     >
       <BottomSheetScrollView
         // @ts-ignore
@@ -75,7 +90,12 @@ export const Popup = (props: ModalProps) => {
         keyboardShouldPersistTaps='handled'
       >
         {(title || isSecondary) && (
-          <View className={['h-16 min-h-16 flex-row items-center px-6 pl-8', isSecondary ? 'justify-between' : 'justify-end'].join(' ')}>
+          <View
+            className={[
+              'h-16 min-h-16 flex-row items-center px-6 pl-8',
+              isSecondary ? 'justify-between' : 'justify-end',
+            ].join(' ')}
+          >
             {isSecondary && (
               <View className='flex-row items-center justify-center gap-2.5'>
                 <Label label={title} font={FontsEnum.Label18} />
@@ -92,7 +112,12 @@ export const Popup = (props: ModalProps) => {
           </View>
         )}
 
-        <View style={[{ paddingHorizontal: 16, paddingBottom: 16, paddingTop: 8 }, bodyPadding && { paddingHorizontal: 32, paddingTop: 0, paddingBottom: 32 }]}>
+        <View
+          style={[
+            { paddingHorizontal: 16, paddingBottom: 16, paddingTop: 8 },
+            bodyPadding && { paddingHorizontal: 32, paddingTop: 0, paddingBottom: 32 },
+          ]}
+        >
           {!isSecondary && (
             <View className='mb-5 flex-row items-center justify-center gap-2.5'>
               <Label label={title} font={FontsEnum.Label30} linesCount={7} textAlign='center' />

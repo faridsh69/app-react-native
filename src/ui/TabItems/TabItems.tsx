@@ -61,7 +61,9 @@ export const TabItems = (props: TabItemsProps) => {
                     {icon && icon}
                     {label && (
                       <Text
-                        className={[labelClassName, pressed && !disabled && 'text-brand-white'].filter(Boolean).join(' ')}
+                        className={[labelClassName, pressed && !disabled && 'text-brand-white']
+                          .filter(Boolean)
+                          .join(' ')}
                         numberOfLines={1}
                         ellipsizeMode='tail'
                       >
@@ -97,7 +99,11 @@ export const TabItems = (props: TabItemsProps) => {
                 accessibilityState={{ disabled: !!disabled, selected: isActive }}
                 disabled={disabled}
                 onPress={() => onChange?.(optionValue)}
-                className={[tabItemBaseClassName, isActive && 'border-brand-primary', disabled && 'opacity-50']
+                className={[
+                  tabItemBaseClassName,
+                  isActive && 'border-brand-primary',
+                  disabled && 'opacity-50',
+                ]
                   .filter(Boolean)
                   .join(' ')}
                 style={({ pressed, hovered }) => [
@@ -116,7 +122,9 @@ export const TabItems = (props: TabItemsProps) => {
                     {icon && icon}
                     {label && (
                       <Text
-                        className={[labelClassName, pressed && !disabled && 'text-brand-white'].filter(Boolean).join(' ')}
+                        className={[labelClassName, pressed && !disabled && 'text-brand-white']
+                          .filter(Boolean)
+                          .join(' ')}
                         numberOfLines={1}
                         ellipsizeMode='tail'
                       >

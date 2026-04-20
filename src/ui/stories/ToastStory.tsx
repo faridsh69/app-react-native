@@ -14,7 +14,9 @@ export const ToastStory: React.FC = () => {
       <Text style={styles.small}>We can render messages via toast</Text>
 
       <Text style={codeTextStyle.inline}>
-        {'toastSuccess({ title: "Success", description: "Your product added to basket successfully" })'}
+        {
+          'toastSuccess({ title: "Success", description: "Your product added to basket successfully" })'
+        }
       </Text>
 
       <View style={styles.section}>

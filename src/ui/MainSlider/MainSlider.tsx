@@ -31,7 +31,12 @@ export const MainSlider = (props: MainSliderProps) => {
               <Image src={item.src} alt={item.label} width={200} height={200} />
 
               <Icon icon={IconsEnum.View} size={SizesEnum.M} />
-              <Label label={item.label} font={FontsEnum.Text14} linesCount={2} textAlign={TextAlignEnum.Center} />
+              <Label
+                label={item.label}
+                font={FontsEnum.Text14}
+                linesCount={2}
+                textAlign={TextAlignEnum.Center}
+              />
             </View>
           </View>
         )}

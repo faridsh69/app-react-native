@@ -46,11 +46,24 @@ export const Checkbox = ({
     >
       <View className={checkboxClassName}>
         {checked && (
-          <Icon icon={IconsEnum.Check} size={SizesEnum.S} className='text-brand-white' color={designColors.white} />
+          <Icon
+            icon={IconsEnum.Check}
+            size={SizesEnum.S}
+            className='text-brand-white'
+            color={designColors.white}
+          />
         )}
       </View>
 
-      {label && <Label label={label} required={required} hasError={hasError} disabled={disabled} hint={hint} />}
+      {label && (
+        <Label
+          label={label}
+          required={required}
+          hasError={hasError}
+          disabled={disabled}
+          hint={hint}
+        />
+      )}
     </TouchableOpacity>
   )
 }
