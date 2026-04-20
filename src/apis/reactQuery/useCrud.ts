@@ -19,7 +19,7 @@ export const useCrud = <T>({ queryKey, filters = {}, configs = {} }: TypeUseCrud
 
       QUERY_CLIENT.setQueryData([queryKey], apiResponse)
 
-      return apiResponse as T[]
+      return apiResponse as T
     },
     placeholderData: [],
     enabled: configs.enabled ? configs.enabled : !!listApi,
@@ -37,7 +37,7 @@ export const useCrud = <T>({ queryKey, filters = {}, configs = {} }: TypeUseCrud
   }
 
   return {
-    data: data as T[],
+    data: data as T,
     isFetching,
     error,
     listQueryKey: [queryKey, filters],

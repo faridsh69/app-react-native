@@ -1,9 +1,12 @@
 import React from 'react'
 import { PAGES } from '@/core/constants/navigation.constants'
+import { useLocation } from '@/location/hooks/useLocation'
 import { HapticTab, IconSymbol } from '@/ui'
 import { Tabs } from 'expo-router'
 
 export default function PagesLayout() {
+  useLocation()
+
   return (
     <Tabs
       screenOptions={{

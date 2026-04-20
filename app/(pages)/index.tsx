@@ -8,7 +8,6 @@ export default function HomePage() {
   const [state, setState] = usePersistState('state', 0)
 
   const handlePress = () => {
-    console.log('xxx')
     setState(state + 1)
   }
 

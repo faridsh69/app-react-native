@@ -10,9 +10,6 @@ export const CORE_API_CLIENT = createApiClient({
   baseUrl: API_URL,
 })
 
-console.log('XXX')
-console.log('API_URL', process.env.EXPO_PUBLIC_API_URL)
-
 export const CORE_API_CLIENT_FORM_URL_ENCODED = createApiClient({
   baseUrl: API_URL,
   contentType: ContentTypesEnum.FormUrlEncoded,

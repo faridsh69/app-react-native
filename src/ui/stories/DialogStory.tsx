@@ -10,8 +10,6 @@ export const DialogStory = () => {
   const [smallOpen, setSmallOpen] = useState(false)
   const [scrollOpen, setScrollOpen] = useState(false)
 
-  console.log('1 xxx defaultOpen', defaultOpen)
-
   return (
     <ScrollView contentContainerStyle={{ padding: 16, gap: 16 }}>
       <Button label='Open default modal' onPress={() => setDefaultOpen(true)} />

@@ -50,10 +50,9 @@ export type TypeUseCrudProps = {
 }
 
 export type TypeUseCrudReturn<T> = {
-  data: T[]
+  data: T
   error: any
   isFetching: boolean
-
   listQueryKey: any[]
 
   invalidateList: () => void
