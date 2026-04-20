@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useCrudAuthUserEmailAvailability } from '@/apis/useCruds/authCruds'
+import { authAtom } from '@/auth/atoms/authAtom'
 import { AUTH_STEPS } from '@/auth/constants/auth.constants'
 import { useAuthLogin } from '@/auth/hooks/useAuthLogin'
 import { useAtom } from '@/core/lib/jotai'
@@ -15,9 +16,10 @@ import {
 } from '@/ui'
 import { LOGIN_SCHEMA, validateFormData } from '@/ui/Form/schemas'
 import { SizesEnum, TextAlignEnum, VariantsEnum } from '@/ui/theme/themeEnums'
-import { View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 
 import { authModalAtom, DEFAULT_AUTH_MODAL_ATOM } from '../../atoms/authModalAtom'
+import { ProfilePage } from '../ProfilePage'
 
 const PASSWORD_SCHEMA = SCHEMAS.wrapper({
   password: SCHEMAS.requiredString,
@@ -49,6 +51,7 @@ const passwordInputs: FormInput[] = [
 
 export const LoginModal = () => {
   const [authModal, setAuthModal] = useAtom(authModalAtom)
+  const [auth] = useAtom(authAtom)
   const { isOpen, step, email, password, formIsValid } = authModal
 
   useEffect(() => {
@@ -270,36 +273,31 @@ export const LoginModal = () => {
     ),
   } as const
 
-  const titleByStep = {
-    [AUTH_STEPS.enterEmail]: 'Account access',
-    [AUTH_STEPS.login]: 'Secure login',
-    [AUTH_STEPS.register]: 'Create account',
-    [AUTH_STEPS.checkEmail]: 'Please wait',
-  } as const
-
   return (
-    <View className='flex-1 items-center justify-center bg-sky-50'>
-      <Label label={'you are not signed in'} font={FontsEnum.Label30} />
-      <Button
-        variant={VariantsEnum.Primary}
-        size={SizesEnum.M}
-        label='Login'
-        width='100%'
-        onPress={() => {
-          setAuthModal(prev => ({
-            ...prev,
-            step: AUTH_STEPS.enterEmail,
-            isOpen: true,
-          }))
-        }}
-      />
+    <ScrollView className=' items-center justify-center bg-sky-50'>
+      {auth.isLoggedIn && <Label label={`Welcome  ${auth.user?.email}`} font={FontsEnum.Label30} />}
+      {!auth.isLoggedIn && <Label label={'you are not signed in'} font={FontsEnum.Label30} />}
+      {!auth.isLoggedIn && (
+        <Button
+          variant={VariantsEnum.Primary}
+          size={SizesEnum.M}
+          label='Login'
+          width='100%'
+          onPress={() => {
+            setAuthModal(prev => ({
+              ...prev,
+              step: AUTH_STEPS.enterEmail,
+              isOpen: true,
+            }))
+          }}
+        />
+      )}
 
       <Popup
         isOpen={isOpen}
         setIsOpen={nextIsOpen => {
           if (!nextIsOpen) handleClose()
         }}
-        title={titleByStep[step]}
         body={bodyByStep[step]}
         actions={actionsByStep[step]}
         width={480}
@@ -308,6 +306,7 @@ export const LoginModal = () => {
         snapPoints={['70%']}
         enablePanDownToClose
       />
-    </View>
+      <ProfilePage />
+    </ScrollView>
   )
 }

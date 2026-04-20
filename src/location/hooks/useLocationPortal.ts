@@ -5,7 +5,7 @@ import { useAtom } from '@/core/lib/jotai'
 
 import { locationAtom } from '../contexts/locationAtom'
 
-export const useLocation = () => {
+export const useLocationPortal = () => {
   const [, setLocationModal] = useAtom(locationAtom)
 
   const { data: ipLocation } = useCrudLocationIp()

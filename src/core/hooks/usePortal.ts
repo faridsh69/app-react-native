@@ -1,7 +1,7 @@
-import { useAuth } from '@/auth/hooks/useAuth'
-import { useLocation } from '@/location/hooks/useLocation'
+import { useAuthPortal } from '@/auth/hooks/useAuthPortal'
+import { useLocationPortal } from '@/location/hooks/useLocationPortal'
 
 export const usePortal = () => {
-  useLocation()
-  useAuth()
+  useLocationPortal()
+  useAuthPortal()
 }
