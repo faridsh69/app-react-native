@@ -14,6 +14,7 @@ import { ProductCardStory } from '@/ui/stories/ProductCardStory'
 import { RadioListStory } from '@/ui/stories/RadioStory'
 import { RatingStory } from '@/ui/stories/RatingStory'
 import { SelectStory } from '@/ui/stories/SelectStory'
+import { SkeletonStory } from '@/ui/stories/SkeletonStory'
 import { SliderStory } from '@/ui/stories/SliderStory'
 import { SwitchStory } from '@/ui/stories/SwitchStory'
 import { TabItemsStory } from '@/ui/stories/TabItemsStory'
@@ -26,6 +27,7 @@ export default function AiPage() {
   return (
     <Container>
       <ScrollView>
+        <SkeletonStory />
         <CheckboxStory />
         <RadioListStory />
         <SwitchStory />
