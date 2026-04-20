@@ -13,7 +13,7 @@ type RadioListBackground = 'transparent' | 'muted'
 export type RadioListProps = {
   options: RadioOption[]
   value?: string | null
-  onChange: (value: string) => void
+  onChange?: (value: string) => void
 
   label?: string
   required?: boolean
@@ -91,7 +91,7 @@ export function RadioList({
         className={[
           'flex-row flex-wrap items-center rounded-[10px]',
           background === 'muted' && 'bg-neutral-100 px-2.5 py-1',
-          hasError && 'border border-red-500 px-2.5 py-1',
+          // hasError && 'border border-red-500 px-2.5 py-1',
           disabled && 'opacity-60',
         ]
           .filter(Boolean)
@@ -105,7 +105,7 @@ export function RadioList({
             <Pressable
               key={option.value}
               onPress={() => {
-                if (!optionDisabled) onChange(option.value)
+                if (!optionDisabled) onChange?.(option.value)
               }}
               disabled={optionDisabled}
               className='flex-row items-center'

@@ -24,10 +24,11 @@ export type AppSelectProps = {
   errorText?: string
   hasError?: boolean
   disabled?: boolean
+  multiple?: boolean
 
   value?: string | null
   options: SelectOption[]
-  onChange: (value: string | null) => void
+  onChange?: (value: string | null) => void
 
   leftIcon?: React.ReactNode
   clearable?: boolean
@@ -82,12 +83,12 @@ export function AppSelect({
   }
 
   const confirm = () => {
-    onChange(tempValue)
+    onChange?.(tempValue)
     close()
   }
 
   const clear = () => {
-    onChange(null)
+    onChange?.(null)
     close()
   }
 
@@ -143,7 +144,7 @@ export function AppSelect({
               <Pressable
                 onPress={e => {
                   e.stopPropagation()
-                  onChange(null)
+                  onChange?.(null)
                 }}
                 hitSlop={8}
                 className='items-center justify-center'

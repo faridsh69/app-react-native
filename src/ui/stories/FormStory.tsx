@@ -7,7 +7,9 @@ import {
   type FormInput,
   type FormSchemaType,
 } from '@/ui'
-import { View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
+
+import { Story } from './Story'
 
 export const FormStory = () => {
   const [isValid, setIsValid] = useState(false)
@@ -79,7 +81,7 @@ export const FormStory = () => {
           label: 'Guest',
         },
         {
-          value: 3,
+          value: '3',
           label: 'User',
         },
       ],
@@ -101,17 +103,7 @@ export const FormStory = () => {
     {
       name: 'accept_term_and_conditions',
       columns: 6,
-      component: InputComponentsEnum.Checklist,
-      options: [
-        {
-          value: 'accept',
-          label: 'Do you agree our terms?',
-        },
-        {
-          value: 'email',
-          label: 'Recieve email?',
-        },
-      ],
+      component: InputComponentsEnum.Checkbox,
     },
     {
       name: 'Are you happy?',
@@ -147,20 +139,8 @@ export const FormStory = () => {
   ]
 
   return (
-    <View>
-      <h4>21) Form</h4>
-      <pre>
-        inputs: Form is a component that will build a form based on array of inputs in props.
-        <br />
-        schema: Form accepts an schema and do live validation based on that schema with statistics.
-        <br />
-        columns: For each input you can set width of the input based on 12 column grid.
-        <br />
-        onCahngeInput: You have access to current form data and current changed input via this
-        callback.
-        <br />
-        Grouping fields: You can manage unlimit group in group inputs with not even 1 line of code.
-      </pre>
+    <Story>
+      <Text style={styles.h4}>Form</Text>
       <View>
         <Form
           inputs={inputs}
@@ -173,6 +153,10 @@ export const FormStory = () => {
         />
         <Button onPress={() => {}} label='Submit' disabled={!isValid} />
       </View>
-    </View>
+    </Story>
   )
 }
+
+const styles = StyleSheet.create({
+  h4: { fontSize: 18, fontWeight: '600' },
+})

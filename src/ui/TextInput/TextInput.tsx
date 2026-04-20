@@ -36,6 +36,8 @@ export type AppTextInputProps = Omit<TextInputProps, 'editable'> & {
 
   onClear?: () => void
   onCopy?: (value: string) => void
+
+  required?: boolean
 }
 
 export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
@@ -66,6 +68,8 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
       onChangeText,
       onClear,
       onCopy,
+
+      required = false,
       ...props
     },
     ref,
