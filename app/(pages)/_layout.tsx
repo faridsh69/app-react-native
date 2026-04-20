@@ -1,11 +1,11 @@
 import React from 'react'
 import { PAGES } from '@/core/constants/navigation.constants'
-import { useLocation } from '@/location/hooks/useLocation'
+import { usePortal } from '@/core/hooks/usePortal'
 import { HapticTab, IconSymbol } from '@/ui'
 import { Tabs } from 'expo-router'
 
 export default function PagesLayout() {
-  useLocation()
+  usePortal()
 
   return (
     <Tabs
@@ -23,7 +23,9 @@ export default function PagesLayout() {
               key={page.name}
               options={{
                 title: page.name,
-                tabBarIcon: ({ color }) => <IconSymbol size={28} name={page.icon as any} color={color} />,
+                tabBarIcon: ({ color }) => (
+                  <IconSymbol size={28} name={page.icon as any} color={color} />
+                ),
               }}
             />
           )

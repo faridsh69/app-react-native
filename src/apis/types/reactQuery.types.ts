@@ -54,6 +54,11 @@ export type TypeUseCrudReturn<T> = {
   error: any
   isFetching: boolean
   listQueryKey: any[]
-
   invalidateList: () => void
+
+  createMutation: {
+    mutate: (payload: TypePayload<T>) => void
+    isPending: boolean
+    error: Error | null
+  }
 }
