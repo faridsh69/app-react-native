@@ -1,6 +1,4 @@
-import { clsx } from 'clsx'
-
-import styles from './Form.module.scss'
+import { formStyles, getColumnStyle } from './Form.styles'
 
 type TypeFormProgress = { all: number; invalids: number }
 
@@ -32,20 +30,23 @@ export const ValidationBar = (props: TypeFormProgress) => {
 
   return (
     <div
-      className={clsx(
-        styles['col-12'],
-        styles.validationBar,
-        isSuccess ? styles.validationSuccess : styles.validationDanger,
-      )}
+      style={{
+        ...getColumnStyle(12),
+        ...formStyles.validationBar,
+        ...(isSuccess ? formStyles.validationSuccess : formStyles.validationDanger),
+      }}
     >
-      <div className={styles.flexRow}>
+      <div style={formStyles.flexRow}>
         <span style={{ color }}>{isSuccess ? 'Completed' : `${invalids} errors`}</span>
       </div>
-      <div className={styles.flexRow}>
-        <div className={styles.bar}>
+      <div style={formStyles.flexRow}>
+        <div style={formStyles.validationTrack}>
           <div
-            className={styles.filledBar}
-            style={{ backgroundColor: color, width: `${percentage}%` }}
+            style={{
+              ...formStyles.validationFill,
+              backgroundColor: color,
+              width: `${percentage}%`,
+            }}
           />
         </div>
         <span style={{ color }}>{`${percentage}%`}</span>

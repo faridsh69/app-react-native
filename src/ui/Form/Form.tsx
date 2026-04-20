@@ -4,9 +4,9 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 
 import { getInputController } from './Form.helpers'
+import { formStyles, getColumnStyle } from './Form.styles'
 import type { FormProps } from './Form.types'
 import { ValidationBar } from './ValidationBar'
-import styles from './Form.module.scss'
 
 export const Form = (props: FormProps) => {
   const {
@@ -45,12 +45,12 @@ export const Form = (props: FormProps) => {
   }
 
   return (
-    <div className={styles.form}>
+    <div style={formStyles.form}>
       {schema && showValidationBar && (
         <ValidationBar all={inputs.length} invalids={Object.values(errors).length} />
       )}
 
-      <div className={styles.row}>
+      <div style={formStyles.row}>
         {inputs.map(input => {
           const { component, name, columns = 12, label: inputLabel, ...rest } = input
 
@@ -58,7 +58,7 @@ export const Form = (props: FormProps) => {
           const label = inputLabel === '' ? '' : inputLabel || getTitleCase(name)
 
           return (
-            <div key={input.name} className={styles[`col-${columns}`]}>
+            <div key={input.name} style={getColumnStyle(columns)}>
               <InputController
                 control={control}
                 name={name}

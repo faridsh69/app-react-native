@@ -4,8 +4,8 @@ import { useFieldArray } from 'react-hook-form'
 import { Button } from '../../Button/Button'
 import { IconsEnum, SizesEnum, VariantsEnum } from '../../theme/themeEnums'
 import { getInputController } from '../Form.helpers'
+import { formStyles, getColumnStyle } from '../Form.styles'
 import { InputControllerProps } from '../Form.types'
-import styles from '../Form.module.scss'
 
 export const GroupController = (props: InputControllerProps) => {
   const {
@@ -50,18 +50,17 @@ export const GroupController = (props: InputControllerProps) => {
   const showActionButtons = !disabled
 
   return (
-    <div className={styles.groupsWrapper}>
-      <div className={styles.groups}>
+    <div style={formStyles.groupsWrapper}>
+      <div style={formStyles.groups}>
         {!fields.length && (
-          <div className={styles.noItems}>
+          <div style={formStyles.noItems}>
             <span>{noItemsLabel}</span>
           </div>
         )}
         {fields.map((_, fieldIndex) => {
           return (
-            <div className={styles.group} key={fieldIndex}>
-              <div className={styles.groupInputs}>
-                {/* // styles.row, */}
+            <div style={formStyles.group} key={fieldIndex}>
+              <div style={{ ...formStyles.groupInputs, ...formStyles.row }}>
                 {inputs.map(input => {
                   const { name, columns = 12, component, ...rest } = input
                   if (hideInput(input, fieldIndex)) return null
@@ -70,7 +69,7 @@ export const GroupController = (props: InputControllerProps) => {
                   const inputName = `${groupName}.${fieldIndex}.${name}`
 
                   return (
-                    <div key={inputName} className={styles[`col-${columns}`]}>
+                    <div key={inputName} style={getColumnStyle(columns)}>
                       <InputController
                         name={inputName}
                         control={control}
@@ -93,7 +92,7 @@ export const GroupController = (props: InputControllerProps) => {
           )
         })}
       </div>
-      <span className={styles.hasError}>{rootErrorMessage}</span>
+      <span style={formStyles.hasError}>{rootErrorMessage}</span>
       {showActionButtons && (
         <div>
           <Button label={'+ ' + label} onPress={handleAddRow} size={SizesEnum.S} />

@@ -28,7 +28,7 @@ export { RadioList } from './Radio/Radio'
 export { AppTextInput } from './TextInput/TextInput'
 export { AppSwitch } from './Switch/Switch'
 export { AppSelect } from './Select/Select'
-export { AppSkeleton } from './Skeleton/Skeleton'
+// export { AppSkeleton } from './Skeleton/Skeleton'
 
 export { Form } from './Form/Form'
 export { InputComponentsEnum } from './Form/Form.enums'
