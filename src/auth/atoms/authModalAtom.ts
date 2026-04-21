@@ -7,6 +7,9 @@ export const DEFAULT_AUTH_MODAL_ATOM = {
   step: AUTH_STEPS.enterEmail,
   email: '',
   password: '',
+  username: '',
+  age: false,
+  newsletter: false,
   formIsValid: false,
 }
 

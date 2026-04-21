@@ -53,6 +53,7 @@ export const Popup = (props: ModalProps) => {
       maxDynamicContentSize={maxHeight}
       enablePanDownToClose={enablePanDownToClose}
       enableBlurKeyboardOnGesture
+      keyboardBehavior='interactive'
       keyboardBlurBehavior='restore'
       onDismiss={handleClose}
       android_keyboardInputMode={Platform.select({ android: 'adjustResize', default: undefined })}

@@ -1,6 +1,5 @@
 import React, { forwardRef, useMemo, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import { BottomSheetTextInput } from '@gorhom/bottom-sheet'
 import * as Clipboard from 'expo-clipboard'
 import {
   Pressable,
@@ -39,7 +38,6 @@ export type AppTextInputProps = Omit<TextInputProps, 'editable'> & {
   onCopy?: (value: string) => void
 
   required?: boolean
-  useBottomSheetTextInput?: boolean
 }
 
 export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
@@ -72,7 +70,6 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
       onCopy,
 
       required = false,
-      useBottomSheetTextInput = false,
       ...props
     },
     ref,
@@ -82,17 +79,6 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
 
     const isEditable = editable ?? !disabled
     const stringValue = useMemo(() => (typeof value === 'string' ? value : ''), [value])
-    const InputComponent = useBottomSheetTextInput ? BottomSheetTextInput : TextInput
-    const setInputRef = (instance: TextInput | null | undefined) => {
-      if (typeof ref === 'function') {
-        ref(instance ?? null)
-        return
-      }
-
-      if (ref) {
-        ref.current = instance ?? null
-      }
-    }
 
     const rightType: RightElementType | null = useMemo(() => {
       if (rightElement) return 'custom'
@@ -153,8 +139,8 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
         >
           {leftIcon ? <View className='items-center justify-center'>{leftIcon}</View> : null}
 
-          <InputComponent
-            ref={setInputRef}
+          <TextInput
+            ref={ref}
             value={value}
             editable={isEditable}
             style={style}

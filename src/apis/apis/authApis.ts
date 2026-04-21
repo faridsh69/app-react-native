@@ -14,6 +14,17 @@ export const postLoginApi = (data: { username: string; password: string }) =>
     data,
   })
 
+export const postRegisterApi = (data: {
+  dob: string
+  username: string
+  email: string
+  password: string
+}) =>
+  CORE_API_CLIENT_FORM_URL_ENCODED.post({
+    endpoint: 'auth/register',
+    data,
+  })
+
 export const getUserProfile = () =>
   CORE_API_CLIENT.get({
     endpoint: 'users/me',

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useCrudAuthUserEmailAvailability } from '@/apis/useCruds/authCruds'
+import { useCrudAuthRegister, useCrudAuthUserEmailAvailability } from '@/apis/useCruds/authCruds'
 import { authAtom } from '@/auth/atoms/authAtom'
 import { AUTH_STEPS } from '@/auth/constants/auth.constants'
 import { useAuthLogin } from '@/auth/hooks/useAuthLogin'
@@ -15,7 +15,7 @@ import {
   type FormInput,
 } from '@/ui'
 import { LOGIN_SCHEMA, validateFormData } from '@/ui/Form/schemas'
-import { SizesEnum, TextAlignEnum, VariantsEnum } from '@/ui/theme/themeEnums'
+import { ColorsEnum, SizesEnum, TextAlignEnum, VariantsEnum } from '@/ui/theme/themeEnums'
 import { ScrollView, View } from 'react-native'
 
 import { authModalAtom, DEFAULT_AUTH_MODAL_ATOM } from '../../atoms/authModalAtom'
@@ -30,7 +30,6 @@ const emailInputs: FormInput[] = [
     name: 'email',
     component: InputComponentsEnum.Text,
     placeholder: 'Email address',
-    useBottomSheetTextInput: true,
     autoFocus: true,
     keyboardType: 'email-address',
     autoCapitalize: 'none',
@@ -45,12 +44,40 @@ const passwordInputs: FormInput[] = [
     name: 'password',
     component: InputComponentsEnum.Text,
     placeholder: 'Password',
-    useBottomSheetTextInput: true,
     autoFocus: true,
     autoCapitalize: 'none',
     autoCorrect: false,
     secureTextEntry: true,
     passwordToggle: true,
+  },
+]
+
+const registerInputs: FormInput[] = [
+  {
+    name: 'username',
+    label: 'Name',
+    placeholder: 'Name',
+    component: InputComponentsEnum.Text,
+  },
+  {
+    name: 'password',
+    component: InputComponentsEnum.Text,
+    placeholder: 'Password',
+    autoFocus: true,
+    autoCapitalize: 'none',
+    autoCorrect: false,
+    secureTextEntry: true,
+    passwordToggle: true,
+  },
+  {
+    name: 'age',
+    label: "I'm 21+ years old",
+    component: InputComponentsEnum.Toggle,
+  },
+  {
+    name: 'newsletter',
+    label: 'Yes, I want to receive email updates, special offers, and personalized recommendations',
+    component: InputComponentsEnum.Toggle,
   },
 ]
 
@@ -86,6 +113,19 @@ export const LoginModal = () => {
       },
       onError: () => {
         setAuthModal(prev => ({ ...prev, step: AUTH_STEPS.enterEmail }))
+      },
+    })
+  }
+
+  const { createMutation: registerMutatution } = useCrudAuthRegister()
+  const handleRegister = () => {
+    registerMutatution.mutate({
+      data: {
+        dob: '2000-01-01T00:00:00.000Z',
+        username: authModal.username,
+        email: authModal.email,
+        password: authModal.password,
+        // email_subscriptions: []
       },
     })
   }
@@ -252,18 +292,48 @@ export const LoginModal = () => {
     ),
     [AUTH_STEPS.register]: (
       <View className='w-full gap-3'>
-        <Button
-          variant={VariantsEnum.Primary}
-          size={SizesEnum.M}
-          label='Use another email'
-          width='100%'
-          onPress={() =>
-            setAuthModal(prev => ({
-              ...prev,
-              step: AUTH_STEPS.enterEmail,
-            }))
-          }
-        />
+        <div>
+          <Button label='Create an account' width={'100%'} />
+          <Label
+            font={FontsEnum.Text12}
+            label='By creating an account, you agree to the VinoVoss'
+            textAlign={TextAlignEnum.Center}
+            color={ColorsEnum.Grey600}
+          />
+          <Label
+            font={FontsEnum.Text12}
+            label='Terms of Use, Privacy Policy & Content Policy'
+            textAlign={TextAlignEnum.Center}
+          />
+        </div>
+
+        <div style={{ gap: 16, display: 'flex', flexDirection: 'column' }}>
+          Create account
+          <Label
+            font={FontsEnum.Text16}
+            linesCount={3}
+            textAlign='center'
+            label='Welcome to VinoVoss! You must be of legal drinking age to create an account.'
+          />
+          <View className='flex flex-col gap-5'>
+            <View className='rounded-[20px] border border-neutral-200 bg-white p-4'>
+              <Form
+                inputs={registerInputs}
+                defaultValues={{}}
+                onChangeInput={data => setAuthModal(prev => ({ ...prev, ...data }))}
+                schema={PASSWORD_SCHEMA}
+              />
+            </View>
+          </View>
+          <Button
+            variant={VariantsEnum.Primary}
+            size={SizesEnum.M}
+            label={isLoading ? 'Signing in...' : 'Create an account'}
+            width='100%'
+            disabled={!password?.trim() || isLoading}
+            onPress={handleRegister}
+          />
+        </div>
       </View>
     ),
     [AUTH_STEPS.checkEmail]: (

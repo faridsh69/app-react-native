@@ -7,6 +7,7 @@ import {
   getUserProfile,
   postLoginApi,
   postRefreshToken,
+  postRegisterApi,
   postUserLogout,
 } from '../apis/authApis'
 import {
@@ -62,6 +63,7 @@ export const QUERY_KEYS = {
   auth: {
     userEmailAvailability: 'User email availability',
     login: 'auth Login',
+    register: 'auth register',
     logout: 'auth Logout',
     profile: 'User Profile',
     refreshToken: 'auth Refresh token',
@@ -108,6 +110,9 @@ export const QUERY_KEY_APIS: QueryKeyApisType = {
   },
   [QUERY_KEYS.auth.login]: {
     createApi: postLoginApi,
+  },
+  [QUERY_KEYS.auth.register]: {
+    createApi: postRegisterApi,
   },
   [QUERY_KEYS.auth.profile]: {
     createApi: getUserProfile,

@@ -13,6 +13,11 @@ export const useCrudAuthLogin = () =>
     queryKey: QUERY_KEYS.auth.login,
   })
 
+export const useCrudAuthRegister = () =>
+  useCrud<{ dob: string; username: string; email: string; password: string }>({
+    queryKey: QUERY_KEYS.auth.login,
+  })
+
 export const useCrudAuthProfile = () =>
   useCrud<TypeUser>({
     queryKey: QUERY_KEYS.auth.profile,
