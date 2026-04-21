@@ -30,9 +30,13 @@ const emailInputs: FormInput[] = [
     name: 'email',
     component: InputComponentsEnum.Text,
     placeholder: 'Email address',
+    useBottomSheetTextInput: true,
     autoFocus: true,
     keyboardType: 'email-address',
     autoCapitalize: 'none',
+    autoCorrect: false,
+    textContentType: 'emailAddress',
+    autoComplete: 'email',
   },
 ]
 
@@ -41,6 +45,7 @@ const passwordInputs: FormInput[] = [
     name: 'password',
     component: InputComponentsEnum.Text,
     placeholder: 'Password',
+    useBottomSheetTextInput: true,
     autoFocus: true,
     autoCapitalize: 'none',
     autoCorrect: false,

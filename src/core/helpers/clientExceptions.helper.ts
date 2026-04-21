@@ -8,6 +8,7 @@ export const handleClientExceptions = (error: unknown, source?: string) => {
   if ((error as AxiosError).isAxiosError) {
     const axiosError = error as AxiosError
     const err = axiosError.response?.data as any
+    if (!err?.message) return
 
     console.error(err?.message)
     // toastError({

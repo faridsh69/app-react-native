@@ -52,6 +52,8 @@ export const Popup = (props: ModalProps) => {
       snapPoints={snapPoints}
       maxDynamicContentSize={maxHeight}
       enablePanDownToClose={enablePanDownToClose}
+      enableBlurKeyboardOnGesture
+      keyboardBlurBehavior='restore'
       onDismiss={handleClose}
       android_keyboardInputMode={Platform.select({ android: 'adjustResize', default: undefined })}
       backdropComponent={backdropProps => (
