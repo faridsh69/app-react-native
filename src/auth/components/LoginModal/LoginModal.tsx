@@ -78,6 +78,7 @@ export const LoginModal = () => {
     checkEmailMutation.mutate({
       data: { email },
       onSuccess: data => {
+        console.log('1 data', data)
         setAuthModal(prev => ({
           ...prev,
           step: data.is_available ? AUTH_STEPS.register : AUTH_STEPS.login,
@@ -91,8 +92,8 @@ export const LoginModal = () => {
 
   const bodyByStep = {
     [AUTH_STEPS.enterEmail]: (
-      <View className='gap-5'>
-        <View className='items-center gap-3'>
+      <View className='flex flex-col gap-10'>
+        <View className='gap-3'>
           <View className='gap-2'>
             <Label
               label='Log in or create your account'
@@ -121,9 +122,14 @@ export const LoginModal = () => {
     ),
     [AUTH_STEPS.login]: (
       <View className='gap-5'>
-        <View className='items-center gap-3'>
+        <View className='flex flex-col content-center items-center gap-5'>
           <View className='gap-2'>
-            <Label label='Welcome back' font={FontsEnum.Label30} textAlign={TextAlignEnum.Center} />
+            <Label
+              label='Welcome back'
+              font={FontsEnum.Label30}
+              textAlign={TextAlignEnum.Center}
+              linesCount={2}
+            />
             <Label
               label={email}
               font={FontsEnum.Label20}
@@ -154,10 +160,7 @@ export const LoginModal = () => {
     [AUTH_STEPS.register]: (
       <View className='gap-5'>
         <View className='items-center gap-3'>
-          <View className='rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5'>
-            <Label label='New here' font={FontsEnum.Text14} />
-          </View>
-          <View className='gap-2'>
+          <View className='flex flex-col items-center gap-5'>
             <Label
               label='You are one step away'
               font={FontsEnum.Label30}
@@ -170,7 +173,7 @@ export const LoginModal = () => {
               linesCount={2}
             />
             <Label
-              label='This email does not have an account yet. Connect your registration flow here to finish sign up.'
+              label='This email does not have an account yet.'
               font={FontsEnum.Text16}
               textAlign={TextAlignEnum.Center}
               linesCount={3}
@@ -178,13 +181,17 @@ export const LoginModal = () => {
           </View>
         </View>
 
-        <View className='rounded-[20px] border border-dashed border-sky-300 bg-sky-50 p-4'>
-          <Label
-            label='Registration API is not wired in this component yet, but the modal is now ready for that next step.'
-            font={FontsEnum.Text14}
-            textAlign={TextAlignEnum.Center}
-            linesCount={4}
-          />
+        <View className='flex flex-col gap-5'>
+          <View className='rounded-[20px] border border-neutral-200 bg-white p-4'>
+            <Form
+              inputs={passwordInputs}
+              defaultValues={{ password }}
+              onChangeInput={data =>
+                setAuthModal(prev => ({ ...prev, password: data.password ?? '' }))
+              }
+              schema={PASSWORD_SCHEMA}
+            />
+          </View>
         </View>
       </View>
     ),

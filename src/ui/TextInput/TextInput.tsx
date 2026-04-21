@@ -136,7 +136,7 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
               .filter(Boolean)
               .join(' ')}
           >
-            {label}xxx
+            {label}
           </Text>
         )}
 

@@ -46,7 +46,7 @@ export const useCrud = <T>({
     onSuccess: (apiResponse: any, payload: TypePayload<T>) => {
       optimisticUpdateCreateCrud(queryKey, filters, apiResponse)
 
-      payload.onSuccess?.(apiResponse)
+      payload.onSuccess?.(apiResponse?.data)
     },
     onError: (error: any, payload: TypePayload<T>) => {
       payload.onError?.(error)
